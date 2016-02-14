@@ -1,0 +1,9 @@
+program:
+  name: Name
+  preview: Preview
+  description: description
+  trainer: trainer
+  banner: Banner
+  program_type: program_type
+  duration: 10
+  price: 10

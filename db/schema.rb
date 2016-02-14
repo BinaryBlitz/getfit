@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160214201737) do
+ActiveRecord::Schema.define(version: 20160214202129) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,21 @@ ActiveRecord::Schema.define(version: 20160214201737) do
     t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "programs", force: :cascade do |t|
+    t.string   "name",            null: false
+    t.string   "preview",         null: false
+    t.text     "description",     null: false
+    t.string   "banner",          null: false
+    t.integer  "duration",        null: false
+    t.integer  "price",           null: false
+    t.integer  "trainer_id"
+    t.integer  "program_type_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["program_type_id"], name: "index_programs_on_program_type_id", using: :btree
+    t.index ["trainer_id"], name: "index_programs_on_trainer_id", using: :btree
   end
 
   create_table "specializations", force: :cascade do |t|
@@ -74,4 +89,6 @@ ActiveRecord::Schema.define(version: 20160214201737) do
   end
 
   add_foreign_key "photos", "trainers"
+  add_foreign_key "programs", "program_types"
+  add_foreign_key "programs", "trainers"
 end
