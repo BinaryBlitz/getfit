@@ -11,10 +11,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160214180033) do
+ActiveRecord::Schema.define(version: 20160214183119) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "trainers", force: :cascade do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.string   "first_name",                          null: false
+    t.string   "last_name",                           null: false
+    t.string   "phone_number",                        null: false
+    t.text     "description",                         null: false
+    t.string   "place_of_work",                       null: false
+    t.integer  "specialization_id"
+    t.string   "avatar",                              null: false
+    t.string   "banner",                              null: false
+    t.string   "category",                            null: false
+    t.integer  "experience",                          null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.index ["email"], name: "index_trainers_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_trainers_on_reset_password_token", unique: true, using: :btree
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "name",         null: false
