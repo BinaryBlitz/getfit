@@ -21,6 +21,7 @@ class User < ApplicationRecord
   validates :name, :height, :weight, :birthdate, :gender, presence: true
   validates :height, :weight, numericality: { greater_than: 0 }
   validates :gender, inclusion: { in: %w(male female) }
+  validates :phone_number, phone: true
 
   has_secure_token :api_token
 end

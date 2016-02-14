@@ -27,7 +27,7 @@ trainer:
   encrypted_password: <%= Devise::Encryptor.digest(Trainer, 'password') %>
   first_name: Baz
   last_name: Qux
-  phone_number: +71112223344
+  phone_number: '+79998887766'
   description: Description
   place_of_work: Place of work
   # specialization:

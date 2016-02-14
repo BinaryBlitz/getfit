@@ -52,4 +52,12 @@ class UserTest < ActiveSupport::TestCase
     @user.gender = 'female'
     assert @user.valid?
   end
+
+  test 'phone number format' do
+    @user.phone_number = '1'
+    assert @user.invalid?
+
+    @user.phone_number = '+79998887766'
+    assert @user.valid?
+  end
 end

@@ -26,6 +26,7 @@ class Trainer < ApplicationRecord
   validates :first_name, :last_name, :phone_number, :description,
             :place_of_work, :category, :experience, presence: true
   validates :experience, numericality: { greater_than: 0 }
+  validates :phone_number, phone: true
 
   extend Enumerize
   enumerize :category, in: [:trainer, :nutritionist, :physician]
