@@ -30,7 +30,7 @@ trainer:
   phone_number: '+79998887766'
   description: Description
   place_of_work: Place of work
-  # specialization:
+  specialization: specialization
   avatar: Avatar
   banner: Banner
   category: trainer
