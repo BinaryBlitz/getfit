@@ -34,4 +34,6 @@ class Trainer < ApplicationRecord
   enumerize :category, in: [:trainer, :nutritionist, :physician]
 
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
+
+  mount_base64_uploader :avatar, AvatarUploader
 end

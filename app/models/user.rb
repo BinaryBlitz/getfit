@@ -24,4 +24,6 @@ class User < ApplicationRecord
   validates :phone_number, phone: true
 
   has_secure_token :api_token
+
+  mount_base64_uploader :avatar, AvatarUploader
 end

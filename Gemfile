@@ -15,6 +15,9 @@ gem 'redis', '~> 3.0'
 gem 'devise', '>= 4.0.0.rc1'
 gem 'enumerize'
 gem 'phonelib'
+gem 'mini_magick'
+gem 'carrierwave'
+gem 'carrierwave-base64'
 
 group :development, :test do
   gem 'byebug'
