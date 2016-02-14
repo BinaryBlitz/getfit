@@ -13,6 +13,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'redis', '~> 3.0'
 
 gem 'devise', '>= 4.0.0.rc1'
+gem 'enumerize'
 
 group :development, :test do
   gem 'byebug'
