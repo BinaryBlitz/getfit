@@ -27,6 +27,7 @@ class Trainer < ApplicationRecord
 
   has_many :photos, dependent: :destroy
   has_many :programs, dependent: :destroy
+  has_many :posts, dependent: :destroy
 
   validates :first_name, :last_name, :phone_number, :description,
             :place_of_work, :category, :experience, presence: true

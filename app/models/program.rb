@@ -19,6 +19,8 @@ class Program < ApplicationRecord
   belongs_to :trainer
   belongs_to :program_type
 
+  has_many :posts, dependent: :destroy
+
   validates :name, :preview, :description, :banner, :duration, :price, presence: true
   validates :duration, numericality: { greater_than: 0 }
   validates :price, numericality: { greater_than_or_equal_to: 0 }
