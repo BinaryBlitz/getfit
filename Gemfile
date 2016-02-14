@@ -12,6 +12,8 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'redis', '~> 3.0'
 
+gem 'devise', '>= 4.0.0.rc1'
+
 group :development, :test do
   gem 'byebug'
 end
