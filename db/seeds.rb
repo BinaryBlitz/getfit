@@ -25,3 +25,5 @@ user = User.create!(
   height: 180, weight: 80,
   birthdate: 20.years.ago, gender: 'male'
 )
+
+post = Post.create!(content: 'Content', image: image, trainer: trainer)
