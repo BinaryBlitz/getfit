@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 specialization = Specialization.create!(name: 'Specialization')
+program_type = ProgramType.create!(name: 'Program type')
 image = File.open('public/blank.jpg')
 
 trainer = Trainer.create!(
@@ -27,3 +28,9 @@ user = User.create!(
 )
 
 post = Post.create!(content: 'Content', image: image, trainer: trainer)
+
+program = Program.create!(
+  name: 'Program', preview: 'Preview', description: 'Description',
+  banner: image, duration: 100, price: 100,
+  trainer: trainer, program_type: program_type
+)
