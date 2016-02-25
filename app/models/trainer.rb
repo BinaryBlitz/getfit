@@ -31,6 +31,8 @@ class Trainer < ApplicationRecord
   has_many :comments, as: :author, dependent: :destroy
   has_many :subscriptions, dependent: :destroy
   has_many :subscribers, through: :subscriptions, source: :user
+  has_many :followings, dependent: :destroy
+  has_many :followers, through: :followings, source: :user
 
   validates :first_name, :last_name, :phone_number, :description,
             :place_of_work, :category, :experience, presence: true
