@@ -23,6 +23,8 @@ class User < ApplicationRecord
   has_many :personal_trainers, through: :subscriptions, source: :trainer
   has_many :followings, dependent: :destroy
   has_many :following, through: :followings, source: :trainer
+  has_many :likes, dependent: :destroy
+  has_many :liked_posts, through: :likes, source: :post
 
   validates :name, :height, :weight, :birthdate, :gender, presence: true
   validates :height, :weight, numericality: { greater_than: 0 }

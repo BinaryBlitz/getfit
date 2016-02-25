@@ -13,7 +13,10 @@
 
 class Post < ApplicationRecord
   belongs_to :trainer
-  belongs_to :program
+  belongs_to :program, optional: true
+
+  has_many :likes, dependent: :destroy
+  has_many :likers, through: :likes, source: :user
 
   validates :content, presence: true
 
