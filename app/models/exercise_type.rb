@@ -14,5 +14,7 @@
 class ExerciseType < ApplicationRecord
   belongs_to :trainer
 
+  has_many :exercises, dependent: :destroy
+
   validates :description, presence: true
 end

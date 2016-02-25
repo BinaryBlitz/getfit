@@ -1,0 +1,7 @@
+exercise:
+  program: program
+  exercise_type: exercise_type
+  sets: 10
+  reps: 10
+  weight: 10
+  distance: 10

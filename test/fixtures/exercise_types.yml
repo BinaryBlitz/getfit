@@ -2,3 +2,4 @@ exercise_type:
   name: Exercise type
   video_url: 'http://google.com'
   trainer: trainer
+  description: Description
