@@ -28,11 +28,12 @@ ActiveRecord::Schema.define(version: 20160225111101) do
   end
 
   create_table "exercise_types", force: :cascade do |t|
-    t.string   "name",       null: false
+    t.string   "name",        null: false
     t.string   "video_url"
+    t.text     "description", null: false
     t.integer  "trainer_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.index ["trainer_id"], name: "index_exercise_types_on_trainer_id", using: :btree
   end
 
