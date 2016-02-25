@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160225094718) do
+ActiveRecord::Schema.define(version: 20160225110337) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -85,6 +85,15 @@ ActiveRecord::Schema.define(version: 20160225094718) do
     t.index ["trainer_id"], name: "index_programs_on_trainer_id", using: :btree
   end
 
+  create_table "purchases", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "program_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["program_id"], name: "index_purchases_on_program_id", using: :btree
+    t.index ["user_id"], name: "index_purchases_on_user_id", using: :btree
+  end
+
   create_table "ratings", force: :cascade do |t|
     t.integer  "value",      null: false
     t.integer  "program_id"
@@ -156,6 +165,8 @@ ActiveRecord::Schema.define(version: 20160225094718) do
   add_foreign_key "posts", "trainers"
   add_foreign_key "programs", "program_types"
   add_foreign_key "programs", "trainers"
+  add_foreign_key "purchases", "programs"
+  add_foreign_key "purchases", "users"
   add_foreign_key "ratings", "programs"
   add_foreign_key "ratings", "users"
   add_foreign_key "subscriptions", "trainers"
