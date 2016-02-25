@@ -18,6 +18,8 @@
 #
 
 class User < ApplicationRecord
+  has_many :comments, as: :author, dependent: :destroy
+
   validates :name, :height, :weight, :birthdate, :gender, presence: true
   validates :height, :weight, numericality: { greater_than: 0 }
   validates :gender, inclusion: { in: %w(male female) }
