@@ -74,6 +74,7 @@ GEM
       railties (>= 4.1.0, < 5.1)
       responders
       warden (~> 1.2.3)
+    devise-bootstrap-views (0.0.7)
     enumerize (1.1.1)
       activesupport (>= 3.2)
     erubis (2.7.0)
@@ -190,6 +191,7 @@ DEPENDENCIES
   carrierwave-base64
   coffee-rails (~> 4.1.0)
   devise (>= 4.0.0.rc1)
+  devise-bootstrap-views
   enumerize
   httparty
   jbuilder (~> 2.0)

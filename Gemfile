@@ -20,6 +20,7 @@ gem 'carrierwave'
 gem 'carrierwave-base64'
 gem 'httparty'
 gem 'bootstrap-sass'
+gem 'devise-bootstrap-views'
 
 group :development, :test do
   gem 'byebug'
