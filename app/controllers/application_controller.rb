@@ -25,7 +25,8 @@ class ApplicationController < ActionController::Base
     if resource_name == :trainer
       devise_parameter_sanitizer.permit(:sign_up, keys: [
         :first_name, :last_name, :phone_number, :description, :place_of_work,
-        :specialization_id, :avatar, :banner, :category, :experience
+        :specialization_id, :avatar, :banner, :avatar_cache, :banner_cache,
+        :category, :experience
       ])
     end
   end

@@ -37,6 +37,7 @@ class Trainer < ApplicationRecord
 
   validates :first_name, :last_name, :phone_number, :description,
             :place_of_work, :category, :experience, presence: true
+  validates :avatar, :banner, presence: true
   validates :experience, numericality: { greater_than: 0 }
   validates :phone_number, phone: true
 
@@ -45,5 +46,6 @@ class Trainer < ApplicationRecord
 
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
 
-  mount_base64_uploader :avatar, AvatarUploader
+  mount_uploader :avatar, AvatarUploader
+  mount_uploader :banner, AvatarUploader
 end
