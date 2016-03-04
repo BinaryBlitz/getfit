@@ -18,6 +18,7 @@ gem 'phonelib'
 gem 'mini_magick'
 gem 'carrierwave'
 gem 'carrierwave-base64'
+gem 'httparty'
 
 group :development, :test do
   gem 'byebug'
