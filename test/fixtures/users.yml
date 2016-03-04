@@ -17,7 +17,7 @@
 #  updated_at   :datetime         not null
 #
 
-user:
+foo:
   name: Foo
   phone_number: '+79998887766'
   description: Description
