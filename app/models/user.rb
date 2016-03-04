@@ -18,6 +18,8 @@
 #
 
 class User < ApplicationRecord
+  attr_accessor :verification_token
+  
   has_many :comments, as: :author, dependent: :destroy
   has_many :subscriptions, dependent: :destroy
   has_many :personal_trainers, through: :subscriptions, source: :trainer
@@ -32,8 +34,16 @@ class User < ApplicationRecord
   validates :height, :weight, numericality: { greater_than: 0 }
   validates :gender, inclusion: { in: %w(male female) }
   validates :phone_number, phone: true
+  validate :verified_phone_number
 
   has_secure_token :api_token
 
   mount_base64_uploader :avatar, AvatarUploader
+
+  private
+
+  def verified_phone_number
+    return if VerificationToken.verified.find_by(phone_number: phone_number)
+    errors.add(:phone_number, "isn't verified")
+  end
 end

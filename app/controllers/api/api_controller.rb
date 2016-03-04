@@ -1,5 +1,6 @@
 class API::APIController < ApplicationController
   before_action :restrict_access
+  protect_from_forgery with: :null_session
 
   protected
 
