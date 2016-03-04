@@ -1,2 +1,2 @@
-class PostsController < API::APIController
+class API::PostsController < API::APIController
 end

@@ -1,2 +1,2 @@
-class VerificationTokensController < API::APIController
+class API::VerificationTokensController < API::APIController
 end

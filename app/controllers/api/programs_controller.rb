@@ -1,2 +1,2 @@
-class ProgramsController < API::APIController
+class API::ProgramsController < API::APIController
 end
