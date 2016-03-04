@@ -19,6 +19,7 @@ gem 'mini_magick'
 gem 'carrierwave'
 gem 'carrierwave-base64'
 gem 'httparty'
+gem 'bootstrap-sass'
 
 group :development, :test do
   gem 'byebug'
