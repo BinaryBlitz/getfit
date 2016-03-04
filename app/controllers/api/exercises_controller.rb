@@ -1,2 +1,2 @@
-class ExercisesController < ApplicationController
+class ExercisesController < API::APIController
 end
