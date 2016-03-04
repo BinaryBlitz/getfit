@@ -1,7 +1,8 @@
-class UsersController < API::APIController
-  before_action :set_user
+class API::UsersController < API::APIController
+  before_action :set_user, only: [:update]
 
   def show
+    @user = params[:id].present? ? User.find(params[:id]) : current_user
   end
 
   def update
@@ -16,5 +17,12 @@ class UsersController < API::APIController
 
   def set_user
     @user = current_user
+  end
+
+  def user_params
+    params.require(:user).permit(
+      :name, :phone_number, :description, :avatar, :banner,
+      :height, :weight, :birthdate, :gender
+    )
   end
 end

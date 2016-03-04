@@ -1,31 +1,24 @@
-# == Schema Information
-#
-# Table name: users
-#
-#  id           :integer          not null, primary key
-#  name         :string           not null
-#  phone_number :string           not null
-#  description  :text
-#  avatar       :string
-#  banner       :string
-#  height       :integer          not null
-#  weight       :integer          not null
-#  birthdate    :date             not null
-#  gender       :string           not null
-#  api_token    :string           not null
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
-#
-
 require 'test_helper'
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
-  test 'show' do
+  setup do
+    @user = users(:foo)
+  end
+
+  test 'show current user' do
+    get api_user_path, params: { api_token: api_token }
+    assert_response :success
+  end
+
+  test 'show other user' do
+    get api_user_path(@user), params: { api_token: api_token }
+    assert_response :success
   end
 
   test 'update' do
-  end
-
-  test 'delete' do
+    new_name = 'name'
+    patch api_user_path(@user), params: { api_token: api_token, user: { name: new_name } }
+    assert_response :ok
+    assert_equal new_name, @user.reload.name
   end
 end

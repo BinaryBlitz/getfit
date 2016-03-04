@@ -1,4 +1,6 @@
 class API::APIController < ApplicationController
+  before_action :restrict_access
+
   protected
 
   attr_reader :current_user
