@@ -1,0 +1,29 @@
+# == Schema Information
+#
+# Table name: verification_tokens
+#
+#  id           :integer          not null, primary key
+#  token        :string           not null
+#  phone_number :string           not null
+#  code         :integer          not null
+#  verified     :boolean          default(FALSE)
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
+verification_token:
+  token: <%= SecureRandom.hex %>
+  code: 1234
+  phone_number: '+79991112233'
+
+user_token:
+  token: <%= SecureRandom.hex %>
+  code: 1234
+  phone_number: '+79991112233'
+  verified: true
+
+verified:
+  token: <%= SecureRandom.hex %>
+  code: 1234
+  phone_number: '+79992223344'
+  verified: true
