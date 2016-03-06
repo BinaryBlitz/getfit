@@ -14,5 +14,5 @@
 comment:
   content: Content
   post: post
-  author: user
+  author: foo
   author_type: User
