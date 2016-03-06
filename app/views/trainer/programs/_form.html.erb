@@ -1,0 +1,42 @@
+<%= form_for([:trainer, @program]) do |f| %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :preview %>
+    <%= f.text_field :preview, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_area :description, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :banner %><br />
+    <%= f.file_field :banner %><br />
+    <%= image_tag(f.object.banner_url) if f.object.banner? %>
+    <%= f.hidden_field :banner_cache %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :duration %>
+    <%= f.number_field :duration, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :price %>
+    <%= f.number_field :price, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :program_type %><br />
+    <%= f.select :program_type_id, options_from_collection_for_select(ProgramType.all, 'id', 'name', f.object.program_type_id), {}, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit class: 'btn btn-default' %>
+  </div>
+<% end %>

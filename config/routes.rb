@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
-  devise_for :trainers
+  devise_for :trainers, path: 'trainer'
+
+  get 'trainer', to: 'trainer/programs#index'
+
+  namespace :trainer do
+    resource :trainer
+    resources :programs
+  end
 
   namespace :api do
     resource :user

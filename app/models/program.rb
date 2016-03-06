@@ -23,8 +23,11 @@ class Program < ApplicationRecord
   has_many :purchases, dependent: :destroy
   has_many :users, through: :purchases
   has_many :exercises, dependent: :destroy
+  has_many :ratings, dependent: :destroy
 
   validates :name, :preview, :description, :banner, :duration, :price, presence: true
   validates :duration, numericality: { greater_than: 0 }
   validates :price, numericality: { greater_than_or_equal_to: 0 }
+
+  mount_uploader :banner, ImageUploader
 end

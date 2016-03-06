@@ -15,3 +15,13 @@ class ActiveSupport::TestCase
     JSON.parse(@response.body, symbolize_names: true)
   end
 end
+
+class ActionDispatch::IntegrationTest
+  def sign_in_user(user, password: 'password')
+    post user_session_path, params: { user: { email: user.email, password: password } }
+  end
+
+  def sign_in_trainer(trainer, password: 'password')
+    post trainer_session_path, params: { trainer: { email: trainer.email, password: password } }
+  end
+end
