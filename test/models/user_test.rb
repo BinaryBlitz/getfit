@@ -60,4 +60,12 @@ class UserTest < ActiveSupport::TestCase
     @user.phone_number = '+79998887766'
     assert @user.valid?
   end
+
+  test 'phone number is normalized' do
+    phone_number = '79998887766'
+    @user.phone_number = phone_number
+
+    assert @user.valid?
+    assert_equal Phonelib.parse(phone_number).e164, @user.phone_number
+  end
 end

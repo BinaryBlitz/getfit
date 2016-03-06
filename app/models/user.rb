@@ -19,7 +19,7 @@
 
 class User < ApplicationRecord
   attr_accessor :verification_token
-  
+
   has_many :comments, as: :author, dependent: :destroy
   has_many :subscriptions, dependent: :destroy
   has_many :personal_trainers, through: :subscriptions, source: :trainer
@@ -33,8 +33,9 @@ class User < ApplicationRecord
   validates :name, :height, :weight, :birthdate, :gender, presence: true
   validates :height, :weight, numericality: { greater_than: 0 }
   validates :gender, inclusion: { in: %w(male female) }
-  validates :phone_number, phone: true
-  validate :verified_phone_number
+  validate :verified_phone_number, on: :create
+
+  include Phonable
 
   has_secure_token :api_token
 

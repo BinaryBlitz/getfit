@@ -39,7 +39,8 @@ class Trainer < ApplicationRecord
             :place_of_work, :category, :experience, presence: true
   validates :avatar, :banner, presence: true
   validates :experience, numericality: { greater_than: 0 }
-  validates :phone_number, phone: true
+
+  include Phonable
 
   extend Enumerize
   enumerize :category, in: [:trainer, :nutritionist, :physician]
