@@ -1,20 +1,29 @@
 <h1>Trainer Programs</h1>
 
-<%= link_to 'New Trainer Program', new_trainer_program_path %>
+<%= link_to 'New Program', new_trainer_program_path, class: 'btn btn-default' %>
 
 <table class="table">
   <thead>
     <tr>
-      <th colspan="3"></th>
+      <th>Название</th>
+      <th>Описание</th>
+      <th>Продолжительность</th>
+      <th>Цена</th>
+      <th>Тип</th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @programs.each do |program| %>
       <tr>
-        <td><%= link_to 'Show', [:trainer, program] %></td>
-        <td><%= link_to 'Edit', edit_trainer_program_path(program) %></td>
-        <td><%= link_to 'Destroy', [:trainer, program], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to program.name, [:trainer, program] %></td>
+        <td><%= truncate(program.preview, length: 20) %></td>
+        <td><%= program.duration %></td>
+        <td><%= program.price %></td>
+        <td><%= program.program_type.name %></td>
+        <td><%= link_to 'Edit', edit_trainer_program_path(program), class: 'btn btn-default' %></td>
+        <td><%= link_to 'Destroy', [:trainer, program], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
       </tr>
     <% end %>
   </tbody>
