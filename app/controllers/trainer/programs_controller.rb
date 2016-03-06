@@ -1,5 +1,4 @@
 class Trainer::ProgramsController < Trainer::TrainerController
-  before_action :authenticate_trainer!
   before_action :set_program, only: [:show, :edit, :update, :destroy]
 
   def index

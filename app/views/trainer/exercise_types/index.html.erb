@@ -1,0 +1,26 @@
+<h1>Exercise Types</h1>
+
+<%= link_to 'New Exercise Type', new_trainer_exercise_type_path, class: 'btn btn-default' %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Название</th>
+      <th>Описание</th>
+      <th>Видео</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @exercise_types.each do |exercise_type| %>
+      <tr>
+        <td><%= link_to exercise_type.name, [:trainer, exercise_type] %></td>
+        <td><%= exercise_type.description %></td>
+        <td><%= exercise_type.video_url %></td>
+        <td><%= link_to 'Edit', edit_trainer_exercise_type_path(exercise_type), class: 'btn btn-default' %></td>
+        <td><%= link_to 'Destroy', [:trainer, exercise_type], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

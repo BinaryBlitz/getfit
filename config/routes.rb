@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   namespace :trainer do
     resource :trainer
     resources :programs
+    resources :exercise_types
   end
 
   namespace :api do
