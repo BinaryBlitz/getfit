@@ -44,7 +44,6 @@ class Trainer::ProgramsController < Trainer::TrainerController
     @program = Program.find(params[:id])
   end
 
-
   def program_params
     params.require(:program).permit(
       :name, :preview, :description, :banner, :duration, :price, :program_type_id

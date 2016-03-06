@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Exercises</h1>
+
+<%= link_to 'New Exercise', new_trainer_program_exercise_path, class: 'btn btn-default' %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Тип упражнения</th>
+      <th>Подходы</th>
+      <th>Повторения</th>
+      <th>Вес</th>
+      <th>Дистанция</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @exercises.each do |exercise| %>
+      <tr>
+        <td><%= exercise.exercise_type.name %></td>
+        <td><%= exercise.sets %></td>
+        <td><%= exercise.reps %></td>
+        <td><%= exercise.weight %></td>
+        <td><%= exercise.distance %></td>
+        <td><%= link_to 'Edit', edit_trainer_exercise_path(exercise), class: 'btn btn-default' %></td>
+        <td><%= link_to 'Destroy', [:trainer, exercise], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

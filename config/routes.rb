@@ -5,8 +5,10 @@ Rails.application.routes.draw do
 
   namespace :trainer do
     resource :trainer
-    resources :programs
     resources :exercise_types
+    resources :programs do
+      resources :exercises, shallow: true
+    end
   end
 
   namespace :api do
