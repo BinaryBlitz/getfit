@@ -17,12 +17,15 @@ class NullStorage
   end
 
   def retrieve!(_identifier)
-    true
+    file = Rails.root.join('test', 'fixtures', 'files', 'blank.jpg')
+    tmp = Rails.root.join('tmp', 'blank_tmp.jpg')
+    FileUtils.cp(file, tmp)
+    CarrierWave::SanitizedFile.new(tmp)
   end
 end
 
-CarrierWave.configure do |config|
-  if Rails.env.test?
+if Rails.env.test?
+  CarrierWave.configure do |config|
     config.storage NullStorage
     config.enable_processing = false
   end
