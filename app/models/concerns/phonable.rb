@@ -4,7 +4,7 @@ module Phonable
 
   included do
     before_validation :normalize_phone_number
-    validates :phone_number, phone: true
+    validates :phone_number, phone: true, uniqueness: true
   end
 
   private

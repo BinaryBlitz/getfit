@@ -21,10 +21,22 @@ foo:
   name: Foo
   phone_number: '+79998887766'
   description: Description
-  avatar:
-  banner:
+  avatar: Avatar
+  banner: Banner
   height: 180
   weight: 180
   birthdate: 2000-01-01
   gender: male
+  api_token: <%= SecureRandom.hex %>
+
+baz:
+  name: Baz
+  phone_number: '+799911122233'
+  description: Description
+  avatar: Avatar
+  banner: Banner
+  height: 180
+  weight: 180
+  birthdate: 2000-01-01
+  gender: female
   api_token: <%= SecureRandom.hex %>

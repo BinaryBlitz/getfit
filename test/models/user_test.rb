@@ -68,4 +68,11 @@ class UserTest < ActiveSupport::TestCase
     assert @user.valid?
     assert_equal Phonelib.parse(phone_number).e164, @user.phone_number
   end
+
+  test 'phone number uniqueness' do
+    user = users(:baz)
+    user.phone_number = @user.phone_number
+
+    assert user.invalid?
+  end
 end
