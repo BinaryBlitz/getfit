@@ -29,6 +29,10 @@ class TrainerTest < ActiveSupport::TestCase
     @trainer = trainers(:trainer)
   end
 
+  test 'valid' do
+    assert @trainer.valid?
+  end
+
   test 'positive experience' do
     @trainer.experience = -1
     assert @trainer.invalid?
@@ -50,7 +54,7 @@ class TrainerTest < ActiveSupport::TestCase
     valid_categories = %w(trainer nutritionist physician)
     valid_categories.each do |category|
       @trainer.category = category
-      assert @trainer.valid?
+      assert @trainer.reload.valid?
     end
   end
 end
