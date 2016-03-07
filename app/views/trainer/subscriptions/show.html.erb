@@ -1,0 +1,11 @@
+<h1><%= @subscription.user.name %></h1>
+
+<div class="form-group">
+  <%= link_to 'Персональная программа', '#', class: 'btn btn-primary' %>
+</div>
+
+<%= render 'user', user: @subscription.user %>
+
+<h2>Чат</h2>
+
+Чат

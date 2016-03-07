@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   namespace :trainer do
     resource :trainer
     resources :posts
+    resources :subscriptions, only: [:index, :show]
     resources :exercise_types
     resources :programs do
       resources :exercises, shallow: true

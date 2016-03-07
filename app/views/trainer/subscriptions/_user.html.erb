@@ -1,0 +1,35 @@
+<p>
+  <strong>name</strong>: <%= user.name %>
+</p>
+
+<p>
+  <strong>phone_number</strong>: <%= user.phone_number %>
+</p>
+
+<p>
+  <strong>description</strong>: <%= user.description %>
+</p>
+
+<p>
+  <strong>avatar</strong>: <%= image_tag(user.avatar_url) if user.avatar? %>
+</p>
+
+<p>
+  <strong>banner</strong>: <%= image_tag(user.banner_url) if user.banner? %>
+</p>
+
+<p>
+  <strong>height</strong>: <%= user.height %>
+</p>
+
+<p>
+  <strong>weight</strong>: <%= user.weight %>
+</p>
+
+<p>
+  <strong>birthdate</strong>: <%= user.birthdate %>
+</p>
+
+<p>
+  <strong>gender</strong>: <%= user.gender %>
+</p>
