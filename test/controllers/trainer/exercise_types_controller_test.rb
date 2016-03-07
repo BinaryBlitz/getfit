@@ -28,7 +28,7 @@ class ExerciseTypesControllerTest < ActionDispatch::IntegrationTest
       }
     end
 
-    assert_redirected_to trainer_exercise_type_path(ExerciseType.last)
+    assert_redirected_to trainer_exercise_types_url
   end
 
   test "should show exercise_type" do
@@ -47,7 +47,7 @@ class ExerciseTypesControllerTest < ActionDispatch::IntegrationTest
         name: 'New name'
       }
     }
-    assert_redirected_to trainer_exercise_type_path(@exercise_type)
+    assert_redirected_to trainer_exercise_types_url
   end
 
   test "should destroy exercise_type" do

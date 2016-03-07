@@ -19,7 +19,7 @@ class Trainer::ExerciseTypesController < Trainer::TrainerController
     @exercise_type = current_trainer.exercise_types.build(exercise_type_params)
 
     if @exercise_type.save
-      redirect_to [:trainer, @exercise_type], notice: 'Exercise type was successfully created.'
+      redirect_to trainer_exercise_types_url, notice: 'Exercise type was successfully created.'
     else
       render :new
     end
@@ -27,7 +27,7 @@ class Trainer::ExerciseTypesController < Trainer::TrainerController
 
   def update
     if @exercise_type.update(exercise_type_params)
-      redirect_to [:trainer, @exercise_type], notice: 'Exercise type was successfully updated.'
+      redirect_to trainer_exercise_types_url, notice: 'Exercise type was successfully updated.'
     else
       render :edit
     end
