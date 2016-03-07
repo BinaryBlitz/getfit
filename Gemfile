@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '>= 5.0.0.beta2', '< 5.1'
 gem 'pg', '~> 0.18'
 gem 'puma'
+gem 'unicorn'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
@@ -24,6 +25,7 @@ gem 'devise-bootstrap-views'
 
 group :development, :test do
   gem 'byebug'
+  gem 'rvm-capistrano', require: false
 end
 
 group :development do
