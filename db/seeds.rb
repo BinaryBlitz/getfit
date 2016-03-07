@@ -19,6 +19,8 @@ trainer = Trainer.create!(
   avatar: image, banner: image
 )
 
+VerificationToken.create!(phone_number: '+79998887766', verified: true)
+
 user = User.create!(
   name: 'Foo', phone_number: '+79998887766',
   description: 'Description',
