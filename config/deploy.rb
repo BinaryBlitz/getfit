@@ -20,7 +20,7 @@ set :deploy_via, :remote_cache
 
 before 'deploy:setup', 'rvm:install_rvm', 'rvm:install_ruby'
 
-before 'deploy', 'rpush:stop'
+# before 'deploy', 'rpush:stop'
 
 after 'deploy:update_code', :roles => :app do
   # Config
@@ -46,7 +46,7 @@ after 'deploy:update_code', :roles => :app do
   run "ln -nfs #{deploy_to}/shared/pids #{current_release}/tmp/pids"
 end
 
-after 'deploy:create_symlink', 'rpush:stop', 'rpush:start'
+# after 'deploy:create_symlink', 'rpush:stop', 'rpush:start'
 before 'deploy:assets:precompile', 'deploy:link_db'
 
 set :keep_releases, 3
