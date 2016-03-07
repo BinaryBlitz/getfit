@@ -47,12 +47,16 @@ after 'deploy:update_code', :roles => :app do
 end
 
 after 'deploy:create_symlink', 'rpush:stop', 'rpush:start'
-
+before 'deploy:assets:precompile', 'deploy:link_db'
 
 set :keep_releases, 3
 after "deploy:restart", "deploy:cleanup"
 
 namespace :deploy do
+  task :link_db do
+    run "rm -f #{current_release}/config/database.yml"
+    run "ln -nfs #{deploy_to}/shared/config/database.yml #{current_release}/config/database.yml"
+  end
   task :restart do
     run "if [ -f #{unicorn_pid} ] && [ -e /proc/$(cat #{unicorn_pid}) ]; then kill -USR2 `cat #{unicorn_pid}`; else cd #{deploy_to}/current && bundle exec unicorn -c #{unicorn_conf} -E #{rails_env} -D; fi"
   end
