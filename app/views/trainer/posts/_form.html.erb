@@ -1,4 +1,6 @@
 <%= form_for([:trainer, @post]) do |f| %>
+  <%= render 'shared/error_messages', object: @post %>
+  
   <div class="form-group">
     <%= f.label :content %>
     <%= f.text_area :content, class: 'form-control' %>

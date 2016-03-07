@@ -1,4 +1,6 @@
 <%= form_for([:trainer, @program]) do |f| %>
+  <%= render 'shared/error_messages', object: @program %>
+
   <div class="form-group">
     <%= f.label :name %>
     <%= f.text_field :name, class: 'form-control' %>
