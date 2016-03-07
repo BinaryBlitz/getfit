@@ -18,8 +18,8 @@
       <tr>
         <td><%= link_to post.content, [:trainer, post] %></td>
         <td><%= post.created_at.to_formatted_s(:short) %></td>
-        <td><%= link_to 'Edit', edit_trainer_post_path(post) %></td>
-        <td><%= link_to 'Destroy', [:trainer, post], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_trainer_post_path(post), class: 'btn btn-default' %></td>
+        <td><%= link_to 'Destroy', [:trainer, post], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
       </tr>
     <% end %>
   </tbody>
