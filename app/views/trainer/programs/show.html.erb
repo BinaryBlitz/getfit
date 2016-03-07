@@ -1,0 +1,30 @@
+<h1><%= @program.name %></h1>
+
+<div class="form-group">
+  <%= link_to 'Изменить', edit_trainer_program_path, class: 'btn btn-default' %>
+  <%= link_to 'Упражнения', trainer_program_exercises_path(@program), class: 'btn btn-default' %>
+</div>
+
+<p>
+  <strong>Описание</strong>: <%= @program.preview %>
+</p>
+
+<p>
+  <strong>Подробное описание</strong>: <%= @program.description %>
+</p>
+
+<p>
+  <strong>Баннер</strong>: <%= image_tag(@program.banner) if @program.banner? %>
+</p>
+
+<p>
+  <strong>Длительность</strong>: <%= @program.duration %>
+</p>
+
+<p>
+  <strong>Цена</strong>: <%= @program.price %>
+</p>
+
+<p>
+  <strong>Тип программы</strong>: <%= @program.program_type_id %>
+</p>
