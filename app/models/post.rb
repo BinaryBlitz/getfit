@@ -20,5 +20,5 @@ class Post < ApplicationRecord
 
   validates :content, presence: true
 
-  mount_base64_uploader :image, ImageUploader
+  mount_uploader :image, ImageUploader
 end
