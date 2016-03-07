@@ -45,6 +45,6 @@ class Trainer::PostsController < Trainer::TrainerController
   end
 
   def post_params
-    params.require(:post).permit(:content)
+    params.require(:post).permit(:content, :image, :image_cache, :program_id)
   end
 end
