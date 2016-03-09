@@ -59,7 +59,6 @@ class VerificationToken < ApplicationRecord
     {
       api_id: Rails.application.secrets.sms_ru_api_id,
       text: "Код верификации: #{code}",
-      from: 'GetFit',
       to: phone_number
     }
   end
