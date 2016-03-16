@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160307125737) do
+ActiveRecord::Schema.define(version: 20160316184154) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -177,7 +177,7 @@ ActiveRecord::Schema.define(version: 20160307125737) do
   add_index "trainers", ["reset_password_token"], name: "index_trainers_on_reset_password_token", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "name",         null: false
+    t.string   "first_name",   null: false
     t.string   "phone_number", null: false
     t.text     "description"
     t.string   "avatar"
@@ -189,6 +189,7 @@ ActiveRecord::Schema.define(version: 20160307125737) do
     t.string   "api_token",    null: false
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.string   "last_name"
   end
 
   create_table "verification_tokens", force: :cascade do |t|

@@ -4,7 +4,7 @@
 #
 #  id         :integer          not null, primary key
 #  content    :text             not null
-#  image      :string           not null
+#  image      :string
 #  trainer_id :integer
 #  program_id :integer
 #  created_at :datetime         not null
