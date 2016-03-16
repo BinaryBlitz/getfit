@@ -31,7 +31,7 @@ foo:
 
 baz:
   name: Baz
-  phone_number: '+799911122233'
+  phone_number: '+79991112233'
   description: Description
   avatar: Avatar
   banner: Banner
