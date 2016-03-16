@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ExerciseTypesControllerTest < ActionDispatch::IntegrationTest
+class Trainer::ExerciseTypesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @exercise_type = exercise_types(:exercise_type)
     @trainer = trainers(:trainer)

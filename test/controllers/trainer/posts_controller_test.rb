@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class PostsControllerTest < ActionDispatch::IntegrationTest
+class Trainer::PostsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @post = posts(:post)
     @trainer = trainers(:trainer)

@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class SubscriptionsControllerTest < ActionDispatch::IntegrationTest
+class Trainer::SubscriptionsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @subscription = subscriptions(:subscription)
     @trainer = trainers(:trainer)
