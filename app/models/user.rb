@@ -5,17 +5,19 @@
 #  id           :integer          not null, primary key
 #  first_name   :string           not null
 #  last_name    :string           not null
-#  phone_number :string           not null
+#  phone_number :string
 #  description  :text
 #  avatar       :string
 #  banner       :string
-#  height       :integer          not null
-#  weight       :integer          not null
-#  birthdate    :date             not null
-#  gender       :string           not null
+#  height       :integer
+#  weight       :integer
+#  birthdate    :date
+#  gender       :string
 #  api_token    :string           not null
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  vk_id        :integer
+#  fb_id        :integer
 #
 
 class User < ApplicationRecord
@@ -31,11 +33,12 @@ class User < ApplicationRecord
   has_many :purchases, dependent: :destroy
   has_many :programs, through: :purchases
 
-  validates :name, :height, :weight, :birthdate, :gender, presence: true
-  validates :height, :weight, numericality: { greater_than: 0 }
-  validates :gender, inclusion: { in: %w(male female) }
-  validate :verified_phone_number, on: :create
+  validates :first_name, :last_name, presence: true
+  validates :height, :weight, numericality: { greater_than: 0 }, allow_nil: true
+  validates :gender, inclusion: { in: %w(male female) }, allow_nil: true
+  validate :verified_phone_number, on: :create, unless: :oauth?
 
+  include Authenticable
   include Phonable
 
   has_secure_token :api_token
@@ -43,10 +46,18 @@ class User < ApplicationRecord
   mount_base64_uploader :avatar, AvatarUploader
   mount_base64_uploader :banner, ImageUploader
 
+  def full_name
+    "#{first_name} #{last_name}"
+  end
+
   private
 
   def verified_phone_number
     return if VerificationToken.verified.find_by(phone_number: phone_number)
     errors.add(:phone_number, "isn't verified")
+  end
+
+  def oauth?
+    vk_id.present? || fb_id.present?
   end
 end

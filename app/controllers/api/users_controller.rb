@@ -1,5 +1,5 @@
 class API::UsersController < API::APIController
-  skip_before_action :restrict_access, only: [:create]
+  skip_before_action :restrict_access, only: [:create, :authenticate_vk, :authenticate_fb]
   before_action :set_user, only: [:update]
 
   def show
@@ -24,6 +24,31 @@ class API::UsersController < API::APIController
     end
   end
 
+  def authenticate_vk
+    if params[:token].present?
+      vk = VkontakteApi::Client.new(params[:token])
+      @user = User.find_or_create_from_vk(vk)
+      render :show
+    else
+      head 422
+    end
+  rescue VkontakteApi::Error
+    head 422
+  end
+
+  def authenticate_fb
+    if params[:token].present?
+      fb = Koala::Facebook::API.new(params[:token])
+      @user = User.find_or_create_from_fb(fb)
+      render :show
+    else
+      head 422
+    end
+  rescue Koala::Facebook::AuthenticationError
+    head 422
+  end
+
+
   private
 
   def set_user
@@ -32,8 +57,8 @@ class API::UsersController < API::APIController
 
   def user_params
     params.require(:user).permit(
-      :name, :phone_number, :description, :avatar, :banner,
-      :height, :weight, :birthdate, :gender
+      :first_name, :last_name, :phone_number, :description,
+      :avatar, :banner, :height, :weight, :birthdate, :gender
     )
   end
 end

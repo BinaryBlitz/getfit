@@ -14,7 +14,9 @@ Rails.application.routes.draw do
   end
 
   namespace :api do
-    resource :user
+    resource :user do
+      post 'authenticate_vk', 'authenticate_fb', on: :collection
+    end
     resources :users, only: [:show]
     resources :verification_tokens, only: [:create, :update], param: :token
     resources :exercises, except: [:new, :edit]

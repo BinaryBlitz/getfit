@@ -76,4 +76,11 @@ class UserTest < ActiveSupport::TestCase
 
     assert user.invalid?
   end
+
+  test 'phone number validation skipped on oauth' do
+    @user.vk_id = 1
+    @user.phone_number = nil
+
+    assert @user.valid?
+  end
 end
