@@ -17,8 +17,8 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
   test 'update' do
     new_name = 'name'
-    patch api_user_path(@user), params: { api_token: api_token, user: { name: new_name } }
+    patch api_user_path(@user), params: { api_token: api_token, user: { first_name: new_name } }
     assert_response :ok
-    assert_equal new_name, @user.reload.name
+    assert_equal new_name, @user.reload.first_name
   end
 end

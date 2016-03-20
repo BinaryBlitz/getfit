@@ -12,7 +12,7 @@
   <tbody>
     <% @subscriptions.each do |subscription| %>
       <tr>
-        <td><%= link_to subscription.user.name, [:trainer, subscription] %></td>
+        <td><%= link_to subscription.user.full_name, [:trainer, subscription] %></td>
         <td><%= 'Статус' %></td>
         <td><%= 'Дата' %></td>
       </tr>

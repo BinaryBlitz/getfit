@@ -19,7 +19,8 @@
 #
 
 foo:
-  name: Foo
+  first_name: Foo
+  last_name: Bar
   phone_number: '+79998887766'
   description: Description
   avatar: Avatar
@@ -31,7 +32,8 @@ foo:
   api_token: <%= SecureRandom.hex %>
 
 baz:
-  name: Baz
+  first_name: Baz
+  last_name: Qux
   phone_number: '+79991112233'
   description: Description
   avatar: Avatar
