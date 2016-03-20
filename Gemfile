@@ -22,6 +22,8 @@ gem 'carrierwave-base64'
 gem 'httparty'
 gem 'bootstrap-sass'
 gem 'devise-bootstrap-views'
+gem 'vkontakte_api'
+gem 'koala'
 
 group :development, :test do
   gem 'byebug'
@@ -32,4 +34,8 @@ group :development do
   gem 'web-console', '~> 3.0'
   gem 'spring'
   gem 'annotate'
+end
+
+group :test do
+  gem 'mocha'
 end
