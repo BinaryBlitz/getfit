@@ -3,7 +3,7 @@ class Trainer::ExercisesController < Trainer::TrainerController
   before_action :set_exercise, only: [:show, :edit, :update, :destroy]
 
   def index
-    @exercises = Exercise.all
+    @exercises = @stage.exercises
   end
 
   def show

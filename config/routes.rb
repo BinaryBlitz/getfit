@@ -13,7 +13,7 @@ Rails.application.routes.draw do
       resources :stages, only: [:index, :new, :create], shallow: true
     end
 
-    resources :stages, except: [:index, :new, :create] do
+    resources :stages, except: [:show, :index, :new, :create] do
       resources :exercises, shallow: true
     end
   end

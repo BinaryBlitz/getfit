@@ -20,7 +20,7 @@ class Trainer::StagesController < Trainer::TrainerController
     @stage = @program.stages.build(stage_params)
 
     if @stage.save
-      redirect_to [:trainer, @stage], notice: 'Stage was successfully created.'
+      redirect_to trainer_stage_exercises_url(@stage), notice: 'Stage was successfully created.'
     else
       render :new
     end
@@ -28,7 +28,7 @@ class Trainer::StagesController < Trainer::TrainerController
 
   def update
     if @stage.update(stage_params)
-      redirect_to [:trainer, @stage], notice: 'Stage was successfully updated.'
+      redirect_to trainer_stage_exercises_url(@stage), notice: 'Stage was successfully updated.'
     else
       render :edit
     end
