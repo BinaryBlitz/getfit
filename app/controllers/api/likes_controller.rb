@@ -6,7 +6,7 @@ class API::LikesController < API::APIController
     @like = @post.likes.build(user: current_user)
 
     if @like.save
-      head :created
+      render :show, status: :created
     else
       render json: @like.errors, status: 422
     end
