@@ -25,7 +25,7 @@ class ExerciseTest < ActiveSupport::TestCase
   end
 
   test 'positive sets, reps, weight, distance' do
-    fields = %w(sets reps weight distance)
+    fields = %i(sets reps weight distance)
     fields.each do |field|
       @exercise.reload
 
