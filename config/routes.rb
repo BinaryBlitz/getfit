@@ -28,6 +28,7 @@ Rails.application.routes.draw do
     resources :posts, except: [:new, :edit]
 
     resources :programs, except: [:new, :edit] do
+      resources :ratings, except: [:show, :new, :edit], shallow: true
       resources :workouts, except: [:new, :edit], shallow: true do
         resources :exercises, except: [:new, :edit], shallow: true
       end
