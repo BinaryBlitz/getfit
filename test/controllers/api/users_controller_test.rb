@@ -6,13 +6,48 @@ class API::UsersControllerTest < ActionDispatch::IntegrationTest
     @user = users(:foo)
   end
 
-  test 'should create' do
+  test 'should create user' do
     user = @verification_token.user.destroy
-    post api_user_url, params: {
-      user: user.attributes,
-      verification_token: @verification_token.token
-    }
+
+    assert_difference 'User.count' do
+      post api_user_url, params: {
+        user: user.attributes,
+        verification_token: @verification_token.token
+      }
+    end
+
     assert_response :created
+  end
+
+  test 'should update user' do
+    patch api_user_url(@user), params: {
+      api_token: api_token,
+      user: @user.attributes
+    }
+
+    assert_response :ok
+  end
+
+  test 'should set device token' do
+    device_token_options = { device_token: SecureRandom.hex(64), platform: 'ios' }
+    patch api_user_url(@user), params: { api_token: api_token, user: device_token_options }
+
+    assert_response :ok
+
+    @user.reload
+    assert_equal device_token_options[:device_token], @user.device_token
+    assert_equal device_token_options[:platform], @user.platform
+  end
+
+  test 'should reset device token' do
+    device_token_options = { device_token: nil, platform: nil }
+    patch api_user_url(@user), params: { api_token: api_token, user: device_token_options }
+
+    assert_response :ok
+
+    @user.reload
+    assert_nil @user.device_token
+    assert_nil @user.platform
   end
 
   test 'should show current user' do

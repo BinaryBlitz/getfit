@@ -58,7 +58,8 @@ class API::UsersController < API::APIController
   def user_params
     params.require(:user).permit(
       :first_name, :last_name, :phone_number, :description,
-      :avatar, :banner, :height, :weight, :birthdate, :gender
+      :avatar, :banner, :height, :weight, :birthdate, :gender,
+      :device_token, :platform
     )
   end
 end

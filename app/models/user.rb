@@ -18,6 +18,8 @@
 #  updated_at   :datetime         not null
 #  vk_id        :integer
 #  fb_id        :integer
+#  device_token :string
+#  platform     :string
 #
 
 class User < ApplicationRecord
@@ -37,6 +39,8 @@ class User < ApplicationRecord
   validates :first_name, :last_name, presence: true
   validates :height, :weight, numericality: { greater_than: 0 }, allow_nil: true
   validates :gender, inclusion: { in: %w(male female) }, allow_nil: true
+  validates :device_token, presence: true, if: 'platform.present?'
+  validates :platform, inclusion: { in: %w(ios android) }, if: 'device_token.present?'
   validate :verified_phone_number, on: :create, unless: :oauth?
 
   include Authenticable

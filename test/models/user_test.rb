@@ -85,4 +85,18 @@ class UserTest < ActiveSupport::TestCase
 
     assert @user.valid?
   end
+
+  test 'device token and platform presence' do
+    @user.device_token = nil
+    @user.platform = nil
+    assert @user.valid?
+
+    @user.device_token = SecureRandom.hex(64)
+    @user.platform = nil
+    assert @user.invalid?
+
+    @user.device_token = nil
+    @user.platform = 'ios'
+    assert @user.invalid?
+  end
 end

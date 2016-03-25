@@ -28,13 +28,13 @@ class ExerciseSessionTest < ActiveSupport::TestCase
   test 'positive sets, reps, weight, distance' do
     fields = %i(sets reps weight distance)
     fields.each do |field|
-      @exercise.reload
+      @exercise_session.exercise.reload
 
-      @exercise.update(field => 0)
-      assert @exercise.invalid?
+      @exercise_session.exercise.update(field => 0)
+      assert @exercise_session.exercise.invalid?
 
-      @exercise.update(field => nil)
-      assert @exercise.valid?
+      @exercise_session.exercise.update(field => nil)
+      assert @exercise_session.exercise.valid?
     end
   end
 
