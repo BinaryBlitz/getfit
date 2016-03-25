@@ -26,6 +26,7 @@ Rails.application.routes.draw do
     resources :users, only: [:show]
     resources :posts, except: [:new, :edit]
 
+    resources :trainings
     resources :programs, except: [:new, :edit] do
       resources :stages, except: [:new, :edit], shallow: true do
         resources :exercises, except: [:new, :edit], shallow: true

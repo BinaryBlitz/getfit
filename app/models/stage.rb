@@ -13,4 +13,5 @@ class Stage < ApplicationRecord
   belongs_to :program, optional: true
 
   has_many :exercises, dependent: :destroy
+  has_many :trainings, dependent: :destroy
 end
