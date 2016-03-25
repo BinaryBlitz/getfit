@@ -5,17 +5,19 @@
 #  id           :integer          not null, primary key
 #  first_name   :string           not null
 #  last_name    :string           not null
-#  phone_number :string           not null
+#  phone_number :string
 #  description  :text
 #  avatar       :string
 #  banner       :string
-#  height       :integer          not null
-#  weight       :integer          not null
-#  birthdate    :date             not null
-#  gender       :string           not null
+#  height       :integer
+#  weight       :integer
+#  birthdate    :date
+#  gender       :string
 #  api_token    :string           not null
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  vk_id        :integer
+#  fb_id        :integer
 #
 
 foo:
