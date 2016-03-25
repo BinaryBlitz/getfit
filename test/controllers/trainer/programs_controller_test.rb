@@ -24,7 +24,6 @@ class Trainer::ProgramsControllerTest < ActionDispatch::IntegrationTest
           name: @program.name,
           preview: @program.preview,
           description: @program.description,
-          banner: @program.banner,
           duration: @program.duration,
           price: @program.price,
           trainer_id: @program.trainer_id,

@@ -8,19 +8,28 @@ Rails.application.routes.draw do
     resources :posts
     resources :subscriptions, only: [:index, :show]
     resources :exercise_types
+
     resources :programs do
+      resources :stages, shallow: true
+    end
+
+    resources :stages do
       resources :exercises, shallow: true
     end
   end
 
   namespace :api do
+    resources :verification_tokens, only: [:create, :update], param: :token
     resource :user do
       post 'authenticate_vk', 'authenticate_fb', on: :collection
     end
     resources :users, only: [:show]
-    resources :verification_tokens, only: [:create, :update], param: :token
-    resources :exercises, except: [:new, :edit]
     resources :posts, except: [:new, :edit]
-    resources :programs, except: [:new, :edit]
+
+    resources :programs, except: [:new, :edit] do
+      resources :stages, except: [:new, :edit], shallow: true do
+        resources :exercises, except: [:new, :edit], shallow: true
+      end
+    end
   end
 end

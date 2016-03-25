@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160320092058) do
+ActiveRecord::Schema.define(version: 20160323212152) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,7 +40,6 @@ ActiveRecord::Schema.define(version: 20160320092058) do
   add_index "exercise_types", ["trainer_id"], name: "index_exercise_types_on_trainer_id", using: :btree
 
   create_table "exercises", force: :cascade do |t|
-    t.integer  "program_id"
     t.integer  "exercise_type_id"
     t.integer  "sets"
     t.integer  "reps"
@@ -48,10 +47,11 @@ ActiveRecord::Schema.define(version: 20160320092058) do
     t.integer  "distance"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.integer  "stage_id"
   end
 
   add_index "exercises", ["exercise_type_id"], name: "index_exercises_on_exercise_type_id", using: :btree
-  add_index "exercises", ["program_id"], name: "index_exercises_on_program_id", using: :btree
+  add_index "exercises", ["stage_id"], name: "index_exercises_on_stage_id", using: :btree
 
   create_table "followings", force: :cascade do |t|
     t.integer  "user_id"
@@ -143,6 +143,16 @@ ActiveRecord::Schema.define(version: 20160320092058) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "stages", force: :cascade do |t|
+    t.string   "stageable_type"
+    t.integer  "stageable_id"
+    t.integer  "position"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "stages", ["stageable_type", "stageable_id"], name: "index_stages_on_stageable_type_and_stageable_id", using: :btree
+
   create_table "subscriptions", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "trainer_id"
@@ -205,7 +215,7 @@ ActiveRecord::Schema.define(version: 20160320092058) do
 
   add_foreign_key "exercise_types", "trainers"
   add_foreign_key "exercises", "exercise_types"
-  add_foreign_key "exercises", "programs"
+  add_foreign_key "exercises", "stages"
   add_foreign_key "followings", "trainers"
   add_foreign_key "followings", "users"
   add_foreign_key "likes", "posts"

@@ -1,6 +1,6 @@
-<%= form_for([:trainer, @program, @exercise]) do |f| %>
+<%= form_for([:trainer, @stage, @exercise]) do |f| %>
   <%= render 'shared/error_messages', object: @exercise %>
-  
+
   <div class="form-group">
     <%= f.label :exercise_type %><br />
     <%= f.select :exercise_type_id, options_from_collection_for_select(ExerciseType.all, 'id', 'name', f.object.exercise_type_id), {}, class: "form-control" %>

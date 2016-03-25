@@ -14,7 +14,7 @@
 #
 
 exercise:
-  program: program
+  stage: stage
   exercise_type: exercise_type
   sets: 10
   reps: 10

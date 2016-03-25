@@ -1,5 +1,5 @@
 class Trainer::ExercisesController < Trainer::TrainerController
-  before_action :set_program, only: [:index, :new, :create]
+  before_action :set_stage, only: [:index, :new, :create]
   before_action :set_exercise, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -17,10 +17,10 @@ class Trainer::ExercisesController < Trainer::TrainerController
   end
 
   def create
-    @exercise = @program.exercises.build(exercise_params)
+    @exercise = @stage.exercises.build(exercise_params)
 
     if @exercise.save
-      redirect_to trainer_program_exercises_url(@exercise.program), notice: 'Exercise was successfully created.'
+      redirect_to trainer_stage_exercises_url(@exercise.stage), notice: 'Exercise was successfully created.'
     else
       render :new
     end
@@ -28,7 +28,7 @@ class Trainer::ExercisesController < Trainer::TrainerController
 
   def update
     if @exercise.update(exercise_params)
-      redirect_to trainer_program_exercises_url(@exercise.program), notice: 'Exercise was successfully updated.'
+      redirect_to trainer_stage_exercises_url(@exercise.stage), notice: 'Exercise was successfully updated.'
     else
       render :edit
     end
@@ -36,13 +36,13 @@ class Trainer::ExercisesController < Trainer::TrainerController
 
   def destroy
     @exercise.destroy
-    redirect_to trainer_program_exercises_url(@exercise.program), notice: 'Exercise was successfully destroyed.'
+    redirect_to trainer_stage_exercises_url(@exercise.stage), notice: 'Exercise was successfully destroyed.'
   end
 
   private
 
-  def set_program
-    @program = Program.find(params[:program_id])
+  def set_stage
+    @stage = Stage.find(params[:stage_id])
   end
 
   def set_exercise
