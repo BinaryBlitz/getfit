@@ -5,6 +5,7 @@ class API::APIController < ApplicationController
   protected
 
   attr_reader :current_user
+  helper_method :current_user
 
   def restrict_access
     unless restrict_access_by_params
