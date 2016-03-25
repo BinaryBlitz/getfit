@@ -25,7 +25,9 @@ Rails.application.routes.draw do
       post 'authenticate_vk', 'authenticate_fb', on: :collection
     end
     resources :users, only: [:show]
-    resources :posts, except: [:new, :edit]
+    resources :posts, except: [:new, :edit] do
+      resources :likes, only: [:create, :destroy], shallow: true
+    end
 
     resources :programs, except: [:new, :edit] do
       resources :ratings, except: [:show, :new, :edit], shallow: true

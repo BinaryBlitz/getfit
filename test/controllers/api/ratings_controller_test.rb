@@ -16,7 +16,7 @@ class API::RatingsControllerTest < ActionDispatch::IntegrationTest
       }
     end
 
-    assert_response :success
+    assert_response :created
     assert_equal @rating.value, Rating.last.value
     assert_equal @rating.content, Rating.last.content
   end
