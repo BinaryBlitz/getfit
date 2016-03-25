@@ -28,4 +28,22 @@ class API::WorkoutSessionsControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :created
   end
+
+  test 'should update workout_session' do
+    patch api_workout_session_url(@workout_session), params: {
+      api_token: api_token,
+      workout_session: { completed: true }
+    }
+
+    assert_response :ok
+    assert @workout_session.reload.completed?
+  end
+
+  test 'should destroy workout_session' do
+    assert_difference('WorkoutSession.count', -1) do
+      delete api_workout_session_path(@workout_session), params: { api_token: api_token }
+    end
+
+    assert_response :no_content
+  end
 end

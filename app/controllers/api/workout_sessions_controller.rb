@@ -1,5 +1,5 @@
 class API::WorkoutSessionsController < API::APIController
-  before_action :set_workout_session, only: [:show]
+  before_action :set_workout_session, only: [:show, :update, :destroy]
 
   def index
     @workout_sessions = current_user.workout_sessions
