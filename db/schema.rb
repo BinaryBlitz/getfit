@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160325180558) do
+ActiveRecord::Schema.define(version: 20160325191506) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,21 @@ ActiveRecord::Schema.define(version: 20160325180558) do
 
   add_index "comments", ["author_type", "author_id"], name: "index_comments_on_author_type_and_author_id", using: :btree
   add_index "comments", ["post_id"], name: "index_comments_on_post_id", using: :btree
+
+  create_table "exercise_sessions", force: :cascade do |t|
+    t.integer  "exercise_id"
+    t.integer  "workout_session_id"
+    t.integer  "sets"
+    t.integer  "reps"
+    t.integer  "weight"
+    t.integer  "distance"
+    t.boolean  "completed",          default: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+  end
+
+  add_index "exercise_sessions", ["exercise_id"], name: "index_exercise_sessions_on_exercise_id", using: :btree
+  add_index "exercise_sessions", ["workout_session_id"], name: "index_exercise_sessions_on_workout_session_id", using: :btree
 
   create_table "exercise_types", force: :cascade do |t|
     t.string   "name",        null: false
@@ -224,6 +239,8 @@ ActiveRecord::Schema.define(version: 20160325180558) do
 
   add_index "workouts", ["program_id"], name: "index_workouts_on_program_id", using: :btree
 
+  add_foreign_key "exercise_sessions", "exercises"
+  add_foreign_key "exercise_sessions", "workout_sessions"
   add_foreign_key "exercise_types", "trainers"
   add_foreign_key "exercises", "exercise_types"
   add_foreign_key "exercises", "workouts"

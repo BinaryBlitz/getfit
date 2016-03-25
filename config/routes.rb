@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :exercise_sessions
   devise_for :trainers, path: 'trainer'
 
   get 'trainer', to: 'trainer/programs#index'
@@ -26,11 +27,14 @@ Rails.application.routes.draw do
     resources :users, only: [:show]
     resources :posts, except: [:new, :edit]
 
-    resources :workout_sessions
     resources :programs, except: [:new, :edit] do
       resources :workouts, except: [:new, :edit], shallow: true do
         resources :exercises, except: [:new, :edit], shallow: true
       end
+    end
+
+    resources :workout_sessions, except: [:new, :edit] do
+      resources :exercise_sessions, except: [:new, :edit], shallow: true
     end
   end
 end

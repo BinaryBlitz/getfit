@@ -17,5 +17,7 @@ class Exercise < ApplicationRecord
   belongs_to :workout
   belongs_to :exercise_type
 
+  has_many :exercise_sessions, dependent: :destroy
+
   validates :sets, :reps, :weight, :distance, numericality: { greater_than: 0 }, allow_nil: true
 end

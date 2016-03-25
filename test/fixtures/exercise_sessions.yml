@@ -1,0 +1,23 @@
+# == Schema Information
+#
+# Table name: exercise_sessions
+#
+#  id                 :integer          not null, primary key
+#  exercise_id        :integer
+#  workout_session_id :integer
+#  sets               :integer
+#  reps               :integer
+#  weight             :integer
+#  distance           :integer
+#  completed          :boolean          default(FALSE)
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#
+
+exercise_session:
+  exercise: exercise
+  workout_session: workout_session
+  sets: 1
+  reps: 1
+  weight: 1
+  distance: 1
