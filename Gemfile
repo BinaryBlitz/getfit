@@ -24,6 +24,7 @@ gem 'bootstrap-sass'
 gem 'devise-bootstrap-views'
 gem 'vkontakte_api'
 gem 'koala'
+gem 'rpush'
 
 group :development, :test do
   gem 'byebug'

@@ -37,3 +37,18 @@ program = Program.create!(
   banner: image, duration: 100, price: 100,
   trainer: trainer, program_type: program_type
 )
+
+# Push notifications
+
+# app = Rpush::Apns::App.new
+# app.name = 'ios_app'
+# app.certificate = File.read(Rails.root.join('conifg', 'pushcert.pem')
+# app.environment = 'sandbox'
+# app.connections = 1
+# app.save!
+#
+# app = Rpush::Gcm::App.new
+# app.name = 'android_app'
+# app.auth_key = ''
+# app.connections = 1
+# app.save!
