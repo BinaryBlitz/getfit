@@ -3,26 +3,29 @@ require 'test_helper'
 class Trainer::StagesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @stage = stages(:stage)
+    @program = @stage.program
     @trainer = trainers(:trainer)
     sign_in_trainer(@trainer)
   end
 
   test 'should get index' do
-    get trainer_stages_url
+    get trainer_program_stages_url(@program)
     assert_response :success
   end
 
   test 'should get new' do
-    get new_trainer_stage_url
+    get new_trainer_program_stage_url(@program)
     assert_response :success
   end
 
   test 'should create trainer_stage' do
     assert_difference('Trainer::Stage.count') do
-      post trainer_stages_url, params: { trainer_stage: {  } }
+      post trainer_program_stages_url(@program), params: {
+        stage: { position: 1 }
+      }
     end
 
-    assert_redirected_to trainer_stage_path(Trainer::Stage.last)
+    assert_redirected_to trainer_stage_path(Stage.last)
   end
 
   test 'should show trainer_stage' do
@@ -36,15 +39,17 @@ class Trainer::StagesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should update trainer_stage' do
-    patch trainer_stage_url(@stage), params: { trainer_stage: {  } }
+    patch trainer_stage_url(@stage), params: {
+      stage: { position: 2 }
+    }
     assert_redirected_to trainer_stage_path(@stage)
   end
 
   test 'should destroy trainer_stage' do
-    assert_difference('Trainer::Stage.count', -1) do
+    assert_difference('Stage.count', -1) do
       delete trainer_stage_url(@stage)
     end
 
-    assert_redirected_to trainer_stages_path
+    assert_redirected_to trainer_program_stages_path(@stage.program)
   end
 end

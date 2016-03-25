@@ -1,4 +1,3 @@
 stage:
-  stageable: program
-  stageable_type: Program
+  program: program
   position: 0

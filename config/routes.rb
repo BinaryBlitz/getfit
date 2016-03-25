@@ -10,10 +10,10 @@ Rails.application.routes.draw do
     resources :exercise_types
 
     resources :programs do
-      resources :stages, shallow: true
+      resources :stages, only: [:index, :new, :create], shallow: true
     end
 
-    resources :stages do
+    resources :stages, except: [:index, :new, :create] do
       resources :exercises, shallow: true
     end
   end

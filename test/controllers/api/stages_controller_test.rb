@@ -3,11 +3,11 @@ require 'test_helper'
 class API::StagesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @stage = stages(:stage)
-    @stageable = @stage.stageable
+    @program = @stage.program
   end
 
   test 'should get index' do
-    get api_program_stages_url(@stageable.id), params: { api_token: api_token }
+    get api_program_stages_url(@program), params: { api_token: api_token }
     assert_response :success
   end
 

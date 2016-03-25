@@ -17,7 +17,7 @@ class Trainer::StagesController < Trainer::TrainerController
   end
 
   def create
-    @stage = Stage.new(stage_params)
+    @stage = @program.stages.build(stage_params)
 
     if @stage.save
       redirect_to [:trainer, @stage], notice: 'Stage was successfully created.'
@@ -36,7 +36,7 @@ class Trainer::StagesController < Trainer::TrainerController
 
   def destroy
     @stage.destroy
-    redirect_to trainer_stages_url, notice: 'Stage was successfully destroyed.'
+    redirect_to trainer_program_stages_url(@stage.program), notice: 'Stage was successfully destroyed.'
   end
 
   private

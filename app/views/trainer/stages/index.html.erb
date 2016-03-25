@@ -2,10 +2,10 @@
 
 <%= link_to 'New Trainer Stage', new_trainer_program_stage_path(@program), class: 'btn btn-default' %>
 
-<table>
+<table class="table">
   <thead>
     <tr>
-      <th></th>
+      <th>Этап</th>
       <th colspan="2"></th>
     </tr>
   </thead>
@@ -13,9 +13,9 @@
   <tbody>
     <% @stages.each do |stage| %>
       <tr>
-        <td><%= link_to 'Show', [:trainer, stage] %></td>
-        <td><%= link_to 'Edit', edit_trainer_stage_path(stage) %></td>
-        <td><%= link_to 'Destroy', [:trainer, stage], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to "Этап #{stage.position}", [:trainer, stage] %></td>
+        <td><%= link_to 'Edit', edit_trainer_stage_path(stage), class: 'btn btn-default' %></td>
+        <td><%= link_to 'Destroy', [:trainer, stage], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
       </tr>
     <% end %>
   </tbody>
