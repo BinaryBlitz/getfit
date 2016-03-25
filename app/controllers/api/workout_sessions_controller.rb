@@ -38,7 +38,7 @@ class API::WorkoutSessionsController < API::APIController
   end
 
   def create_workout_session_params
-    params.require(:workout_session).permit(:stage_id, :scheduled_for)
+    params.require(:workout_session).permit(:workout_id, :scheduled_for)
   end
 
   def workout_session_params

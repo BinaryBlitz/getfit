@@ -2,9 +2,9 @@ require 'rvm/capistrano'
 require 'bundler/capistrano'
 load 'deploy/assets'
 
-set :stages, %w(staging)
-set :default_stage, "staging"
-require 'capistrano/ext/multistage'
+set :workouts, %w(staging)
+set :default_workout, "staging"
+require 'capistrano/ext/multiworkout'
 
 set :application, "getfit"
 set :deploy_to, "/home/getfit/#{application}"

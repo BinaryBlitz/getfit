@@ -1,0 +1,22 @@
+<h1>Trainer Workouts</h1>
+
+<%= link_to 'New Trainer Workout', new_trainer_program_workout_path(@program), class: 'btn btn-default' %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Этап</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @workouts.each do |workout| %>
+      <tr>
+        <td><%= link_to "Этап #{workout.position}", trainer_workout_exercises_path(workout) %></td>
+        <td><%= link_to 'Edit', edit_trainer_workout_path(workout), class: 'btn btn-default' %></td>
+        <td><%= link_to 'Destroy', [:trainer, workout], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

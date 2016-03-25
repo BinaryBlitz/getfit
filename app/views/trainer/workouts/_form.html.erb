@@ -1,5 +1,5 @@
-<%= form_for([:trainer, @program, @stage]) do |f| %>
-  <%= render 'shared/error_messages', object: @stage %>
+<%= form_for([:trainer, @program, @workout]) do |f| %>
+  <%= render 'shared/error_messages', object: @workout %>
 
   <div class="form-group">
     <%= f.label :position %>

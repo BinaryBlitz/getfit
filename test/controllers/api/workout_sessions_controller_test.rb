@@ -20,7 +20,7 @@ class API::WorkoutSessionsControllerTest < ActionDispatch::IntegrationTest
       post api_workout_sessions_url, params: {
         api_token: api_token,
         workout_session: {
-          stage_id: @workout_session.stage_id,
+          workout_id: @workout_session.workout_id,
           scheduled_for: @workout_session.scheduled_for
         }
       }

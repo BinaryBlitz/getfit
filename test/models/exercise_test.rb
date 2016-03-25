@@ -10,7 +10,7 @@
 #  distance         :integer
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
-#  stage_id         :integer
+#  workout_id       :integer
 #
 
 require 'test_helper'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160325174901) do
+ActiveRecord::Schema.define(version: 20160325180558) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,11 +47,11 @@ ActiveRecord::Schema.define(version: 20160325174901) do
     t.integer  "distance"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
-    t.integer  "stage_id"
+    t.integer  "workout_id"
   end
 
   add_index "exercises", ["exercise_type_id"], name: "index_exercises_on_exercise_type_id", using: :btree
-  add_index "exercises", ["stage_id"], name: "index_exercises_on_stage_id", using: :btree
+  add_index "exercises", ["workout_id"], name: "index_exercises_on_workout_id", using: :btree
 
   create_table "followings", force: :cascade do |t|
     t.integer  "user_id"
@@ -143,15 +143,6 @@ ActiveRecord::Schema.define(version: 20160325174901) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "stages", force: :cascade do |t|
-    t.integer  "position"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "program_id"
-  end
-
-  add_index "stages", ["program_id"], name: "index_stages_on_program_id", using: :btree
-
   create_table "subscriptions", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "trainer_id"
@@ -214,19 +205,28 @@ ActiveRecord::Schema.define(version: 20160325174901) do
 
   create_table "workout_sessions", force: :cascade do |t|
     t.integer  "user_id"
-    t.integer  "stage_id"
+    t.integer  "workout_id"
     t.date     "scheduled_for"
     t.boolean  "completed",     default: false
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
   end
 
-  add_index "workout_sessions", ["stage_id"], name: "index_workout_sessions_on_stage_id", using: :btree
   add_index "workout_sessions", ["user_id"], name: "index_workout_sessions_on_user_id", using: :btree
+  add_index "workout_sessions", ["workout_id"], name: "index_workout_sessions_on_workout_id", using: :btree
+
+  create_table "workouts", force: :cascade do |t|
+    t.integer  "position"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "program_id"
+  end
+
+  add_index "workouts", ["program_id"], name: "index_workouts_on_program_id", using: :btree
 
   add_foreign_key "exercise_types", "trainers"
   add_foreign_key "exercises", "exercise_types"
-  add_foreign_key "exercises", "stages"
+  add_foreign_key "exercises", "workouts"
   add_foreign_key "followings", "trainers"
   add_foreign_key "followings", "users"
   add_foreign_key "likes", "posts"
@@ -242,6 +242,6 @@ ActiveRecord::Schema.define(version: 20160325174901) do
   add_foreign_key "ratings", "users"
   add_foreign_key "subscriptions", "trainers"
   add_foreign_key "subscriptions", "users"
-  add_foreign_key "workout_sessions", "stages"
   add_foreign_key "workout_sessions", "users"
+  add_foreign_key "workout_sessions", "workouts"
 end

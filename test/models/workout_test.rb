@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: stages
+# Table name: workouts
 #
 #  id         :integer          not null, primary key
 #  position   :integer
@@ -9,9 +9,10 @@
 #  program_id :integer
 #
 
-class Stage < ApplicationRecord
-  belongs_to :program, optional: true
+require 'test_helper'
 
-  has_many :exercises, dependent: :destroy
-  has_many :workout_sessions, dependent: :destroy
+class WorkoutTest < ActiveSupport::TestCase
+  setup do
+    @workout = workouts(:workout)
+  end
 end

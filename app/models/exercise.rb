@@ -10,11 +10,11 @@
 #  distance         :integer
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
-#  stage_id         :integer
+#  workout_id       :integer
 #
 
 class Exercise < ApplicationRecord
-  belongs_to :stage
+  belongs_to :workout
   belongs_to :exercise_type
 
   validates :sets, :reps, :weight, :distance, numericality: { greater_than: 0 }, allow_nil: true

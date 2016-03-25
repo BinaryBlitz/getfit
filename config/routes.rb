@@ -10,10 +10,10 @@ Rails.application.routes.draw do
     resources :exercise_types
 
     resources :programs do
-      resources :stages, only: [:index, :new, :create], shallow: true
+      resources :workouts, only: [:index, :new, :create], shallow: true
     end
 
-    resources :stages, except: [:show, :index, :new, :create] do
+    resources :workouts, except: [:show, :index, :new, :create] do
       resources :exercises, shallow: true
     end
   end
@@ -28,7 +28,7 @@ Rails.application.routes.draw do
 
     resources :workout_sessions
     resources :programs, except: [:new, :edit] do
-      resources :stages, except: [:new, :edit], shallow: true do
+      resources :workouts, except: [:new, :edit], shallow: true do
         resources :exercises, except: [:new, :edit], shallow: true
       end
     end

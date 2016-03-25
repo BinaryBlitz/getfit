@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: stages
+# Table name: workouts
 #
 #  id         :integer          not null, primary key
 #  position   :integer
@@ -9,6 +9,9 @@
 #  program_id :integer
 #
 
-stage:
-  program: program
-  position: 0
+class Workout < ApplicationRecord
+  belongs_to :program, optional: true
+
+  has_many :exercises, dependent: :destroy
+  has_many :workout_sessions, dependent: :destroy
+end

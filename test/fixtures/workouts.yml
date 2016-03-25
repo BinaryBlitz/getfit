@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: stages
+# Table name: workouts
 #
 #  id         :integer          not null, primary key
 #  position   :integer
@@ -9,10 +9,6 @@
 #  program_id :integer
 #
 
-require 'test_helper'
-
-class StageTest < ActiveSupport::TestCase
-  setup do
-    @stage = stages(:stage)
-  end
-end
+workout:
+  program: program
+  position: 0
