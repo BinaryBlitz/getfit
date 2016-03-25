@@ -1,0 +1,12 @@
+<%= form_for([:trainer, @program, @stage]) do |f| %>
+  <%= render 'shared/error_messages', object: @stage %>
+
+  <div class="form-group">
+    <%= f.label :position %>
+    <%= f.number_field :position, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit class: 'btn btn-default' %>
+  </div>
+<% end %>
