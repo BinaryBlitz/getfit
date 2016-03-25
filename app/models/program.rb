@@ -23,7 +23,7 @@ class Program < ApplicationRecord
   has_many :purchases, dependent: :destroy
   has_many :users, through: :purchases
   has_many :ratings, dependent: :destroy
-  has_many :stages, as: :stageable, dependent: :destroy
+  has_many :stages, dependent: :destroy
 
   validates :name, :preview, :description, :banner, :duration, :price, presence: true
   validates :duration, numericality: { greater_than: 0 }

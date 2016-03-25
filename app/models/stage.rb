@@ -2,16 +2,15 @@
 #
 # Table name: stages
 #
-#  id             :integer          not null, primary key
-#  stageable_type :string
-#  stageable_id   :integer
-#  position       :integer
-#  created_at     :datetime         not null
-#  updated_at     :datetime         not null
+#  id         :integer          not null, primary key
+#  position   :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  program_id :integer
 #
 
 class Stage < ApplicationRecord
-  belongs_to :stageable, polymorphic: true
+  belongs_to :program, optional: true
 
   has_many :exercises, dependent: :destroy
 end

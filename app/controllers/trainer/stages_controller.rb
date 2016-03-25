@@ -50,6 +50,6 @@ class Trainer::StagesController < Trainer::TrainerController
   end
 
   def stage_params
-    params.fetch(:trainer_stage, {})
+    params.require(:stage).permit(:position)
   end
 end

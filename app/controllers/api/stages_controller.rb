@@ -1,9 +1,9 @@
 class API::StagesController < ApplicationController
-  before_action :set_stageable, only: [:index]
+  before_action :set_program, only: [:index]
   before_action :set_stage, only: [:show]
 
   def index
-    @stages = @stageable.stages
+    @stages = @program.stages
   end
 
   def show
@@ -11,9 +11,8 @@ class API::StagesController < ApplicationController
 
   private
 
-  def set_stageable
-    stageable = [Program, Subscription].detect { |s| params["#{s.name.underscore}_id"] }
-    @stageable = stageable.find(params["#{stageable.name.underscore}_id"])
+  def set_program
+    @program = Program.find(params[:program_id])
   end
 
   def set_stage
