@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: trainings
+# Table name: workout_sessions
 #
 #  id            :integer          not null, primary key
 #  user_id       :integer
@@ -11,7 +11,7 @@
 #  updated_at    :datetime         not null
 #
 
-training:
+workout_session:
   user: foo
   stage: stage
   scheduled_for: <%= 1.week.from_now %>

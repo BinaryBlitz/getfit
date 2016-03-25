@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: trainings
+# Table name: workout_sessions
 #
 #  id            :integer          not null, primary key
 #  user_id       :integer
@@ -11,7 +11,10 @@
 #  updated_at    :datetime         not null
 #
 
-class Training < ApplicationRecord
-  belongs_to :user
-  belongs_to :stage
+require 'test_helper'
+
+class WorkoutSessionTest < ActiveSupport::TestCase
+  setup do
+    @workout_session = workout_sessions(:workout_session)
+  end
 end

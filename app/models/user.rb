@@ -32,7 +32,7 @@ class User < ApplicationRecord
   has_many :liked_posts, through: :likes, source: :post
   has_many :purchases, dependent: :destroy
   has_many :programs, through: :purchases
-  has_many :trainings, dependent: :destroy
+  has_many :workout_sessions, dependent: :destroy
 
   validates :first_name, :last_name, presence: true
   validates :height, :weight, numericality: { greater_than: 0 }, allow_nil: true
