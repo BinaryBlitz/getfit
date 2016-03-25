@@ -8,6 +8,7 @@
 #  user_id    :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  content    :text
 #
 
 class Rating < ApplicationRecord
@@ -15,4 +16,5 @@ class Rating < ApplicationRecord
   belongs_to :user
 
   validates :value, inclusion: { in: 1..5 }
+  validates :content, length: { minimum: 1 }, allow_nil: true
 end

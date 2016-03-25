@@ -18,6 +18,8 @@
 #  updated_at   :datetime         not null
 #  vk_id        :integer
 #  fb_id        :integer
+#  device_token :string
+#  platform     :string
 #
 
 foo:
