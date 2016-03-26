@@ -10,7 +10,7 @@ class API::UsersController < API::APIController
     @user = User.new(user_params)
 
     if @user.save
-      render :show, status: :created
+      render status: :created
     else
       render json: @user.errors, status: 422
     end
