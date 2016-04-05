@@ -22,8 +22,8 @@
         <td><%= exercise.reps %></td>
         <td><%= exercise.weight %></td>
         <td><%= exercise.distance %></td>
-        <td><%= link_to 'Edit', edit_trainer_exercise_path(exercise), class: 'btn btn-default' %></td>
-        <td><%= link_to 'Destroy', [:trainer, exercise], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+        <td><%= link_to 'Изменить', edit_trainer_exercise_path(exercise), class: 'btn btn-default' %></td>
+        <td><%= link_to 'Удалить', [:trainer, exercise], method: :delete, data: { confirm: 'Вы уверены?' }, class: 'btn btn-danger' %></td>
       </tr>
     <% end %>
   </tbody>

@@ -1,6 +1,6 @@
-<h1>Trainer Programs</h1>
+<h1>Программы</h1>
 
-<%= link_to 'New Program', new_trainer_program_path, class: 'btn btn-default' %>
+<%= link_to 'Новая программа', new_trainer_program_path, class: 'btn btn-default' %>
 
 <table class="table">
   <thead>
@@ -22,8 +22,8 @@
         <td><%= program.duration %></td>
         <td><%= program.price %></td>
         <td><%= program.program_type.name %></td>
-        <td><%= link_to 'Edit', edit_trainer_program_path(program), class: 'btn btn-default' %></td>
-        <td><%= link_to 'Destroy', [:trainer, program], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+        <td><%= link_to 'Изменить', edit_trainer_program_path(program), class: 'btn btn-default' %></td>
+        <td><%= link_to 'Удалить', [:trainer, program], method: :delete, data: { confirm: 'Вы уверены?' }, class: 'btn btn-danger' %></td>
       </tr>
     <% end %>
   </tbody>
