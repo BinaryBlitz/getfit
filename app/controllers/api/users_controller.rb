@@ -28,7 +28,7 @@ class API::UsersController < API::APIController
     if params[:token].present?
       vk = VkontakteApi::Client.new(params[:token])
       @user = User.find_or_create_from_vk(vk)
-      render :show
+      render :create
     else
       head 422
     end
@@ -40,7 +40,7 @@ class API::UsersController < API::APIController
     if params[:token].present?
       fb = Koala::Facebook::API.new(params[:token])
       @user = User.find_or_create_from_fb(fb)
-      render :show
+      render :create
     else
       head 422
     end
