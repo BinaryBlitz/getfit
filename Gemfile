@@ -2,8 +2,6 @@ source 'https://rubygems.org'
 
 gem 'rails', '>= 5.0.0.beta2', '< 5.1'
 gem 'pg', '~> 0.18'
-gem 'puma'
-gem 'unicorn'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
@@ -13,7 +11,8 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'redis', '~> 3.0'
 
-gem 'devise', '>= 4.0.0.rc1'
+gem 'devise', '>= 4.0.0.rc2'
+gem 'devise-i18n'
 gem 'enumerize'
 gem 'phonelib'
 gem 'mini_magick'
@@ -27,6 +26,7 @@ gem 'koala'
 gem 'rpush'
 
 group :development, :test do
+  gem 'puma'
   gem 'byebug'
   gem 'rvm-capistrano', require: false
 end
@@ -39,4 +39,8 @@ end
 
 group :test do
   gem 'mocha'
+end
+
+group :production do
+  gem 'unicorn'
 end

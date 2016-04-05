@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_devise_locale, if: :devise_controller?
 
   layout :layout_by_resource
 
@@ -29,5 +30,9 @@ class ApplicationController < ActionController::Base
         :category, :experience
       ])
     end
+  end
+
+  def set_devise_locale
+    I18n.locale = :ru
   end
 end
