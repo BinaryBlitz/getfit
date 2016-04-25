@@ -1,0 +1,5 @@
+message:
+  content: Content
+  category: user
+  subscription: subscription
+  image:

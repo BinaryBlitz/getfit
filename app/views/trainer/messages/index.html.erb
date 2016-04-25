@@ -1,0 +1,35 @@
+<h1>Messages</h1>
+
+<%= render 'form' %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Отправитель</th>
+      <th>Сообщение</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @messages.each do |message| %>
+      <% next unless message.content.present? || message.image? %>
+      <tr class="<%= 'active' if message.category == 'user' %>">
+        <td class="col-xs-3 col-sm-2">
+          <%= message.category == 'user' ? @subscription.user.full_name : 'Тренер' %>
+          <br>
+          <span class="text-muted">
+            <%= message.created_at.to_formatted_s(:short) %>
+          </span>
+        </td>
+        <td class="col-xs-9 col-sm-10">
+          <%= message.content %>
+          <% if message.image? %>
+            <%= link_to message.image_url do %>
+              <%= image_tag message.image.thumb.url, class: 'img-responsive' %>
+            <% end %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -14,4 +14,5 @@ class Subscription < ApplicationRecord
   belongs_to :trainer
 
   has_many :workouts, as: :workoutable, dependent: :destroy
+  has_many :messages, dependent: :destroy
 end

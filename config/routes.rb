@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   namespace :trainer do
     resource :trainer
     resources :posts
-    resources :subscriptions, only: [:index, :show]
+    resources :subscriptions, only: [:index, :show] do
+      resources :messages, only: [:index, :create], shallow: true
+    end
     resources :exercise_types
 
     resources :programs do
@@ -27,6 +29,9 @@ Rails.application.routes.draw do
     resources :users, only: [:show]
     resources :posts, except: [:new, :edit] do
       resources :likes, only: [:create, :destroy], shallow: true
+    end
+    resources :subscriptions, only: [:index] do
+      resources :messages, only: [:index], shallow: true
     end
 
     resources :programs, except: [:new, :edit] do
