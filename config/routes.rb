@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :trainers, path: 'trainer'
-  devise_for :admins, path: 'admin'
+  devise_for :admins, path: 'admin', skip: :registrations
 
   get 'trainer', to: 'trainer/programs#index'
   get 'admin', to: 'admin/notifications#index'
