@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160425150201) do
+ActiveRecord::Schema.define(version: 20160425152003) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -285,6 +285,16 @@ ActiveRecord::Schema.define(version: 20160425150201) do
   add_index "trainers", ["email"], name: "index_trainers_on_email", unique: true, using: :btree
   add_index "trainers", ["reset_password_token"], name: "index_trainers_on_reset_password_token", unique: true, using: :btree
 
+  create_table "user_notifications", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "subscription_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "user_notifications", ["subscription_id"], name: "index_user_notifications_on_subscription_id", using: :btree
+  add_index "user_notifications", ["user_id"], name: "index_user_notifications_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "first_name",             null: false
     t.string   "last_name",              null: false
@@ -356,6 +366,8 @@ ActiveRecord::Schema.define(version: 20160425150201) do
   add_foreign_key "ratings", "users"
   add_foreign_key "subscriptions", "trainers"
   add_foreign_key "subscriptions", "users"
+  add_foreign_key "user_notifications", "subscriptions"
+  add_foreign_key "user_notifications", "users"
   add_foreign_key "workout_sessions", "users"
   add_foreign_key "workout_sessions", "workouts"
 end

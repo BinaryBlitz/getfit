@@ -1,0 +1,3 @@
+user_notification:
+  user: foo
+  subscription: subscription
