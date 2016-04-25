@@ -25,4 +25,9 @@ class ActionDispatch::IntegrationTest
   def sign_in_trainer(trainer, password: 'password')
     post trainer_session_path, params: { trainer: { email: trainer.email, password: password } }
   end
+
+  def sign_in_admin(password: 'password')
+    admin = admins(:admin)
+    post admin_session_path, params: { admin: { email: admin.email, password: password } }
+  end
 end

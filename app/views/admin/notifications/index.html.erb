@@ -1,0 +1,21 @@
+<h1>Notifications</h1>
+
+<div class="form-group">
+  <%= link_to 'New Notification', new_admin_notification_path, class: 'btn btn-default' %>
+</div>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Content</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @notifications.each do |notification| %>
+      <tr>
+        <td><%= notification.content %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
