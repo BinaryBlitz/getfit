@@ -38,6 +38,8 @@ program = Program.create!(
   trainer: trainer, program_type: program_type
 )
 
+admin = Admin.create!(email: 'foo@bar.com', password: 'qwerty123')
+
 # Push notifications
 
 # app = Rpush::Apns::App.new

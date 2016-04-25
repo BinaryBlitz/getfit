@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  resources :notifications
   devise_for :trainers, path: 'trainer'
+  devise_for :admins, path: 'admin'
 
   get 'trainer', to: 'trainer/programs#index'
+  get 'admin', to: 'admin/notifications#index'
 
   namespace :trainer do
     resource :trainer
