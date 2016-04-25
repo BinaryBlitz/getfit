@@ -24,6 +24,6 @@ class Admin::NotificationsController < Admin::AdminController
   end
 
   def notification_params
-    params.require(:notification).permit(:content)
+    params.fetch(:notification, {}).permit(:content, :image, :image_cache)
   end
 end

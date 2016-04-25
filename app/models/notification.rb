@@ -6,8 +6,11 @@
 #  content    :string           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  image      :string
 #
 
 class Notification < ApplicationRecord
   validates :content, presence: true
+
+  mount_uploader :image, ImageUploader
 end
