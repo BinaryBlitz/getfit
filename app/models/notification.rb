@@ -10,7 +10,15 @@
 #
 
 class Notification < ApplicationRecord
+  after_create :notify
+
   validates :content, presence: true
 
   mount_uploader :image, ImageUploader
+
+  private
+
+  def notify
+    User.find_each { |user| Notifier.new(user, content) }
+  end
 end
