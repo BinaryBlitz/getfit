@@ -2,7 +2,7 @@ class API::ProgramsController < API::APIController
   before_action :set_program, only: [:show]
 
   def index
-    @programs = Program.all
+    @programs = Program.approved
   end
 
   def show

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160425104207) do
+ActiveRecord::Schema.define(version: 20160425122531) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -127,16 +127,17 @@ ActiveRecord::Schema.define(version: 20160425104207) do
   end
 
   create_table "programs", force: :cascade do |t|
-    t.string   "name",            null: false
-    t.string   "preview",         null: false
-    t.text     "description",     null: false
-    t.string   "banner",          null: false
-    t.integer  "duration",        null: false
-    t.integer  "price",           null: false
+    t.string   "name",                            null: false
+    t.string   "preview",                         null: false
+    t.text     "description",                     null: false
+    t.string   "banner",                          null: false
+    t.integer  "duration",                        null: false
+    t.integer  "price",                           null: false
     t.integer  "trainer_id"
     t.integer  "program_type_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.boolean  "approved",        default: false
   end
 
   add_index "programs", ["program_type_id"], name: "index_programs_on_program_type_id", using: :btree

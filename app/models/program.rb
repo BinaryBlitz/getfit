@@ -13,6 +13,7 @@
 #  program_type_id :integer
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  approved        :boolean          default(FALSE)
 #
 
 class Program < ApplicationRecord
@@ -30,4 +31,6 @@ class Program < ApplicationRecord
   validates :price, numericality: { greater_than_or_equal_to: 0 }
 
   mount_uploader :banner, ImageUploader
+
+  scope :approved, -> { where(approved: true) }
 end

@@ -10,6 +10,7 @@
       <th>Продолжительность</th>
       <th>Цена</th>
       <th>Тип</th>
+      <th>Статус</th>
       <th colspan="2"></th>
     </tr>
   </thead>
@@ -22,6 +23,13 @@
         <td><%= program.duration %></td>
         <td><%= program.price %></td>
         <td><%= program.program_type.name %></td>
+        <td>
+          <% if program.approved? %>
+            <span class="label label-success">Одобрено</span>
+          <% else %>
+            <span class="label label-warning">Рассматривается</span>
+          <% end %>
+        </td>
         <td><%= link_to 'Изменить', edit_trainer_program_path(program), class: 'btn btn-default' %></td>
         <td><%= link_to 'Удалить', [:trainer, program], method: :delete, data: { confirm: 'Вы уверены?' }, class: 'btn btn-danger' %></td>
       </tr>
