@@ -4,11 +4,11 @@
 #
 #  id              :integer          not null, primary key
 #  name            :string           not null
-#  preview         :string           not null
-#  description     :text             not null
-#  banner          :string           not null
-#  duration        :integer          not null
-#  price           :integer          not null
+#  preview         :string
+#  description     :text
+#  banner          :string
+#  duration        :string
+#  price           :string
 #  trainer_id      :integer
 #  program_type_id :integer
 #  created_at      :datetime         not null
