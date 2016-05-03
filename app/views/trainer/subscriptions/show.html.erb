@@ -1,7 +1,9 @@
 <h1><%= @subscription.user.full_name %></h1>
 
+<%= @subscription.program %>
+
 <div class="form-group">
-  <%= link_to 'Персональная программа', '#', class: 'btn btn-primary' %>
+  <%= link_to 'Персональная программа', [:trainer, @subscription.program], class: 'btn btn-primary' %>
   <%= link_to 'Сообщения', trainer_subscription_messages_path(@subscription), class: 'btn btn-default' %>
 </div>
 

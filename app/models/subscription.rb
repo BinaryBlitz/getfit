@@ -10,9 +10,20 @@
 #
 
 class Subscription < ApplicationRecord
+  after_create :create_default_program
+
   belongs_to :user
   belongs_to :trainer
 
-  has_many :workouts, as: :workoutable, dependent: :destroy
+  has_one :program, dependent: :destroy
   has_many :messages, dependent: :destroy
+
+  private
+
+  def create_default_program
+    create_program(
+      name: "Personal training: #{user.full_name}",
+      trainer: trainer
+    )
+  end
 end

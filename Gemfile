@@ -28,6 +28,7 @@ gem 'rpush'
 group :development, :test do
   gem 'puma'
   gem 'byebug'
+  gem 'pry-rails'
   gem 'rvm-capistrano', require: false
 end
 

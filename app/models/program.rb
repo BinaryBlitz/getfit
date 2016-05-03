@@ -14,11 +14,13 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  approved        :boolean          default(FALSE)
+#  subscription_id :integer
 #
 
 class Program < ApplicationRecord
   belongs_to :trainer
-  belongs_to :program_type
+  belongs_to :program_type, optional: true
+  belongs_to :subscription, optional: true
 
   has_many :posts, dependent: :destroy
   has_many :purchases, dependent: :destroy
@@ -26,9 +28,11 @@ class Program < ApplicationRecord
   has_many :ratings, dependent: :destroy
   has_many :workouts, dependent: :destroy
 
-  validates :name, :preview, :description, :banner, :duration, :price, presence: true
-  validates :duration, numericality: { greater_than: 0 }
-  validates :price, numericality: { greater_than_or_equal_to: 0 }
+  validates :name, presence: true
+  validates :preview, :description, :banner, :program_type,
+            presence: true, unless: 'subscription.present?'
+  validates :duration, numericality: { greater_than: 0 }, unless: 'subscription.present?'
+  validates :price, numericality: { greater_than_or_equal_to: 0 }, unless: 'subscription.present?'
 
   mount_uploader :banner, ImageUploader
 

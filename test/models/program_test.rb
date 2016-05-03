@@ -42,4 +42,12 @@ class ProgramTest < ActiveSupport::TestCase
     @program.price = 1
     assert @program.valid?
   end
+
+  test 'validations when subscription is present' do
+    @program.subscription = subscriptions(:subscription)
+    @program.duration = nil
+    @program.price = nil
+
+    assert @program.valid?
+  end
 end
