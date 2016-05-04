@@ -33,6 +33,8 @@ Rails.application.routes.draw do
 
     resources :users, only: [:show]
 
+    resources :trainers, only: [:index]
+
     resources :posts, except: [:new, :edit] do
       resources :likes, only: [:create, :destroy], shallow: true
     end
