@@ -18,6 +18,9 @@
 #
 
 class Program < ApplicationRecord
+  after_save :update_counter_cache
+  after_destroy :update_counter_cache
+
   belongs_to :trainer
   belongs_to :program_type, optional: true
   belongs_to :subscription, optional: true
@@ -37,4 +40,11 @@ class Program < ApplicationRecord
   mount_uploader :banner, ImageUploader
 
   scope :approved, -> { where(approved: true) }
+  scope :visible, -> { where(subscription: nil) }
+
+  private
+
+  def update_counter_cache
+    trainer.update(visible_programs_count: trainer.programs.visible.count)
+  end
 end
