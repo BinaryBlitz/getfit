@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160503220202) do
+ActiveRecord::Schema.define(version: 20160503223201) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -271,12 +271,10 @@ ActiveRecord::Schema.define(version: 20160503220202) do
   end
 
   create_table "user_notifications", force: :cascade do |t|
-    t.integer  "user_id"
     t.integer  "subscription_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.index ["subscription_id"], name: "index_user_notifications_on_subscription_id", using: :btree
-    t.index ["user_id"], name: "index_user_notifications_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -349,7 +347,6 @@ ActiveRecord::Schema.define(version: 20160503220202) do
   add_foreign_key "subscriptions", "trainers"
   add_foreign_key "subscriptions", "users"
   add_foreign_key "user_notifications", "subscriptions"
-  add_foreign_key "user_notifications", "users"
   add_foreign_key "workout_sessions", "users"
   add_foreign_key "workout_sessions", "workouts"
 end

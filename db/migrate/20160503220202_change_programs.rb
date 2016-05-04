@@ -1,5 +1,5 @@
 class ChangePrograms < ActiveRecord::Migration[5.0]
-  def change
+  def up
     change_column :programs, :preview, :string, null: true
     change_column :programs, :description, :text, null: true
     change_column :programs, :banner, :string, null: true

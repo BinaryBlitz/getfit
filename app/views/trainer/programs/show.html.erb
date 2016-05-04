@@ -3,6 +3,13 @@
 <div class="form-group">
   <%= link_to 'Изменить', edit_trainer_program_path, class: 'btn btn-default' %>
   <%= link_to 'Этапы', trainer_program_workouts_path(@program), class: 'btn btn-default' %>
+
+  <% if @program.subscription.present? %>
+    <%= link_to 'Уведомить об изменениях',
+                trainer_subscription_user_notifications_path(@program.subscription),
+                method: :post,
+                class: 'btn btn-primary' %>
+  <% end %>
 </div>
 
 <p>

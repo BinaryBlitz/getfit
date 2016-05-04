@@ -22,7 +22,7 @@
         <td><%= truncate(program.preview, length: 20) %></td>
         <td><%= program.duration %></td>
         <td><%= program.price %></td>
-        <td><%= program.program_type.name %></td>
+        <td><%= program.program_type&.name %></td>
         <td>
           <% if program.approved? %>
             <span class="label label-success">Одобрено</span>

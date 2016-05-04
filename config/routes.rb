@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
     resources :subscriptions, only: [:index, :show] do
       resources :messages, only: [:index, :create], shallow: true
+      resources :user_notifications, only: [:create], shallow: true
     end
 
     resources :programs do

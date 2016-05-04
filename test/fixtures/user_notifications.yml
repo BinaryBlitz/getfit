@@ -1,3 +1,12 @@
+# == Schema Information
+#
+# Table name: user_notifications
+#
+#  id              :integer          not null, primary key
+#  subscription_id :integer
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+
 user_notification:
-  user: foo
   subscription: subscription

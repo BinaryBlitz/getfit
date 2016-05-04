@@ -17,6 +17,7 @@ class Subscription < ApplicationRecord
 
   has_one :program, dependent: :destroy
   has_many :messages, dependent: :destroy
+  has_many :user_notifications, dependent: :destroy
 
   private
 
