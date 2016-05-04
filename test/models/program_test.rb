@@ -59,11 +59,11 @@ class ProgramTest < ActiveSupport::TestCase
     trainer = @program.trainer
     new_program = @program.dup
 
-    assert_difference -> { trainer.reload.visible_programs_count } do
+    assert_difference -> { trainer.reload.programs_count } do
       new_program.save
     end
 
-    assert_difference -> { trainer.reload.visible_programs_count }, -1 do
+    assert_difference -> { trainer.reload.programs_count }, -1 do
       new_program.destroy
     end
   end

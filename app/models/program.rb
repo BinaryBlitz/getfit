@@ -45,6 +45,6 @@ class Program < ApplicationRecord
   private
 
   def update_counter_cache
-    trainer.update(visible_programs_count: trainer.programs.visible.count)
+    trainer.update(programs_count: trainer.programs.visible.count)
   end
 end

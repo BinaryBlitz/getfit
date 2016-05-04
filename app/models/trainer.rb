@@ -20,7 +20,7 @@
 #  experience             :integer          not null
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
-#  visible_programs_count :integer          default(0)
+#  programs_count         :integer          default(0)
 #
 
 class Trainer < ApplicationRecord
@@ -52,6 +52,6 @@ class Trainer < ApplicationRecord
   mount_uploader :banner, AvatarUploader
 
   def self.reset_counter_cache
-    find_each { |trainer| trainer.update(visible_programs_count: trainer.programs.visible.count) }
+    find_each { |trainer| trainer.update(programs_count: trainer.programs.visible.count) }
   end
 end

@@ -266,7 +266,7 @@ ActiveRecord::Schema.define(version: 20160504135247) do
     t.integer  "experience",                          null: false
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.integer  "visible_programs_count", default: 0
+    t.integer  "programs_count",         default: 0
     t.index ["email"], name: "index_trainers_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_trainers_on_reset_password_token", unique: true, using: :btree
   end
