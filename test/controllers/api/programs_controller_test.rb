@@ -5,13 +5,13 @@ class API::ProgramsControllerTest < ActionDispatch::IntegrationTest
     @program = programs(:program)
   end
 
-  test 'should get index' do
-    get api_programs_url, params: { api_token: api_token }
+  test 'should get index without token' do
+    get api_programs_url
     assert_response :success
   end
 
-  test 'should show program' do
-    get api_program_url(@program), params: { api_token: api_token }
+  test 'should show program without token' do
+    get api_program_url(@program)
     assert_response :success
   end
 end
