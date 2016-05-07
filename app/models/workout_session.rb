@@ -16,4 +16,6 @@ class WorkoutSession < ApplicationRecord
   belongs_to :workout
 
   has_many :exercise_sessions, dependent: :destroy
+
+  scope :completed, -> { where(completed: true) }
 end

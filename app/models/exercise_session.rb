@@ -21,6 +21,8 @@ class ExerciseSession < ApplicationRecord
   validates :sets, :reps, :weight, :distance, numericality: { greater_than: 0 }, allow_nil: true
   validate :exercise_field_present?
 
+  scope :completed, -> { where(completed: true) }
+
   private
 
   def exercise_field_present?

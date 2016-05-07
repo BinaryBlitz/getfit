@@ -27,6 +27,7 @@ class User < ApplicationRecord
 
   has_many :comments, as: :author, dependent: :destroy
   has_many :subscriptions, dependent: :destroy
+  has_many :personal_programs, through: :subscriptions, source: :program
   has_many :user_notifications, through: :subscriptions
   has_many :personal_trainers, through: :subscriptions, source: :trainer
   has_many :followings, dependent: :destroy
@@ -36,6 +37,7 @@ class User < ApplicationRecord
   has_many :purchases, dependent: :destroy
   has_many :programs, through: :purchases
   has_many :workout_sessions, dependent: :destroy
+  has_many :exercise_sessions, through: :workout_sessions
 
   validates :first_name, :last_name, presence: true
   validates :height, :weight, numericality: { greater_than: 0 }, allow_nil: true

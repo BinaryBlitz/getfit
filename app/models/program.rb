@@ -7,7 +7,7 @@
 #  preview         :string
 #  description     :text
 #  banner          :string
-#  duration        :string
+#  duration        :integer          default(0)
 #  price           :string
 #  trainer_id      :integer
 #  program_type_id :integer
