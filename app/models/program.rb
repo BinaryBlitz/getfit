@@ -17,6 +17,7 @@
 #  subscription_id :integer
 #  rating          :float
 #  workouts_count  :integer          default(0)
+#  users_count     :integer          default(0)
 #
 
 class Program < ApplicationRecord

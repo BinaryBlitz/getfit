@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160511194445) do
+ActiveRecord::Schema.define(version: 20160511195051) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -151,6 +151,7 @@ ActiveRecord::Schema.define(version: 20160511194445) do
     t.integer  "subscription_id"
     t.float    "rating"
     t.integer  "workouts_count",  default: 0
+    t.integer  "users_count",     default: 0
     t.index ["program_type_id"], name: "index_programs_on_program_type_id", using: :btree
     t.index ["subscription_id"], name: "index_programs_on_subscription_id", using: :btree
     t.index ["trainer_id"], name: "index_programs_on_trainer_id", using: :btree
