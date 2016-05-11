@@ -15,6 +15,7 @@
 #  updated_at      :datetime         not null
 #  approved        :boolean          default(FALSE)
 #  subscription_id :integer
+#  rating          :float
 #
 
 class Program < ApplicationRecord

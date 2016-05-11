@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160511172536) do
+ActiveRecord::Schema.define(version: 20160511173101) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -149,6 +149,7 @@ ActiveRecord::Schema.define(version: 20160511172536) do
     t.datetime "updated_at",                      null: false
     t.boolean  "approved",        default: false
     t.integer  "subscription_id"
+    t.float    "rating"
     t.index ["program_type_id"], name: "index_programs_on_program_type_id", using: :btree
     t.index ["subscription_id"], name: "index_programs_on_subscription_id", using: :btree
     t.index ["trainer_id"], name: "index_programs_on_trainer_id", using: :btree
