@@ -3,7 +3,7 @@ class API::ProgramsController < API::APIController
   before_action :set_program, only: [:show]
 
   def index
-    @programs = Program.approved
+    @programs = ProgramSearch.new(search_params).programs
   end
 
   def show
@@ -13,5 +13,9 @@ class API::ProgramsController < API::APIController
 
   def set_program
     @program = Program.find(params[:id])
+  end
+
+  def search_params
+    params.permit(:order, :program_type_id, :min_price, :max_price)
   end
 end
