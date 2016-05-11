@@ -6,6 +6,11 @@ class API::SubscriptionsControllerTest < ActionDispatch::IntegrationTest
     @trainer = @subscription.trainer
   end
 
+  test 'should get index' do
+    get api_subscriptions_url, params: { api_token: api_token }
+    assert_response :success
+  end
+
   test 'should create subscription' do
     @subscription.destroy
 

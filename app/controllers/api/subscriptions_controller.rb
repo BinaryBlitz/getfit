@@ -1,6 +1,10 @@
 class API::SubscriptionsController < API::APIController
   before_action :set_trainer, only: [:create]
 
+  def index
+    @subscriptions = current_user.subscriptions
+  end
+
   def create
     @subscription = current_user.subscriptions.build(trainer: @trainer)
 
