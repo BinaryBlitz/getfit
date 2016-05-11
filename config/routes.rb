@@ -50,6 +50,7 @@ Rails.application.routes.draw do
 
     resources :programs, except: [:new, :edit] do
       resources :ratings, except: [:show, :new, :edit], shallow: true
+      resource :purchase, only: [:create]
     end
 
     resources :workouts, except: [:new, :edit] do

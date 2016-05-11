@@ -10,5 +10,5 @@
 #
 
 purchase:
-  user: user
+  user: foo
   program: program

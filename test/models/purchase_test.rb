@@ -12,7 +12,17 @@
 require 'test_helper'
 
 class PurchaseTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  setup do
+    @purchase = purchases(:purchase)
+  end
+
+  test 'valid' do
+    assert @purchase.valid?
+  end
+
+  test 'uniqueness' do
+    purchase = @purchase.dup
+
+    assert purchase.invalid?
+  end
 end

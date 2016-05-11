@@ -12,4 +12,6 @@
 class Purchase < ApplicationRecord
   belongs_to :user
   belongs_to :program
+
+  validates :program, uniqueness: { scope: :user }
 end
