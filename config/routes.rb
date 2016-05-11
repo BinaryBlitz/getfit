@@ -50,10 +50,10 @@ Rails.application.routes.draw do
 
     resources :programs, except: [:new, :edit] do
       resources :ratings, except: [:show, :new, :edit], shallow: true
+    end
 
-      resources :workouts, except: [:new, :edit], shallow: true do
-        resources :exercises, except: [:new, :edit], shallow: true
-      end
+    resources :workouts, except: [:new, :edit] do
+      resources :exercises, except: [:new, :edit], shallow: true
     end
 
     resources :workout_sessions, except: [:new, :edit] do
