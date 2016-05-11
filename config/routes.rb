@@ -37,6 +37,8 @@ Rails.application.routes.draw do
 
     resources :trainers, only: [:index] do
       resource :subscription, only: [:create]
+      resources :posts, only: [:index], controller: :trainer_posts
+      resources :programs, only: [:index], controller: :trainer_programs
     end
 
     resources :posts, except: [:new, :edit] do
