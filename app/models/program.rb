@@ -8,7 +8,7 @@
 #  description     :text
 #  banner          :string
 #  duration        :integer          default(0)
-#  price           :string
+#  price           :integer          default(0)
 #  trainer_id      :integer
 #  program_type_id :integer
 #  created_at      :datetime         not null
