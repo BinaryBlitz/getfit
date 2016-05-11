@@ -36,6 +36,7 @@ class User < ApplicationRecord
   has_many :liked_posts, through: :likes, source: :post
   has_many :purchases, dependent: :destroy
   has_many :programs, through: :purchases
+  has_many :workouts, through: :programs
   has_many :workout_sessions, dependent: :destroy
   has_many :exercise_sessions, through: :workout_sessions
 

@@ -1,8 +1,8 @@
-class API::WorkoutsController < ApplicationController
+class API::WorkoutsController < API::APIController
   before_action :set_workout, only: [:show]
 
   def index
-    @workouts = Workout.all
+    @workouts = current_user.workouts
   end
 
   private
