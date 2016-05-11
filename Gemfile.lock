@@ -51,7 +51,7 @@ GEM
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
     builder (3.2.2)
-    byebug (8.2.5)
+    byebug (9.0.0)
     capistrano (2.15.7)
       highline
       net-scp (>= 1.0.0)
@@ -262,7 +262,7 @@ DEPENDENCIES
   carrierwave
   carrierwave-base64
   coffee-rails (~> 4.1.0)
-  devise (>= 4.0.0.rc2)
+  devise (~> 4.1.0)
   devise-bootstrap-views
   devise-i18n
   enumerize
@@ -276,7 +276,7 @@ DEPENDENCIES
   phonelib
   pry-rails
   puma
-  rails (>= 5.0.0.beta2, < 5.1)
+  rails (>= 5.0.0.rc1, < 5.1)
   redis (~> 3.0)
   rpush
   rvm-capistrano
