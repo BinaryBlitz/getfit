@@ -35,7 +35,9 @@ Rails.application.routes.draw do
       resources :statistics, only: :index
     end
 
-    resources :trainers, only: [:index]
+    resources :trainers, only: [:index] do
+      resource :subscription, only: [:create]
+    end
 
     resources :posts, except: [:new, :edit] do
       resources :likes, only: [:create, :destroy], shallow: true
