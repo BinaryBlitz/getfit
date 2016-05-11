@@ -10,7 +10,7 @@
 #
 
 class Workout < ApplicationRecord
-  belongs_to :program
+  belongs_to :program, counter_cache: true
 
   has_many :exercises, dependent: :destroy
   has_many :workout_sessions, dependent: :destroy

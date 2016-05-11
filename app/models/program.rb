@@ -16,6 +16,7 @@
 #  approved        :boolean          default(FALSE)
 #  subscription_id :integer
 #  rating          :float
+#  workouts_count  :integer          default(0)
 #
 
 class Program < ApplicationRecord
