@@ -19,6 +19,26 @@ class API::UsersControllerTest < ActionDispatch::IntegrationTest
     assert_response :created
   end
 
+  test 'should create workout_sessions' do
+    @workout_session = workout_sessions(:workout_session)
+
+    assert_difference('WorkoutSession.count') do
+      patch api_user_url(@user), params: {
+        api_token: api_token,
+        user: {
+          workout_sessions_attributes: [
+            {
+              workout_id: @workout_session.workout_id,
+              scheduled_for: @workout_session.scheduled_for
+            }
+          ]
+        }
+      }
+    end
+
+    assert_response :ok
+  end
+
   test 'should update user' do
     patch api_user_url(@user), params: {
       api_token: api_token,

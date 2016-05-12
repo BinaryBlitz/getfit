@@ -15,20 +15,6 @@ class API::WorkoutSessionsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test 'should create workout_session' do
-    assert_difference('WorkoutSession.count') do
-      post api_workout_sessions_url, params: {
-        api_token: api_token,
-        workout_session: {
-          workout_id: @workout_session.workout_id,
-          scheduled_for: @workout_session.scheduled_for
-        }
-      }
-    end
-
-    assert_response :created
-  end
-
   test 'should update workout_session' do
     patch api_workout_session_url(@workout_session), params: {
       api_token: api_token,
