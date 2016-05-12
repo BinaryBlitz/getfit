@@ -2,20 +2,21 @@
 #
 # Table name: ratings
 #
-#  id         :integer          not null, primary key
-#  value      :integer          not null
-#  program_id :integer
-#  user_id    :integer
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  content    :text
+#  id           :integer          not null, primary key
+#  value        :integer          not null
+#  user_id      :integer
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  content      :text
+#  ratable_type :string
+#  ratable_id   :integer
 #
 
 require 'test_helper'
 
 class RatingTest < ActiveSupport::TestCase
   setup do
-    @rating = ratings(:rating)
+    @rating = ratings(:program_rating)
   end
 
   test 'valid' do

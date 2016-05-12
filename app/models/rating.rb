@@ -2,17 +2,18 @@
 #
 # Table name: ratings
 #
-#  id         :integer          not null, primary key
-#  value      :integer          not null
-#  program_id :integer
-#  user_id    :integer
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  content    :text
+#  id           :integer          not null, primary key
+#  value        :integer          not null
+#  user_id      :integer
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  content      :text
+#  ratable_type :string
+#  ratable_id   :integer
 #
 
 class Rating < ApplicationRecord
-  belongs_to :program
+  belongs_to :ratable, polymorphic: true
   belongs_to :user
 
   validates :value, inclusion: { in: 1..5 }

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160511200744) do
+ActiveRecord::Schema.define(version: 20160511203422) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -169,13 +169,14 @@ ActiveRecord::Schema.define(version: 20160511200744) do
   end
 
   create_table "ratings", force: :cascade do |t|
-    t.integer  "value",      null: false
-    t.integer  "program_id"
+    t.integer  "value",        null: false
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.text     "content"
-    t.index ["program_id"], name: "index_ratings_on_program_id", using: :btree
+    t.string   "ratable_type"
+    t.integer  "ratable_id"
+    t.index ["ratable_type", "ratable_id"], name: "index_ratings_on_ratable_type_and_ratable_id", using: :btree
     t.index ["user_id"], name: "index_ratings_on_user_id", using: :btree
   end
 
@@ -349,7 +350,6 @@ ActiveRecord::Schema.define(version: 20160511200744) do
   add_foreign_key "programs", "trainers"
   add_foreign_key "purchases", "programs"
   add_foreign_key "purchases", "users"
-  add_foreign_key "ratings", "programs"
   add_foreign_key "ratings", "users"
   add_foreign_key "subscriptions", "trainers"
   add_foreign_key "subscriptions", "users"

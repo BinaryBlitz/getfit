@@ -2,17 +2,26 @@
 #
 # Table name: ratings
 #
-#  id         :integer          not null, primary key
-#  value      :integer          not null
-#  program_id :integer
-#  user_id    :integer
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  content    :text
+#  id           :integer          not null, primary key
+#  value        :integer          not null
+#  user_id      :integer
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  content      :text
+#  ratable_type :string
+#  ratable_id   :integer
 #
 
-rating:
+program_rating:
   value: 3
-  program: program
   user: foo
   content: Content
+  ratable_type: Program
+  ratable: program
+
+trainer_rating:
+  value: 3
+  user: foo
+  content: Content
+  ratable_type: Trainer
+  ratable: trainer

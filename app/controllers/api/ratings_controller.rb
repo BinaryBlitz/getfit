@@ -1,13 +1,13 @@
 class API::RatingsController < API::APIController
-  before_action :set_program, only: [:index, :create]
+  before_action :set_ratable, only: [:index, :create]
   before_action :set_rating, only: [:update, :destroy]
 
   def index
-    @ratings = @program.ratings
+    @ratings = @ratable.ratings
   end
 
   def create
-    @rating = @program.ratings.build(rating_params)
+    @rating = @ratable.ratings.build(rating_params)
     @rating.user = current_user
 
     if @rating.save
@@ -32,8 +32,12 @@ class API::RatingsController < API::APIController
 
   private
 
-  def set_program
-    @program = Program.find(params[:program_id])
+  def set_ratable
+    @ratable = if params[:program_id].present?
+      Program.find(params[:program_id])
+    elsif params[:trainer_id].present?
+      Trainer.find(params[:trainer_id])
+    end
   end
 
   def set_rating

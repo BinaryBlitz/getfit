@@ -36,6 +36,7 @@ class Trainer < ApplicationRecord
   has_many :followings, dependent: :destroy
   has_many :followers, through: :followings, source: :user
   has_many :exercise_types, dependent: :destroy
+  has_many :ratings, as: :ratable, dependent: :destroy
 
   validates :first_name, :last_name, :phone_number, :description,
             :place_of_work, :category, :experience, presence: true
