@@ -20,6 +20,8 @@
 #  experience             :integer          not null
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  programs_count         :integer          default(0)
+#  followers_count        :integer          default(0)
 #
 
 require 'test_helper'

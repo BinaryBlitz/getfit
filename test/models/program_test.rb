@@ -7,14 +7,17 @@
 #  preview         :string
 #  description     :text
 #  banner          :string
-#  duration        :string
-#  price           :string
+#  duration        :integer          default(0)
+#  price           :integer          default(0)
 #  trainer_id      :integer
 #  program_type_id :integer
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  approved        :boolean          default(FALSE)
 #  subscription_id :integer
+#  rating          :float
+#  workouts_count  :integer          default(0)
+#  users_count     :integer          default(0)
 #
 
 require 'test_helper'
