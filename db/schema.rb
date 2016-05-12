@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160511203422) do
+ActiveRecord::Schema.define(version: 20160512120329) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -274,6 +274,7 @@ ActiveRecord::Schema.define(version: 20160511203422) do
     t.datetime "updated_at",                          null: false
     t.integer  "programs_count",         default: 0
     t.integer  "followers_count",        default: 0
+    t.float    "rating"
     t.index ["email"], name: "index_trainers_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_trainers_on_reset_password_token", unique: true, using: :btree
   end
