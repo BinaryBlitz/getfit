@@ -59,7 +59,8 @@ class API::UsersController < API::APIController
     params.require(:user).permit(
       :first_name, :last_name, :phone_number, :description,
       :avatar, :banner, :height, :weight, :birthdate, :gender,
-      :device_token, :platform
+      :device_token, :platform,
+      workout_sessions_attributes: [:workout_id, :scheduled_for]
     )
   end
 end

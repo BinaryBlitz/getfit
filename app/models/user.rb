@@ -50,6 +50,8 @@ class User < ApplicationRecord
   include Authenticable
   include Phonable
 
+  accepts_nested_attributes_for :workout_sessions
+
   has_secure_token :api_token
 
   mount_base64_uploader :avatar, AvatarUploader

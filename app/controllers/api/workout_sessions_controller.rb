@@ -8,16 +8,6 @@ class API::WorkoutSessionsController < API::APIController
   def show
   end
 
-  def create
-    @workout_session = current_user.workout_sessions.build(create_workout_session_params)
-
-    if @workout_session.save
-      render :show, status: :created, location: [:api, @workout_session]
-    else
-      render json: @workout_session.errors, status: 422
-    end
-  end
-
   def update
     if @workout_session.update(workout_session_params)
       head :ok
@@ -35,10 +25,6 @@ class API::WorkoutSessionsController < API::APIController
 
   def set_workout_session
     @workout_session = WorkoutSession.find(params[:id])
-  end
-
-  def create_workout_session_params
-    params.require(:workout_session).permit(:workout_id, :scheduled_for)
   end
 
   def workout_session_params
