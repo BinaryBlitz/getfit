@@ -22,7 +22,7 @@
 #  updated_at             :datetime         not null
 #  programs_count         :integer          default(0)
 #  followers_count        :integer          default(0)
-#  rating                 :float
+#  rating                 :float            default(0.0)
 #
 
 class Trainer < ApplicationRecord

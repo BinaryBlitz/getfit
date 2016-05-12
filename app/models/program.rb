@@ -15,7 +15,7 @@
 #  updated_at      :datetime         not null
 #  approved        :boolean          default(FALSE)
 #  subscription_id :integer
-#  rating          :float
+#  rating          :float            default(0.0)
 #  workouts_count  :integer          default(0)
 #  users_count     :integer          default(0)
 #

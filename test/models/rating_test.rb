@@ -17,6 +17,7 @@ require 'test_helper'
 class RatingTest < ActiveSupport::TestCase
   setup do
     @rating = ratings(:program_rating)
+    @rating.send(:update_rating_cache)
   end
 
   test 'valid' do
@@ -42,6 +43,14 @@ class RatingTest < ActiveSupport::TestCase
     valid_values.each do |value|
       @rating.value = value
       assert @rating.valid?
+    end
+  end
+
+  test 'rating cache is updated after create and destroy' do
+    current_rating = @rating.ratable.rating
+
+    assert_difference -> { @rating.ratable.reload.rating }, -current_rating do
+      @rating.ratable.ratings.destroy_all
     end
   end
 end
