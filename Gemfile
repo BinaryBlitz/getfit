@@ -24,6 +24,7 @@ gem 'devise-bootstrap-views'
 gem 'vkontakte_api'
 gem 'koala'
 gem 'rpush'
+gem 'kaminari'
 
 group :development, :test do
   gem 'puma'
