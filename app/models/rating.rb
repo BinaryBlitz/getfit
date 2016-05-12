@@ -24,6 +24,8 @@ class Rating < ApplicationRecord
   private
 
   def update_rating_cache
+    return unless ratable
+
     ratable.update(rating: ratable.ratings.average(:value) || 0)
   end
 end
