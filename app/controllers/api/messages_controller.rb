@@ -2,7 +2,7 @@ class API::MessagesController < API::APIController
   before_action :set_subscription
 
   def index
-    @messages = @subscription.messages.order(created_at: :desc)
+    @messages = @subscription.messages.order(created_at: :desc).page(params[:page])
   end
 
   private

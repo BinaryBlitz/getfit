@@ -3,7 +3,7 @@ class API::ProgramsController < API::APIController
   before_action :set_program, only: [:show]
 
   def index
-    @programs = ProgramSearch.new(search_params).programs
+    @programs = ProgramSearch.new(search_params).programs.page(params[:page])
   end
 
   def show

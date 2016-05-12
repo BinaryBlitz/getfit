@@ -2,7 +2,7 @@ class API::TrainersController < API::APIController
   skip_before_action :restrict_access
 
   def index
-    @trainers = TrainerSearch.new(search_params).trainers
+    @trainers = TrainerSearch.new(search_params).trainers.page(params[:page])
   end
 
   private
