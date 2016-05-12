@@ -199,7 +199,6 @@ GEM
       thor (>= 0.18.1, < 2.0)
     raindrops (0.16.0)
     rake (11.1.2)
-    redis (3.3.0)
     responders (2.2.0)
       railties (>= 4.2.0, < 5.1)
     rpush (2.7.0)
@@ -281,7 +280,6 @@ DEPENDENCIES
   pry-rails
   puma
   rails (>= 5.0.0.rc1, < 5.1)
-  redis (~> 3.0)
   rpush
   rvm-capistrano
   sass-rails (~> 5.0)

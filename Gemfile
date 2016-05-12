@@ -9,7 +9,6 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
-gem 'redis', '~> 3.0'
 
 gem 'devise', '~> 4.1.0'
 gem 'devise-i18n'
