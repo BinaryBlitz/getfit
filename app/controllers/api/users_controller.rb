@@ -1,5 +1,5 @@
 class API::UsersController < API::APIController
-  skip_before_action :restrict_access, only: [:create, :authenticate_vk, :authenticate_fb]
+  skip_before_action :restrict_access!, only: [:create, :authenticate_vk, :authenticate_fb]
   before_action :set_user, only: [:update]
 
   def show

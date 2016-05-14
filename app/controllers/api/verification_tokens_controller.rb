@@ -1,5 +1,5 @@
 class API::VerificationTokensController < API::APIController
-  skip_before_action :restrict_access
+  skip_before_action :restrict_access!
 
   def create
     @verification_token = VerificationToken.new(verification_token_params)
