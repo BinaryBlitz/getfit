@@ -6,6 +6,10 @@ class API::TrainersController < API::APIController
     @trainers = TrainerSearch.new(search_params).trainers.page(params[:page])
   end
 
+  def show
+    @trainer = Trainer.find(params[:id])
+  end
+
   private
 
   def search_params

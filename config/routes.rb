@@ -35,7 +35,7 @@ Rails.application.routes.draw do
       resources :statistics, only: :index
     end
 
-    resources :trainers, only: [:index] do
+    resources :trainers, only: [:index, :show] do
       resource :subscription, only: [:create]
       resources :ratings, only: [:create]
       resources :posts, only: [:index], controller: :trainer_posts

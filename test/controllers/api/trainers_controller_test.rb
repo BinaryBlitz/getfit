@@ -10,6 +10,11 @@ class API::TrainersControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test 'should show trainer' do
+    get api_trainer_url(@trainer), params: { api_token: api_token }
+    assert_response :success
+  end
+
   test 'should get programs' do
     get api_trainer_programs_url(@trainer), params: { api_token: api_token }
     assert_response :success
