@@ -29,6 +29,7 @@ Rails.application.routes.draw do
 
     resource :user do
       post 'authenticate_vk', 'authenticate_fb', on: :collection
+      resources :programs, only: [:index], controller: :user_programs
     end
 
     resources :users, only: [:show] do

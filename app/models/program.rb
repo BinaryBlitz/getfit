@@ -43,7 +43,7 @@ class Program < ApplicationRecord
   mount_uploader :banner, ImageUploader
 
   scope :approved, -> { where(approved: true) }
-  scope :visible, -> { where(subscription: nil) }
+  scope :visible, -> { approved.where(subscription: nil) }
 
   private
 
