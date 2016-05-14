@@ -21,7 +21,7 @@ class Trainer::WorkoutsControllerTest < ActionDispatch::IntegrationTest
   test 'should create workout' do
     assert_difference('Workout.count') do
       post trainer_program_workouts_url(@program), params: {
-        workout: { position: 1 }
+        workout: { position: 1, duration: 1 }
       }
     end
 

@@ -2,13 +2,16 @@
 #
 # Table name: workouts
 #
-#  id         :integer          not null, primary key
-#  position   :integer
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  program_id :integer
+#  id              :integer          not null, primary key
+#  position        :integer
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  program_id      :integer
+#  duration        :integer
+#  exercises_count :integer          default(0)
 #
 
 workout:
   program: program
   position: 0
+  duration: 1
