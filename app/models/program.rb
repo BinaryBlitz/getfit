@@ -45,6 +45,10 @@ class Program < ApplicationRecord
   scope :approved, -> { where(approved: true) }
   scope :visible, -> { approved.where(subscription: nil) }
 
+  def approve
+    update(approved: true)
+  end
+
   private
 
   def update_counter_cache

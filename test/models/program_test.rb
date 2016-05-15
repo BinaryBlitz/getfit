@@ -64,6 +64,7 @@ class ProgramTest < ActiveSupport::TestCase
 
     assert_difference -> { trainer.reload.programs_count } do
       new_program.save
+      new_program.approve
     end
 
     assert_difference -> { trainer.reload.programs_count }, -1 do
