@@ -36,6 +36,8 @@ Rails.application.routes.draw do
       resources :statistics, only: :index
     end
 
+    resources :specializations, only: [:index]
+
     resources :trainers, only: [:index, :show] do
       resource :subscription, only: [:create]
       resources :ratings, only: [:create]
