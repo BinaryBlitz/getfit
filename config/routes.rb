@@ -40,6 +40,7 @@ Rails.application.routes.draw do
 
     resources :trainers, only: [:index, :show] do
       resource :subscription, only: [:create]
+      resources :followings, only: [:create, :destroy], shallow: true
       resources :ratings, only: [:create]
       resources :posts, only: [:index], controller: :trainer_posts
       resources :programs, only: [:index], controller: :trainer_programs
