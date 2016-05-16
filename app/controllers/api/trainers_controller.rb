@@ -13,6 +13,6 @@ class API::TrainersController < API::APIController
   private
 
   def search_params
-    params.permit(:category, :order)
+    params.permit(:category, :specialization_id, :order)
   end
 end
