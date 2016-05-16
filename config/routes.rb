@@ -54,7 +54,7 @@ Rails.application.routes.draw do
     end
 
     resources :subscriptions, only: [:index] do
-      resources :messages, only: [:index], shallow: true
+      resources :messages, only: [:index, :create], shallow: true
     end
 
     resources :programs, except: [:new, :edit] do
