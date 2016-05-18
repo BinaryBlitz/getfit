@@ -1,1 +1,1 @@
-json.extract! workout, :id, :position, :duration, :exercises_count
+json.extract! workout, :id, :name, :position, :duration, :exercises_count
