@@ -52,7 +52,7 @@ class Trainer < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable
 
   mount_uploader :avatar, AvatarUploader
-  mount_uploader :banner, AvatarUploader
+  mount_uploader :banner, BannerUploader
 
   def self.reset_counter_cache
     find_each { |trainer| trainer.update(programs_count: trainer.programs.visible.count) }
