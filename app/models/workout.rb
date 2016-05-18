@@ -9,6 +9,7 @@
 #  program_id      :integer
 #  duration        :integer
 #  exercises_count :integer          default(0)
+#  name            :string           not null
 #
 
 class Workout < ApplicationRecord
@@ -17,5 +18,6 @@ class Workout < ApplicationRecord
   has_many :exercises, dependent: :destroy
   has_many :workout_sessions, dependent: :destroy
 
+  validates :name, presence: true
   validates :duration, numericality: { greater_than_or_equal_to: 0 }, allow_nil: true
 end

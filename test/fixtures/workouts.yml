@@ -9,9 +9,11 @@
 #  program_id      :integer
 #  duration        :integer
 #  exercises_count :integer          default(0)
+#  name            :string           not null
 #
 
 workout:
   program: program
   position: 0
   duration: 1
+  name: Workout

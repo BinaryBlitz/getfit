@@ -9,6 +9,7 @@
 #  program_id      :integer
 #  duration        :integer
 #  exercises_count :integer          default(0)
+#  name            :string           not null
 #
 
 require 'test_helper'
