@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th>Этап</th>
+      <th>Название</th>
       <th>Продолжительность</th>
       <th colspan="2"></th>
     </tr>
@@ -14,7 +15,8 @@
   <tbody>
     <% @workouts.each do |workout| %>
       <tr>
-        <td><%= link_to "Этап #{workout.position}", trainer_workout_exercises_path(workout) %></td>
+        <td><%= workout.position %></td>
+        <td><%= link_to workout.name, trainer_workout_exercises_path(workout) %></td>
         <td><%= workout.duration %></td>
         <td><%= link_to 'Изменить', edit_trainer_workout_path(workout), class: 'btn btn-default' %></td>
         <td><%= link_to 'Удалить', [:trainer, workout], method: :delete, data: { confirm: 'Вы уверены?' }, class: 'btn btn-danger' %></td>
