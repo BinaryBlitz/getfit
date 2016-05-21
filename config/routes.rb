@@ -37,6 +37,7 @@ Rails.application.routes.draw do
     end
 
     resources :specializations, only: [:index]
+    resources :program_types, only: [:index]
 
     resources :trainers, only: [:index, :show] do
       resource :subscription, only: [:create]
