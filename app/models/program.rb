@@ -25,7 +25,7 @@ class Program < ApplicationRecord
   after_destroy :update_counter_cache
 
   belongs_to :trainer
-  belongs_to :program_type, optional: true
+  belongs_to :program_type
   belongs_to :subscription, optional: true
 
   has_many :posts, dependent: :destroy
