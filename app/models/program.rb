@@ -7,7 +7,6 @@
 #  preview         :string
 #  description     :text
 #  banner          :string
-#  duration        :integer          default(0)
 #  price           :integer          default(0)
 #  trainer_id      :integer
 #  program_type_id :integer
@@ -37,7 +36,6 @@ class Program < ApplicationRecord
   validates :name, presence: true
   validates :preview, :description, :banner, :program_type,
             presence: true, unless: 'subscription.present?'
-  validates :duration, numericality: { greater_than: 0 }, unless: 'subscription.present?'
   validates :price, numericality: { greater_than_or_equal_to: 0 }, unless: 'subscription.present?'
 
   mount_uploader :banner, ImageUploader

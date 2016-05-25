@@ -7,7 +7,6 @@
 #  preview         :string
 #  description     :text
 #  banner          :string
-#  duration        :integer          default(0)
 #  price           :integer          default(0)
 #  trainer_id      :integer
 #  program_type_id :integer
@@ -31,26 +30,16 @@ class ProgramTest < ActiveSupport::TestCase
     assert @program.valid?
   end
 
-  test 'positive duration and price' do
-    @program.duration = 0
-    assert @program.invalid?
-
-    @program.duration = 1
-    assert @program.valid?
-
+  test 'positive price' do
     @program.price = -1
     assert @program.invalid?
 
     @program.price = 0
     assert @program.valid?
-
-    @program.price = 1
-    assert @program.valid?
   end
 
   test 'validations when subscription is present' do
     @program.subscription = subscriptions(:subscription)
-    @program.duration = nil
     @program.price = nil
 
     assert @program.valid?

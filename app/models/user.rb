@@ -28,6 +28,7 @@ class User < ApplicationRecord
   has_many :comments, as: :author, dependent: :destroy
   has_many :subscriptions, dependent: :destroy
   has_many :personal_programs, through: :subscriptions, source: :program
+  has_many :personal_workouts, through: :personal_programs, source: :workouts
   has_many :user_notifications, through: :subscriptions
   has_many :personal_trainers, through: :subscriptions, source: :trainer
   has_many :followings, dependent: :destroy

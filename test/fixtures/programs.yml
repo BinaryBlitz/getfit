@@ -7,7 +7,6 @@
 #  preview         :string
 #  description     :text
 #  banner          :string
-#  duration        :integer          default(0)
 #  price           :integer          default(0)
 #  trainer_id      :integer
 #  program_type_id :integer
@@ -27,7 +26,6 @@ program:
   trainer: trainer
   banner: Banner
   program_type: program_type
-  duration: 10
   price: 10
 
 subscription_program:

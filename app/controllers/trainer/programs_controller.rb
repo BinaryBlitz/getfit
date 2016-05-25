@@ -46,7 +46,7 @@ class Trainer::ProgramsController < Trainer::TrainerController
 
   def program_params
     params.require(:program).permit(
-      :name, :preview, :description, :banner, :duration, :price, :program_type_id
+      :name, :preview, :description, :banner, :price, :program_type_id
     )
   end
 end

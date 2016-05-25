@@ -7,7 +7,6 @@
     <tr>
       <th>Название</th>
       <th>Описание</th>
-      <th>Продолжительность</th>
       <th>Цена</th>
       <th>Тип</th>
       <th>Статус</th>
@@ -20,7 +19,6 @@
       <tr>
         <td><%= link_to program.name, [:trainer, program] %></td>
         <td><%= truncate(program.preview, length: 20) %></td>
-        <td><%= program.duration %></td>
         <td><%= program.price %></td>
         <td><%= program.program_type&.name %></td>
         <td>

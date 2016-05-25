@@ -8,7 +8,7 @@ class Statistics
   end
 
   def total_duration
-    @user.programs.sum(:duration) + @user.personal_programs.sum(:duration)
+    @user.workouts.sum(:duration) + @user.personal_workouts.sum(:duration)
   end
 
   def total_distance

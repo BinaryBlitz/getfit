@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160518151133) do
+ActiveRecord::Schema.define(version: 20160525104404) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -143,7 +143,6 @@ ActiveRecord::Schema.define(version: 20160518151133) do
     t.string   "preview"
     t.text     "description"
     t.string   "banner"
-    t.integer  "duration",        default: 0
     t.integer  "price",           default: 0
     t.integer  "trainer_id"
     t.integer  "program_type_id"

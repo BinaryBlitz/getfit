@@ -23,9 +23,11 @@ class WorkoutTest < ActiveSupport::TestCase
     assert @workout.valid?
   end
 
-  test 'duration is not negative' do
+  test 'duration is positive' do
     @workout.duration = -1
+    assert @workout.invalid?
 
+    @workout.duration = 0
     assert @workout.invalid?
   end
 end
