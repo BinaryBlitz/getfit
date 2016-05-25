@@ -4,7 +4,7 @@ json.extract! trainer,
               :experience, :rating, :followers_count
 
 if current_user
-  json.following_id current_user.followings.find_by(trainer: trainer)
+  json.following_id current_user.followings.find_by(trainer: trainer).try(:id)
 end
 
 json.specialization do
