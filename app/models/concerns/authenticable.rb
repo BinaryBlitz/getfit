@@ -16,7 +16,7 @@ module Authenticable
     end
 
     def find_or_create_from_fb(graph)
-      fb_user = graph.get_object('me?fields=id,first_name,last_name,name,picture')
+      fb_user = graph.get_object('me?fields=id,first_name,last_name,name,picture.type(large)')
       user = find_by(fb_id: fb_user['id'])
 
       user || create!(
