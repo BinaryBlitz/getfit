@@ -12,10 +12,21 @@
 #
 
 class WorkoutSession < ApplicationRecord
+  after_create :create_exercise_sessions
+
   belongs_to :user
   belongs_to :workout
 
   has_many :exercise_sessions, dependent: :destroy
 
   scope :completed, -> { where(completed: true) }
+
+  private
+
+  def create_exercise_sessions
+    workout.exercises.each do |exercise|
+      attributes = exercise.to_hash.merge(exercise: exercise)
+      exercise_sessions.create(attributes)
+    end
+  end
 end

@@ -20,4 +20,9 @@ class Exercise < ApplicationRecord
   has_many :exercise_sessions, dependent: :destroy
 
   validates :sets, :reps, :weight, :distance, numericality: { greater_than: 0 }, allow_nil: true
+
+  def to_hash
+    attributes = %i(sets reps weight distance)
+    as_json(only: attributes)
+  end
 end
