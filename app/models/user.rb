@@ -40,6 +40,7 @@ class User < ApplicationRecord
   has_many :workouts, through: :programs
   has_many :workout_sessions, dependent: :destroy
   has_many :exercise_sessions, through: :workout_sessions
+  has_many :ratings, dependent: :destroy
 
   validates :first_name, :last_name, presence: true
   validates :height, :weight, numericality: { greater_than: 0 }, allow_nil: true
