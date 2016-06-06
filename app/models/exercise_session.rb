@@ -27,6 +27,7 @@ class ExerciseSession < ApplicationRecord
 
   def exercise_field_present?
     %i(sets reps weight distance).each do |attribute|
+      next if self[attribute].blank?
       errors.add(attribute, 'not present in exercise') unless exercise[attribute].present?
     end
   end
