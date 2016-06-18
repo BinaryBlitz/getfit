@@ -31,7 +31,6 @@ gem 'kaminari'
 group :development, :test do
   gem 'byebug'
   gem 'pry-rails'
-  gem 'rvm-capistrano', require: false
 end
 
 group :development do
