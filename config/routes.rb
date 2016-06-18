@@ -57,6 +57,7 @@ Rails.application.routes.draw do
     resources :subscriptions, only: [:index] do
       resources :messages, only: [:index, :create], shallow: true
     end
+    resources :notifications, only: [:index]
 
     resources :programs, except: [:new, :edit] do
       resources :ratings, except: [:show, :new, :edit], shallow: true
