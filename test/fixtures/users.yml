@@ -27,8 +27,8 @@ foo:
   last_name: Bar
   phone_number: '+79998887766'
   description: Description
-  avatar: Avatar
-  banner: Banner
+  avatar: 'data:image/jpg;base64,avatar'
+  banner: 'data:image/jpg;base64,banner'
   height: 180
   weight: 180
   birthdate: 2000-01-01
@@ -42,8 +42,8 @@ baz:
   last_name: Qux
   phone_number: '+79991112233'
   description: Description
-  avatar: Avatar
-  banner: Banner
+  avatar: 'data:image/jpg;base64,avatar'
+  banner: 'data:image/jpg;base64,banner'
   height: 180
   weight: 180
   birthdate: 2000-01-01
