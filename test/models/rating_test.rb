@@ -53,4 +53,9 @@ class RatingTest < ActiveSupport::TestCase
       @rating.ratable.ratings.destroy_all
     end
   end
+
+  test 'uniqueness' do
+    rating = @rating.dup
+    assert rating.invalid?
+  end
 end

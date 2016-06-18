@@ -20,6 +20,7 @@ class Rating < ApplicationRecord
 
   validates :value, inclusion: { in: 1..5 }
   validates :content, length: { minimum: 1 }, allow_nil: true
+  validates :user, uniqueness: { scope: [:ratable_type, :ratable_id] }
 
   private
 
