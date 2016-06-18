@@ -2,7 +2,7 @@ class API::WorkoutSessionsController < API::APIController
   before_action :set_workout_session, only: [:show, :update, :destroy]
 
   def index
-    @workout_sessions = current_user.workout_sessions
+    @workout_sessions = current_user.workout_sessions.uncompleted
   end
 
   def show

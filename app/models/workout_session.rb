@@ -20,6 +20,7 @@ class WorkoutSession < ApplicationRecord
   has_many :exercise_sessions, dependent: :destroy
 
   scope :completed, -> { where(completed: true) }
+  scope :uncompleted, -> { where(completed: false) }
 
   private
 
