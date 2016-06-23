@@ -24,7 +24,8 @@ class Trainer::WorkoutsControllerTest < ActionDispatch::IntegrationTest
         workout: {
           name: @workout.name,
           position: @workout.position,
-          duration: @workout.duration
+          duration: @workout.duration,
+          tips: @workout.tips
         }
       }
     end

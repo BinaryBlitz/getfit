@@ -50,6 +50,6 @@ class Trainer::WorkoutsController < Trainer::TrainerController
   end
 
   def workout_params
-    params.require(:workout).permit(:name, :position, :duration)
+    params.require(:workout).permit(:name, :position, :duration, :tips)
   end
 end
