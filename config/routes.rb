@@ -54,7 +54,7 @@ Rails.application.routes.draw do
       get 'popular', on: :collection
     end
 
-    resources :subscriptions, only: [:index] do
+    resources :subscriptions, only: [:index, :update] do
       resources :messages, only: [:index, :create], shallow: true
     end
     resources :notifications, only: [:index]

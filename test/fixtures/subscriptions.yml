@@ -12,3 +12,8 @@
 subscription:
   user: foo
   trainer: trainer
+  condition: beginner
+  weekly_load: 1
+  goal: weight_loss
+  location: gym
+  home_equipment: None
