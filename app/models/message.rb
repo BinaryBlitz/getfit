@@ -21,13 +21,20 @@ class Message < ApplicationRecord
 
   mount_uploader :image, ImageUploader
 
+  delegate :user, :trainer, to: :subscription
+
   private
 
   def notify
-    Notifier.new(subscription.user, content)
+    Notifier.new(subscription.user, preview)
   end
 
   def trainer?
     category == 'trainer'
+  end
+
+  def preview
+    message = image? ? 'Image' : content.truncate(50)
+    "#{trainer.full_name}: #{message}"
   end
 end

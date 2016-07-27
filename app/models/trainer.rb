@@ -57,4 +57,8 @@ class Trainer < ApplicationRecord
   def self.reset_counter_cache
     find_each { |trainer| trainer.update(programs_count: trainer.programs.visible.count) }
   end
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end
