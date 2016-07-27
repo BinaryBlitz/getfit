@@ -12,10 +12,22 @@
 #
 
 class Message < ApplicationRecord
+  after_create :notify, if: :trainer?
+
   belongs_to :subscription
 
   validates :content, presence: true, unless: 'image?'
   validates :category, inclusion: { in: %w(user trainer) }
 
   mount_uploader :image, ImageUploader
+
+  private
+
+  def notify
+    Notifier.new(subscription.user, content)
+  end
+
+  def trainer?
+    category == 'trainer'
+  end
 end
