@@ -6,17 +6,17 @@ class Admin::NotificationsControllerTest < ActionDispatch::IntegrationTest
     sign_in_admin
   end
 
-  test "should get index" do
+  test 'should get index' do
     get admin_notifications_url
     assert_response :success
   end
 
-  test "should get new" do
+  test 'should get new' do
     get new_admin_notification_url
     assert_response :success
   end
 
-  test "should create notification" do
+  test 'should create notification' do
     assert_difference('Notification.count') do
       post admin_notifications_url, params: {
         notification: { content: @notification.content }
