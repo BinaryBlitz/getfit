@@ -27,6 +27,7 @@ gem 'vkontakte_api'
 gem 'koala'
 gem 'rpush'
 gem 'kaminari'
+gem 'rollbar'
 
 group :development, :test do
   gem 'byebug'
