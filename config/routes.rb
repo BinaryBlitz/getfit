@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :admins, path: 'admin', skip: :registrations
 
   get 'trainer', to: 'trainer/programs#index'
-  get 'admin', to: 'admin/notifications#index'
+  get 'admin', to: 'admin/programs#index'
 
   namespace :trainer do
     resource :trainer
