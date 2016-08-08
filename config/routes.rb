@@ -75,5 +75,11 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :notifications, except: [:edit, :update, :destroy]
+
+    resources :programs, only: [:index, :show] do
+      resources :workouts, only: [:index], shallow: true
+
+      patch 'approve', on: :member
+    end
   end
 end

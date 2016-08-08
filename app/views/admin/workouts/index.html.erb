@@ -1,0 +1,21 @@
+<h1>Тренировки</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>№</th>
+      <th>Название</th>
+      <th>Продолжительность</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @workouts.each do |workout| %>
+      <tr>
+        <td><%= workout.position %></td>
+        <td><%= workout.name %></td>
+        <td><%= workout.duration %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
