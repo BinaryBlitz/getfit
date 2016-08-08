@@ -16,7 +16,7 @@
       <ul class="nav navbar-nav">
         <% if admin_signed_in? %>
           <li><%= link_to 'Программы', admin_programs_path %></li>
-          <li><%= link_to 'Тренеры', '#' %></li>
+          <li><%= link_to 'Тренеры', admin_trainers_path %></li>
           <li><%= link_to 'Уведомления', admin_notifications_path %></li>
         <% end %>
       </ul>

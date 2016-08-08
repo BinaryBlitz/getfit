@@ -74,6 +74,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    resources :trainers, only: [:index, :show]
     resources :notifications, except: [:edit, :update, :destroy]
 
     resources :programs, only: [:index, :show] do
