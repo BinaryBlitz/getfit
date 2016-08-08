@@ -1,0 +1,20 @@
+<h1>Программы</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Название</th>
+      <th>Тренер</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @programs.each do |program| %>
+      <tr>
+        <td><%= link_to program.name, [:admin, program] %></td>
+        <td><%= program.trainer.full_name %></td>
+        <td><%= button_to 'Одобрить', approve_admin_program_path(program), class: 'btn btn-sm btn-success' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -41,6 +41,9 @@ class Program < ApplicationRecord
   mount_uploader :banner, ImageUploader
 
   scope :approved, -> { where(approved: true) }
+  scope :unapproved, -> { where(approved: false) }
+  scope :general, -> { where(subscription: nil) }
+  scope :personal, -> { where.not(subscription: nil) }
   scope :visible, -> { approved.where(subscription: nil) }
 
   def approve

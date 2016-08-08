@@ -1,0 +1,26 @@
+<h1><%= @program.name %></h1>
+
+<div class="form-group">
+  <%= link_to 'Одобрить', approve_admin_program_path, class: 'btn btn-primary' %>
+  <%= link_to 'Этапы', admin_program_workouts_path(@program), class: 'btn btn-default' %>
+</div>
+
+<p>
+  <strong>Описание</strong>: <%= @program.preview %>
+</p>
+
+<p>
+  <strong>Подробное описание</strong>: <%= @program.description %>
+</p>
+
+<p>
+  <strong>Баннер</strong>: <%= image_tag(@program.banner) if @program.banner? %>
+</p>
+
+<p>
+  <strong>Цена</strong>: <%= @program.price %>
+</p>
+
+<p>
+  <strong>Тип программы</strong>: <%= @program.program_type_id %>
+</p>
