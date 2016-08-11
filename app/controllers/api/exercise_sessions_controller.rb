@@ -25,6 +25,8 @@ class API::ExerciseSessionsController < API::APIController
   end
 
   def exercise_session_params
-    params.require(:exercise_session).permit(:sets, :reps, :weight, :distance, :completed)
+    params
+      .require(:exercise_session)
+      .permit(:sets, :reps, :weight, :distance, :duration, :completed)
   end
 end

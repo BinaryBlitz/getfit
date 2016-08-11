@@ -10,6 +10,7 @@
       <th>Повторения</th>
       <th>Вес</th>
       <th>Дистанция</th>
+      <th>Время</th>
       <th colspan="2"></th>
     </tr>
   </thead>
@@ -22,6 +23,7 @@
         <td><%= exercise.reps %></td>
         <td><%= exercise.weight %></td>
         <td><%= exercise.distance %></td>
+        <td><%= exercise.duration %></td>
         <td><%= link_to 'Изменить', edit_trainer_exercise_path(exercise), class: 'btn btn-default' %></td>
         <td><%= link_to 'Удалить', [:trainer, exercise], method: :delete, data: { confirm: 'Вы уверены?' }, class: 'btn btn-danger' %></td>
       </tr>

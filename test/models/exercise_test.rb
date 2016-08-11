@@ -11,6 +11,7 @@
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #  workout_id       :integer
+#  duration         :integer
 #
 
 require 'test_helper'

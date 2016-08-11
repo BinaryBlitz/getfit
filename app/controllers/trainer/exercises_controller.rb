@@ -50,6 +50,6 @@ class Trainer::ExercisesController < Trainer::TrainerController
   end
 
   def exercise_params
-    params.require(:exercise).permit(:exercise_type_id, :sets, :reps, :weight, :distance)
+    params.require(:exercise).permit(:exercise_type_id, :sets, :reps, :weight, :distance, :duration)
   end
 end

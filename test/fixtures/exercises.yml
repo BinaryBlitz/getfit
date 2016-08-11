@@ -11,6 +11,7 @@
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #  workout_id       :integer
+#  duration         :integer
 #
 
 exercise:
@@ -20,3 +21,4 @@ exercise:
   reps: 10
   weight: 10
   distance: 10
+  duration: 10

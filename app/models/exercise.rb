@@ -11,6 +11,7 @@
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #  workout_id       :integer
+#  duration         :integer
 #
 
 class Exercise < ApplicationRecord
@@ -19,7 +20,8 @@ class Exercise < ApplicationRecord
 
   has_many :exercise_sessions, dependent: :destroy
 
-  validates :sets, :reps, :weight, :distance, numericality: { greater_than: 0 }, allow_nil: true
+  validates :sets, :reps, :weight, :distance, :duration,
+            numericality: { greater_than: 0 }, allow_nil: true
 
   def to_hash
     attributes = %i(sets reps weight distance)

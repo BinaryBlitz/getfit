@@ -12,6 +12,7 @@
 #  completed          :boolean          default(FALSE)
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
+#  duration           :integer
 #
 
 class ExerciseSession < ApplicationRecord
