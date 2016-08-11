@@ -1,8 +1,9 @@
-<h1>Клиенты</h1>
+<h1>Клиенты (<%= @subscriptions.count %>)</h1>
 
 <table class="table">
   <thead>
     <tr>
+      <th></th>
       <th>Пользователь</th>
       <th>Статус</th>
       <th>Последнее сообщение</th>
@@ -10,8 +11,9 @@
   </thead>
 
   <tbody>
-    <% @subscriptions.each do |subscription| %>
+    <% @subscriptions.each_with_index do |subscription, index| %>
       <tr>
+        <td><%= index + 1 %></td>
         <td><%= link_to subscription.user.full_name, [:trainer, subscription] %></td>
         <td><%= 'Статус' %></td>
         <td><%= 'Дата' %></td>
