@@ -76,6 +76,27 @@ workout.workout_sessions.create!(user: user, scheduled_for: 1.month.from_now)
 
 admin = Admin.create!(email: 'foo@bar.com', password: 'qwerty123')
 
+Specialization.create!(
+  [
+    { name: 'Единоборства' },
+    { name: 'Кроссфит' },
+    { name: 'Бодибилдинг' },
+    { name: 'Фитнесс' },
+    { name: 'Растяжка' },
+    { name: 'Йога' },
+    { name: 'Футбол' },
+    { name: 'Баскетбол' },
+    { name: 'Хоккей' },
+    { name: 'Танцы' },
+    { name: 'Аэробика' },
+    { name: 'Акробатика' },
+    { name: 'Тяжелая атлетика' },
+    { name: 'Легкая атлетика' },
+    { name: 'Сноуборд' },
+    { name: 'Лыжи' }
+  ]
+)
+
 Notification.create!(content: 'Notification')
 
 # Push notifications
