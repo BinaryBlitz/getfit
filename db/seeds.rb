@@ -12,9 +12,9 @@ image = File.open(Rails.root.join('public', 'blank.jpg'))
 base64_image = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=='
 
 trainer = Trainer.create!(
-  email: 'baz@qux.com',
-  password: 'bazqux',
-  first_name: 'Baz', last_name: 'Qux', phone_number: '+79991112233',
+  email: 'foo@bar.com',
+  password: 'qwerty123',
+  first_name: 'Foo', last_name: 'Bar', phone_number: '+79991112233',
   description: 'Description', place_of_work: 'Place of work',
   specialization: specialization, category: 'trainer', experience: 1,
   avatar: image, banner: image
