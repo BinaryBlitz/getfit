@@ -10,6 +10,7 @@
 #  duration        :integer
 #  exercises_count :integer          default(0)
 #  name            :string           not null
+#  tips            :text
 #
 
 require 'test_helper'
