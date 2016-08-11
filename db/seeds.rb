@@ -57,7 +57,7 @@ program = Program.create!(
 program.purchases.create!(user: user)
 program.ratings.create!(user: user, content: 'Rating', value: 1)
 
-workout = program.workouts.create!(name: 'Workout', duration: 1)
+workout = program.workouts.create!(name: 'Workout', tips: 'Tips', duration: 1)
 
 exercise_type = ExerciseType.create!(
   name: 'Exercise type',
