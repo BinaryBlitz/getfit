@@ -2,7 +2,7 @@ class Trainer::ExerciseTypesController < Trainer::TrainerController
   before_action :set_exercise_type, only: [:show, :edit, :update, :destroy]
 
   def index
-    @exercise_types = ExerciseType.all
+    @exercise_types = current_trainer.exercise_types
   end
 
   def show

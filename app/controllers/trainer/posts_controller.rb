@@ -2,7 +2,7 @@ class Trainer::PostsController < Trainer::TrainerController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
-    @posts = Post.all
+    @posts = current_trainer.posts
   end
 
   def show
