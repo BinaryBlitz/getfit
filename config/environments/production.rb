@@ -81,6 +81,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # ActionMailer
+  config.action_mailer.default_url_options = { host: Rails.application.secrets.smtp_domain }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address: Rails.application.secrets.smtp_address,
