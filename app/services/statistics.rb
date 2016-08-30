@@ -14,4 +14,8 @@ class Statistics
   def total_distance
     @user.exercise_sessions.completed.sum(:distance)
   end
+
+  def total_weight
+    @user.exercise_sessions.completed.sum(:weight)
+  end
 end
