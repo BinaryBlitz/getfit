@@ -57,6 +57,10 @@ class Program < ApplicationRecord
     update_attribute(:approved, false)
   end
 
+  def trainer_revenue
+    price * users_count
+  end
+
   private
 
   def update_counter_cache
