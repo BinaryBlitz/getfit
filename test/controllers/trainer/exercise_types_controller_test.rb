@@ -18,13 +18,11 @@ class Trainer::ExerciseTypesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create exercise_type" do
+    attributes = %w(name description tips video_url)
+
     assert_difference('ExerciseType.count') do
       post trainer_exercise_types_url, params: {
-        exercise_type: {
-          name: @exercise_type.name,
-          description: @exercise_type.description,
-          video_url: @exercise_type.video_url
-        }
+        exercise_type: @exercise_type.attributes.slice(*attributes)
       }
     end
 

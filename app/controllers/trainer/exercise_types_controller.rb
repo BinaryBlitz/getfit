@@ -45,6 +45,6 @@ class Trainer::ExerciseTypesController < Trainer::TrainerController
   end
 
   def exercise_type_params
-    params.require(:exercise_type).permit(:name, :video_url, :description)
+    params.require(:exercise_type).permit(:name, :video_url, :description, :tips)
   end
 end

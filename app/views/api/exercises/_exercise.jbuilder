@@ -1,5 +1,5 @@
 json.extract! exercise, :sets, :reps, :weight, :distance, :duration
 
 json.exercise_type do
-  json.extract! exercise.exercise_type, :name, :video_url, :description
+  json.partial! 'api/exercise_types/exercise_type', exercise_type: exercise.exercise_type
 end
