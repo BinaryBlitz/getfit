@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160917151918) do
+ActiveRecord::Schema.define(version: 20160918130102) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -281,6 +281,7 @@ ActiveRecord::Schema.define(version: 20160917151918) do
     t.integer  "programs_count",         default: 0
     t.integer  "followers_count",        default: 0
     t.float    "rating",                 default: 0.0
+    t.boolean  "approved"
     t.index ["email"], name: "index_trainers_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_trainers_on_reset_password_token", unique: true, using: :btree
   end
