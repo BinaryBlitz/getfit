@@ -12,7 +12,7 @@
 #  program_type_id :integer
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
-#  approved        :boolean          default(FALSE)
+#  approved        :boolean
 #  subscription_id :integer
 #  rating          :float            default(0.0)
 #  workouts_count  :integer          default(0)
