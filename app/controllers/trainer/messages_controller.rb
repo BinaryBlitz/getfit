@@ -30,6 +30,6 @@ class Trainer::MessagesController < Trainer::TrainerController
   end
 
   def message_params
-    params.fetch(:message, {}).permit(:content, :subscription_id, :image)
+    params.fetch(:message, {}).permit(:content, :image)
   end
 end
