@@ -83,7 +83,7 @@ Rails.application.routes.draw do
     resources :programs, only: [:index, :show] do
       resources :workouts, only: [:index], shallow: true
 
-      patch 'approve', on: :member
+      patch 'approve', 'reject', on: :member
     end
   end
 end
