@@ -80,7 +80,7 @@ Rails.application.routes.draw do
 
     resources :notifications, except: [:edit, :update, :destroy]
 
-    resources :programs, only: [:index, :show] do
+    resources :programs, only: [:index, :show, :destroy] do
       resources :workouts, only: [:index], shallow: true
 
       patch 'approve', 'reject', on: :member
