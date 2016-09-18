@@ -1,0 +1,5 @@
+<tr>
+  <td><%= link_to program.name, [:admin, program] %></td>
+  <td><%= link_to program.trainer.full_name, [:admin, program.trainer] %></td>
+  <td><%= status_for_program(program) %></td>
+</tr>

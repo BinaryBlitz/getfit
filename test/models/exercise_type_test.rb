@@ -9,6 +9,7 @@
 #  trainer_id  :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  tips        :text
 #
 
 require 'test_helper'

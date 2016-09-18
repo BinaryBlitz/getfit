@@ -1,5 +1,5 @@
 class Admin::ProgramsController < Admin::AdminController
-  before_action :set_program, only: [:show, :approve]
+  before_action :set_program, only: [:show, :approve, :reject]
 
   def index
     @programs = Program.unapproved.general
@@ -10,7 +10,12 @@ class Admin::ProgramsController < Admin::AdminController
 
   def approve
     @program.approve
-    redirect_to admin_programs_path
+    redirect_to admin_program_path(@program), notice: 'Программа одобрена.'
+  end
+
+  def reject
+    @program.reject
+    redirect_to admin_program_path(@program), notice: 'Программа отклонена.'
   end
 
   private

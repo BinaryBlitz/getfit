@@ -1,21 +1,23 @@
 <h1><%= @trainer.full_name %></h1>
 
-<p>
-  <strong>Имя</strong>: <%= @trainer.full_name %>
-</p>
+<dl class="row">
+  <dt class="col-sm-3">Номер телефона</dt>
+  <dd class="col-sm-9"><%= @trainer.phone_number %></dd>
 
-<p>
-  <strong>Номер телефона</strong>: <%= @trainer.phone_number %>
-</p>
+  <dt class="col-sm-3">Специализация</dt>
+  <dd class="col-sm-9"><%= @trainer.specialization.name %></dd>
 
-<p>
-  <strong>Специализация</strong>: <%= @trainer.specialization.name %>
-</p>
+  <dt class="col-sm-3">Категория</dt>
+  <dd class="col-sm-9"><%= @trainer.category %></dd>
 
-<p>
-  <strong>Категория</strong>: <%= @trainer.category %>
-</p>
+  <dt class="col-sm-3">Рейтинг</dt>
+  <dd class="col-sm-9"><%= @trainer.rating %></dd>
+</dl>
 
-<p>
-  <strong>Рейтинг</strong>: <%= @trainer.rating %>
-</p>
+<h2>Программы <small class="text-muted"><%= @programs.count %></small></h2>
+
+<%= render 'admin/programs/programs' %>
+
+<h2>Клиенты <small class="text-muted"><%= @subscriptions.count %></small></h2>
+
+<%= render 'admin/subscriptions/subscriptions' %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160917151918) do
+ActiveRecord::Schema.define(version: 20160918180401) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -141,16 +141,16 @@ ActiveRecord::Schema.define(version: 20160917151918) do
   end
 
   create_table "programs", force: :cascade do |t|
-    t.string   "name",                            null: false
+    t.string   "name",                          null: false
     t.string   "preview"
     t.text     "description"
     t.string   "banner"
     t.integer  "price",           default: 0
     t.integer  "trainer_id"
     t.integer  "program_type_id"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
-    t.boolean  "approved",        default: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.boolean  "approved"
     t.integer  "subscription_id"
     t.float    "rating",          default: 0.0
     t.integer  "workouts_count",  default: 0
@@ -281,6 +281,7 @@ ActiveRecord::Schema.define(version: 20160917151918) do
     t.integer  "programs_count",         default: 0
     t.integer  "followers_count",        default: 0
     t.float    "rating",                 default: 0.0
+    t.boolean  "approved"
     t.index ["email"], name: "index_trainers_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_trainers_on_reset_password_token", unique: true, using: :btree
   end

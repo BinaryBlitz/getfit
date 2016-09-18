@@ -1,3 +1,10 @@
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <%= link_to @program.name, [:admin, @program] %>
+  </li>
+  <li class="breadcrumb-item active">Этапы</li>
+</ol>
+
 <h1>Тренировки</h1>
 
 <table class="table">
@@ -12,7 +19,7 @@
   <tbody>
     <% @workouts.each do |workout| %>
       <tr>
-        <td><%= workout.position %></td>
+        <td><%= workout.position || '–' %></td>
         <td><%= workout.name %></td>
         <td><%= workout.duration %></td>
       </tr>

@@ -18,6 +18,13 @@ class Admin::ProgramsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should approve program' do
     patch approve_admin_program_path(@program)
+    assert_redirected_to admin_program_path(@program)
     assert @program.reload.approved?
+  end
+
+  test 'should reject program' do
+    patch reject_admin_program_path(@program)
+    assert_redirected_to admin_program_path(@program)
+    refute @program.reload.approved?
   end
 end

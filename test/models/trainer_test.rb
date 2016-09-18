@@ -23,6 +23,7 @@
 #  programs_count         :integer          default(0)
 #  followers_count        :integer          default(0)
 #  rating                 :float            default(0.0)
+#  approved               :boolean
 #
 
 require 'test_helper'

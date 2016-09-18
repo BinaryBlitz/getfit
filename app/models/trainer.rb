@@ -23,6 +23,7 @@
 #  programs_count         :integer          default(0)
 #  followers_count        :integer          default(0)
 #  rating                 :float            default(0.0)
+#  approved               :boolean
 #
 
 class Trainer < ApplicationRecord
@@ -60,5 +61,13 @@ class Trainer < ApplicationRecord
 
   def full_name
     "#{first_name} #{last_name}"
+  end
+
+  def approve!
+    update_attribute(:approved, true)
+  end
+
+  def reject!
+    update_attribute(:approved, false)
   end
 end
