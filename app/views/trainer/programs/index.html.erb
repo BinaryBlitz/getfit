@@ -1,6 +1,8 @@
 <h1>Программы</h1>
 
-<%= link_to 'Новая программа', new_trainer_program_path, class: 'btn btn-default' %>
+<div class="form-group">
+  <%= link_to 'Новая программа', new_trainer_program_path, class: 'btn btn-primary' %>
+</div>
 
 <table class="table">
   <thead>
@@ -21,15 +23,9 @@
         <td><%= truncate(program.preview, length: 20) %></td>
         <td><%= program.price %></td>
         <td><%= program.program_type&.name %></td>
-        <td>
-          <% if program.approved? %>
-            <span class="label label-success">Одобрено</span>
-          <% else %>
-            <span class="label label-warning">Рассматривается</span>
-          <% end %>
-        </td>
-        <td><%= link_to 'Изменить', edit_trainer_program_path(program), class: 'btn btn-default' %></td>
-        <td><%= link_to 'Удалить', [:trainer, program], method: :delete, data: { confirm: 'Вы уверены?' }, class: 'btn btn-danger' %></td>
+        <td><%= status_for_program(program) %></td>
+        <td><%= link_to 'Изменить', edit_trainer_program_path(program), class: 'btn btn-secondary btn-sm' %></td>
+        <td><%= link_to 'Удалить', [:trainer, program], method: :delete, data: { confirm: 'Вы уверены?' }, class: 'btn btn-danger btn-sm' %></td>
       </tr>
     <% end %>
   </tbody>

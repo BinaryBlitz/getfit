@@ -2,7 +2,7 @@
 
 <div class="form-group">
   <%= link_to 'Персональная программа', [:trainer, @subscription.program], class: 'btn btn-primary' %>
-  <%= link_to 'Сообщения', trainer_subscription_messages_path(@subscription), class: 'btn btn-default' %>
+  <%= link_to 'Сообщения', trainer_subscription_messages_path(@subscription), class: 'btn btn-primary' %>
 </div>
 
 <%= render 'user', user: @subscription.user %>
