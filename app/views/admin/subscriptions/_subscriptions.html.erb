@@ -1,0 +1,16 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>№</th>
+      <th>Пользователь</th>
+      <th>Дата подписки</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @subscriptions.each_with_index do |subscription, index| %>
+      <%= render 'admin/subscriptions/subscription',
+                 subscription: subscription, index: index %>
+    <% end %>
+  </tbody>
+</table>
