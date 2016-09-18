@@ -1,5 +1,15 @@
 <h1><%= @trainer.full_name %></h1>
 
+<% if @trainer.approved.nil? %>
+  <div class="form-group">
+    <%= link_to 'Одобрить',
+                  approve_admin_trainer_path(@trainer), method: :patch, class: 'btn btn-success' %>
+
+    <%= link_to 'Отклонить',
+                  reject_admin_trainer_path(@trainer), method: :patch, class: 'btn btn-danger' %>
+  </div>
+<% end %>
+
 <p>
   <strong>Имя</strong>: <%= @trainer.full_name %>
 </p>

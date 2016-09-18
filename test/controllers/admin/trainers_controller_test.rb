@@ -15,4 +15,14 @@ class Admin::TrainersControllerTest < ActionDispatch::IntegrationTest
     get admin_trainer_path(@trainer)
     assert_response :success
   end
+
+  test 'should approve trainer' do
+    patch approve_admin_trainer_path(@trainer)
+    assert_redirected_to admin_trainer_path(@trainer)
+  end
+
+  test 'should reject trainer' do
+    patch reject_admin_trainer_path(@trainer)
+    assert_redirected_to admin_trainer_path(@trainer)
+  end
 end

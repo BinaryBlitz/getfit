@@ -8,6 +8,7 @@
       <th>Специализация</th>
       <th>Категория</th>
       <th>Рейтинг</th>
+      <th>Статус</th>
       <th>Фото</th>
     </tr>
   </thead>
@@ -20,6 +21,7 @@
         <td><%= trainer.specialization.name %></td>
         <td><%= trainer.category %></td>
         <td><%= trainer.rating %></td>
+        <td><%= status_for_trainer(trainer) %></td>
         <td><%= image_tag trainer.avatar_url %></td>
       </tr>
     <% end %>

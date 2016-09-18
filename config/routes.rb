@@ -74,7 +74,10 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :trainers, only: [:index, :show]
+    resources :trainers, only: [:index, :show] do
+      patch 'approve', 'reject', on: :member
+    end
+
     resources :notifications, except: [:edit, :update, :destroy]
 
     resources :programs, only: [:index, :show] do
