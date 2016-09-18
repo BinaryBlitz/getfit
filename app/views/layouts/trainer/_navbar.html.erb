@@ -1,40 +1,35 @@
-<nav class="navbar navbar-default navbar-inverse navbar-static-top">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <%= link_to 'GetFit', trainer_programs_path, class: 'navbar-brand' %>
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <% if trainer_signed_in? %>
-          <li><%= link_to 'Программы', trainer_programs_path %></li>
-          <li><%= link_to 'Типы упражнений', trainer_exercise_types_path %></li>
-          <li><%= link_to 'Новости', trainer_posts_path %></li>
-          <li><%= link_to 'Мои клиенты', trainer_subscriptions_path %></li>
-        <% end %>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <% if trainer_signed_in? %>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Профиль <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><%= link_to 'Изменить', edit_trainer_registration_path %></li>
-              <li role="separator" class="divider"></li>
-              <li><%= link_to 'Выйти', destroy_trainer_session_path, method: :delete %></li>
-            </ul>
-          </li>
-        <% else %>
-          <li><%= link_to 'Войти', new_trainer_session_path %></li>
-        <% end %>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+<nav class="navbar navbar-full navbar-light bg-faded">
+  <div class="container">
+    <%= link_to 'GetFit', trainer_programs_path, class: 'navbar-brand' %>
+    <ul class="nav navbar-nav">
+      <% if trainer_signed_in? %>
+        <li class="nav-item">
+          <%= link_to 'Программы', trainer_programs_path, class: 'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Типы упражнений', trainer_exercise_types_path, class: 'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Новости', trainer_posts_path, class: 'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Клиенты', trainer_subscriptions_path, class: 'nav-link' %>
+        </li>
+      <% end %>
+    </ul>
+    <ul class="nav navbar-nav pull-xs-right">
+      <% if trainer_signed_in? %>
+        <li class="nav-item">
+          <%= link_to 'Профиль', edit_trainer_registration_path, class: 'nav-link' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Выйти', destroy_trainer_session_path, method: :delete, class:'nav-link' %>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to 'Войти', new_trainer_session_path, class:'nav-link' %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 </nav>
