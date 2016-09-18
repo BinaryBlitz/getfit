@@ -17,6 +17,7 @@
 #  rating          :float            default(0.0)
 #  workouts_count  :integer          default(0)
 #  users_count     :integer          default(0)
+#  deleted_at      :datetime
 #
 
 program:

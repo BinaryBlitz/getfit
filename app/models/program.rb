@@ -17,9 +17,12 @@
 #  rating          :float            default(0.0)
 #  workouts_count  :integer          default(0)
 #  users_count     :integer          default(0)
+#  deleted_at      :datetime
 #
 
 class Program < ApplicationRecord
+  default_scope { where(deleted_at: nil) }
+
   after_save :update_counter_cache
   after_destroy :update_counter_cache
 
