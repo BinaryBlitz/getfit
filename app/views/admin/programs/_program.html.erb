@@ -1,0 +1,5 @@
+<tr>
+  <td><%= link_to program.name, [:admin, program] %></td>
+  <td><%= link_to program.trainer.full_name, [:admin, program.trainer] %></td>
+  <td><%= button_to 'Одобрить', approve_admin_program_path(program), method: :patch, class: 'btn btn-sm btn-success' %></td>
+</tr>

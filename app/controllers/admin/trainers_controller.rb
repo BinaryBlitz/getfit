@@ -6,6 +6,8 @@ class Admin::TrainersController < Admin::AdminController
   end
 
   def show
+    @programs = @trainer.programs.general
+    @subscriptions = @trainer.subscriptions
   end
 
   def approve

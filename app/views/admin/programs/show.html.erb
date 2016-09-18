@@ -1,8 +1,8 @@
 <h1><%= @program.name %></h1>
 
 <div class="form-group">
-  <%= link_to 'Одобрить', approve_admin_program_path(@program), method: :patch, class: 'btn btn-primary' %>
-  <%= link_to 'Этапы', admin_program_workouts_path(@program), class: 'btn btn-default' %>
+  <%= link_to 'Одобрить', approve_admin_program_path(@program), method: :patch, class: 'btn btn-success' %>
+  <%= link_to 'Этапы', admin_program_workouts_path(@program), class: 'btn btn-secondary' %>
 </div>
 
 <p>
