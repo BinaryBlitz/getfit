@@ -1,5 +1,5 @@
 <tr>
   <td><%= index + 1 %></td>
   <td><%= link_to subscription.user.full_name, [:trainer, subscription] %></td>
-  <td><%= subscription.created_at.to_formatted_s(:short) %></td>
+  <td><%= subscription.expires_on.to_formatted_s(:long) %></td>
 </tr>
