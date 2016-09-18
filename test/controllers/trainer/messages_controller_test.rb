@@ -18,8 +18,7 @@ class Trainer::MessagesControllerTest < ActionDispatch::IntegrationTest
       post trainer_subscription_messages_url(@subscription), params: {
         message: {
           content: @message.content,
-          image: @message.image,
-          subscription_id: @message.subscription_id
+          image: @message.image
         }
       }
     end
