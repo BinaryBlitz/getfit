@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160918180401) do
+ActiveRecord::Schema.define(version: 20160918185125) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -155,6 +155,8 @@ ActiveRecord::Schema.define(version: 20160918180401) do
     t.float    "rating",          default: 0.0
     t.integer  "workouts_count",  default: 0
     t.integer  "users_count",     default: 0
+    t.datetime "deleted_at"
+    t.index ["deleted_at"], name: "index_programs_on_deleted_at", using: :btree
     t.index ["program_type_id"], name: "index_programs_on_program_type_id", using: :btree
     t.index ["subscription_id"], name: "index_programs_on_subscription_id", using: :btree
     t.index ["trainer_id"], name: "index_programs_on_trainer_id", using: :btree
