@@ -13,5 +13,7 @@
 #
 
 class Admin < ApplicationRecord
+  has_many :conversations, dependent: :destroy
+
   devise :database_authenticatable, :recoverable, :rememberable, :validatable
 end

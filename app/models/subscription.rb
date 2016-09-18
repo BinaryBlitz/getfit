@@ -24,7 +24,7 @@ class Subscription < ApplicationRecord
   belongs_to :trainer
 
   has_one :program, dependent: :destroy
-  has_many :messages, dependent: :destroy
+  has_many :messages, as: :messageable, dependent: :destroy
   has_many :user_notifications, dependent: :destroy
 
   validates :expires_on, presence: true

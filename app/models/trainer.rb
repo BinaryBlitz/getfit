@@ -27,8 +27,11 @@
 #
 
 class Trainer < ApplicationRecord
+  after_create :create_default_conversation
+
   belongs_to :specialization
 
+  has_one :conversation, dependent: :destroy
   has_many :photos, dependent: :destroy
   has_many :programs, dependent: :destroy
   has_many :posts, dependent: :destroy
@@ -69,5 +72,11 @@ class Trainer < ApplicationRecord
 
   def reject!
     update_attribute(:approved, false)
+  end
+
+  private
+
+  def create_default_conversation
+    create_conversation(admin: Admin.first)
   end
 end
