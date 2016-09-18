@@ -12,6 +12,7 @@
 #  goal           :string
 #  location       :string
 #  home_equipment :string
+#  expires_on     :date             not null
 #
 
 subscription:
@@ -22,3 +23,4 @@ subscription:
   goal: weight_loss
   location: gym
   home_equipment: None
+  expires_on: <%= 1.year.from_now %>

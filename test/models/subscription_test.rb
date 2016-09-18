@@ -12,6 +12,7 @@
 #  goal           :string
 #  location       :string
 #  home_equipment :string
+#  expires_on     :date             not null
 #
 
 require 'test_helper'

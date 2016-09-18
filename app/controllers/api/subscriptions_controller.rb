@@ -7,9 +7,10 @@ class API::SubscriptionsController < API::APIController
   end
 
   def create
-    @subscription = current_user.subscriptions.build(trainer: @trainer)
+    @subscription = current_user.subscriptions.build(subscription_params)
+    @subscription.trainer = @trainer
 
-    if @subscription.save
+    if @subscription.save!
       render :show, status: :created
     else
       render json: @subscription.errors, status: 422
@@ -37,6 +38,6 @@ class API::SubscriptionsController < API::APIController
   def subscription_params
     params
       .require(:subscription)
-      .permit(:condition, :weekly_load, :goal, :location, :home_equipment)
+      .permit(:condition, :weekly_load, :goal, :location, :home_equipment, :expires_on)
   end
 end

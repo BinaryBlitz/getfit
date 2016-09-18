@@ -12,9 +12,12 @@
 #  goal           :string
 #  location       :string
 #  home_equipment :string
+#  expires_on     :date             not null
 #
 
 class Subscription < ApplicationRecord
+  GOALS = %w(weight_loss weight_gain drying stretching stamina strength comprehensive other)
+
   after_create :create_default_program
 
   belongs_to :user
@@ -24,12 +27,11 @@ class Subscription < ApplicationRecord
   has_many :messages, dependent: :destroy
   has_many :user_notifications, dependent: :destroy
 
+  validates :expires_on, presence: true
   validates :weekly_load, inclusion: { in: 1..7 }, allow_nil: true
   validates :condition, inclusion: { in: %w(beginner intermediate athlete) }, allow_nil: true
   validates :location, inclusion: { in: %w(gym street home) }, allow_nil: true
-  validates :goal, inclusion: {
-    in: %w(weight_loss weight_gain drying stretching stamina strength comprehensive other)
-  }, allow_nil: true
+  validates :goal, inclusion: { in: GOALS }, allow_nil: true
 
   private
 

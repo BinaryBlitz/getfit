@@ -34,7 +34,7 @@ user.update!(api_token: 'foobar')
 trainer.followings.create!(user: user)
 trainer.ratings.create!(user: user, content: 'Rating', value: 1)
 
-subscription = trainer.subscriptions.create!(user: user)
+subscription = trainer.subscriptions.create!(user: user, expires_on: 1.year.from_now)
 subscription.messages.create!(
   [
     { content: 'Trainer', category: 'trainer' },

@@ -13,9 +13,12 @@ class API::SubscriptionsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should create subscription' do
     @subscription.destroy
+    attributes = %w(condition weekly_load goal location home_equipment expires_on)
 
     assert_difference 'Subscription.count' do
-      post api_trainer_subscription_url(@trainer, api_token: api_token)
+      post api_trainer_subscription_url(@trainer, api_token: api_token), params: {
+        subscription: @subscription.attributes.slice(*attributes)
+      }
     end
 
     assert_response :created
