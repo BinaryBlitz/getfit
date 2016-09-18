@@ -27,4 +27,9 @@ class Admin::ProgramsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to admin_program_path(@program)
     refute @program.reload.approved?
   end
+
+  test 'should remove from sale' do
+    delete admin_program_path(@program)
+    assert_not_nil @program.reload.deleted_at
+  end
 end
