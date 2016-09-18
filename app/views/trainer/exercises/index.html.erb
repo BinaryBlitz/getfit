@@ -1,6 +1,8 @@
 <h1>Этап <%= @workout.position %>: упражнения</h1>
 
-<%= link_to 'New Exercise', new_trainer_workout_exercise_path, class: 'btn btn-default' %>
+<div class="form-group">
+  <%= link_to 'Новое упражнение', new_trainer_workout_exercise_path, class: 'btn btn-primary' %>
+</div>
 
 <table class="table">
   <thead>
@@ -19,13 +21,21 @@
     <% @exercises.each do |exercise| %>
       <tr>
         <td><%= exercise.exercise_type.name %></td>
-        <td><%= exercise.sets %></td>
-        <td><%= exercise.reps %></td>
-        <td><%= exercise.weight %></td>
-        <td><%= exercise.distance %></td>
-        <td><%= exercise.duration %></td>
-        <td><%= link_to 'Изменить', edit_trainer_exercise_path(exercise), class: 'btn btn-default' %></td>
-        <td><%= link_to 'Удалить', [:trainer, exercise], method: :delete, data: { confirm: 'Вы уверены?' }, class: 'btn btn-danger' %></td>
+        <td><%= exercise.sets || '–' %></td>
+        <td><%= exercise.reps || '–' %></td>
+        <td><%= exercise.weight || '–' %></td>
+        <td><%= exercise.distance || '–' %></td>
+        <td><%= exercise.duration || '–' %></td>
+        <td>
+          <%= link_to 'Изменить',
+                      edit_trainer_exercise_path(exercise),
+                      class: 'btn btn-secondary btn-sm' %>
+        </td>
+        <td>
+          <%= link_to 'Удалить',
+                      [:trainer, exercise], method: :delete, data: { confirm: 'Вы уверены?' },
+                      class: 'btn btn-danger btn-sm' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
