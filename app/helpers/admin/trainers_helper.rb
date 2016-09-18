@@ -1,11 +1,11 @@
 module Admin::TrainersHelper
   def status_for_trainer(trainer)
-    content_tag(:span, class: ['label', status_label_class_for_trainer(trainer)]) do
-      status_label_for_trainer(trainer)
+    content_tag(:span, class: ['tag', status_tag_class_for_trainer(trainer)]) do
+      status_tag_for_trainer(trainer)
     end
   end
 
-  def status_label_for_trainer(trainer)
+  def status_tag_for_trainer(trainer)
     if trainer.approved.nil?
       'На рассмотрении'
     elsif trainer.approved?
@@ -15,13 +15,13 @@ module Admin::TrainersHelper
     end
   end
 
-  def status_label_class_for_trainer(trainer)
+  def status_tag_class_for_trainer(trainer)
     if trainer.approved.nil?
-      'label-warning'
+      'tag-warning'
     elsif trainer.approved?
-      'label-success'
+      'tag-success'
     else
-      'label-danger'
+      'tag-danger'
     end
   end
 end

@@ -1,31 +1,15 @@
 <h1><%= @trainer.full_name %></h1>
 
-<% if @trainer.approved.nil? %>
-  <div class="form-group">
-    <%= link_to 'Одобрить',
-                  approve_admin_trainer_path(@trainer), method: :patch, class: 'btn btn-success' %>
+<dl class="row">
+  <dt class="col-sm-3">Номер телефона</dt>
+  <dd class="col-sm-9"><%= @trainer.phone_number %></dd>
 
-    <%= link_to 'Отклонить',
-                  reject_admin_trainer_path(@trainer), method: :patch, class: 'btn btn-danger' %>
-  </div>
-<% end %>
+  <dt class="col-sm-3">Специализация</dt>
+  <dd class="col-sm-9"><%= @trainer.specialization.name %></dd>
 
-<p>
-  <strong>Имя</strong>: <%= @trainer.full_name %>
-</p>
+  <dt class="col-sm-3">Категория</dt>
+  <dd class="col-sm-9"><%= @trainer.category %></dd>
 
-<p>
-  <strong>Номер телефона</strong>: <%= @trainer.phone_number %>
-</p>
-
-<p>
-  <strong>Специализация</strong>: <%= @trainer.specialization.name %>
-</p>
-
-<p>
-  <strong>Категория</strong>: <%= @trainer.category %>
-</p>
-
-<p>
-  <strong>Рейтинг</strong>: <%= @trainer.rating %>
-</p>
+  <dt class="col-sm-3">Рейтинг</dt>
+  <dd class="col-sm-9"><%= @trainer.rating %></dd>
+</dl>
