@@ -10,10 +10,10 @@ gem 'uglifier'
 gem 'coffee-rails', '~> 4.2'
 
 gem 'jquery-rails'
-gem 'turbolinks', '~> 5'
+gem 'turbolinks', '~> 5.0'
 gem 'jbuilder', '~> 2.5'
 
-gem 'devise', '~> 4.1.0'
+gem 'devise', '~> 4.1'
 gem 'devise-i18n'
 gem 'enumerize'
 gem 'phonelib'
@@ -36,9 +36,9 @@ end
 
 group :development do
   gem 'web-console', '~> 3.0'
-  gem 'listen', '~> 3.0.5'
+  gem 'listen', '~> 3.0'
   gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'spring-watcher-listen', '~> 2.0'
   gem 'annotate'
 end
 
