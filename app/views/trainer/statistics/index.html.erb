@@ -1,0 +1,58 @@
+<h1>Cтатистика</h1>
+
+<%= form_tag trainer_statistics_path, method: :get do %>
+  <div class="form-inline">
+    <div class="input-group col-xs-2 date">
+      <%= text_field_tag :from, nil, placeholder: 'Начало', class: 'form-control', id: 'datepicker' %>
+      <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+    </div>
+
+    <div class="input-group col-xs-2 date">
+      <%= text_field_tag :to, nil, placeholder: 'Конец', class: 'form-control', id: 'datepicker' %>
+      <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+    </div>
+
+    <div class="form-group">
+      <%= submit_tag 'Поиск', class: 'btn btn-default' %>
+    </div>
+  </div>
+<% end %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>№</th>
+      <th>Название тренировки</th>
+      <th>Количество воспользовавшихся</th>
+      <th>Общая прибыль от продаж</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @statistics.programs.each do |program| %>
+      <tr>
+        <td><%= program.id %></td>
+        <td><%= program.name %></td>
+        <td><%= program.users_count %></td>
+        <td><%= program.revenue %></td>
+      </tr>
+    <% end %>
+    <tr>
+      <td></td>
+      <td></td>
+      <td>Поступления по всем тренировкам:</td>
+      <td><%= @statistics.total_revenue %></td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="table">
+  <tr>
+    <td>Количество учеников за период</td>
+    <td><%= @statistics.subscribers_count_on_date %></td>
+  </tr>
+  <tr>
+    <td>Прибыль за период</td>
+    <td><%= @statistics.total_revenue_on_date %></td>
+  </tr>
+</table>
