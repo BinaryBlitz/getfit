@@ -22,8 +22,10 @@
   <dt class="col-sm-3">Цена</dt>
   <dd class="col-sm-9"><%= @program.price %></dd>
 
-  <dt class="col-sm-3">Тип</dt>
-  <dd class="col-sm-9"><%= @program.program_type.name %></dd>
+  <% if @program.program_type.present? %>
+    <dt class="col-sm-3">Тип</dt>
+    <dd class="col-sm-9"><%= @program.program_type.name %></dd>
+  <% end %>
 
   <% if @program.banner? %>
     <dt class="col-sm-3">Баннер</dt>
