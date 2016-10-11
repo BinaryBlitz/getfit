@@ -63,6 +63,15 @@ class User < ApplicationRecord
     "#{first_name} #{last_name}"
   end
 
+  def age
+    return nil unless birthdate.present?
+
+    today = Time.zone.today
+    age = today.year - birthdate.year
+    age -= 1 if today < birthdate + age.years
+    age
+  end
+
   private
 
   def verified_phone_number
