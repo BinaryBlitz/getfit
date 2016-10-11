@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resource :trainer
     resources :posts
     resources :exercise_types
+    resources :admin_messages, only: [:index, :create]
 
     resources :subscriptions, only: [:index, :show] do
       resources :messages, only: [:index, :create], shallow: true
@@ -75,6 +76,8 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :trainers, only: [:index, :show] do
+      resources :messages, only: [:index, :create], shallow: true
+
       patch 'approve', 'reject', on: :member
     end
 

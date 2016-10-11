@@ -38,6 +38,15 @@ ActiveRecord::Schema.define(version: 20160918205537) do
     t.index ["post_id"], name: "index_comments_on_post_id", using: :btree
   end
 
+  create_table "conversations", force: :cascade do |t|
+    t.integer  "trainer_id"
+    t.integer  "admin_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["admin_id"], name: "index_conversations_on_admin_id", using: :btree
+    t.index ["trainer_id"], name: "index_conversations_on_trainer_id", using: :btree
+  end
+
   create_table "exercise_sessions", force: :cascade do |t|
     t.integer  "exercise_id"
     t.integer  "workout_session_id"
@@ -97,13 +106,14 @@ ActiveRecord::Schema.define(version: 20160918205537) do
   end
 
   create_table "messages", force: :cascade do |t|
-    t.text     "content",         null: false
-    t.string   "category",        null: false
-    t.integer  "subscription_id"
+    t.text     "content",          null: false
+    t.string   "category",         null: false
     t.string   "image"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.index ["subscription_id"], name: "index_messages_on_subscription_id", using: :btree
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.string   "messageable_type"
+    t.integer  "messageable_id"
+    t.index ["messageable_type", "messageable_id"], name: "index_messages_on_messageable_type_and_messageable_id", using: :btree
   end
 
   create_table "notifications", force: :cascade do |t|
@@ -348,6 +358,8 @@ ActiveRecord::Schema.define(version: 20160918205537) do
     t.index ["program_id"], name: "index_workouts_on_program_id", using: :btree
   end
 
+  add_foreign_key "conversations", "admins"
+  add_foreign_key "conversations", "trainers"
   add_foreign_key "exercise_sessions", "exercises"
   add_foreign_key "exercise_sessions", "workout_sessions"
   add_foreign_key "exercise_types", "trainers"
@@ -357,7 +369,6 @@ ActiveRecord::Schema.define(version: 20160918205537) do
   add_foreign_key "followings", "users"
   add_foreign_key "likes", "posts"
   add_foreign_key "likes", "users"
-  add_foreign_key "messages", "subscriptions"
   add_foreign_key "photos", "trainers"
   add_foreign_key "posts", "programs"
   add_foreign_key "posts", "trainers"

@@ -2,17 +2,18 @@
 #
 # Table name: messages
 #
-#  id              :integer          not null, primary key
-#  content         :text             not null
-#  category        :string           not null
-#  subscription_id :integer
-#  image           :string
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
+#  id               :integer          not null, primary key
+#  content          :text             not null
+#  category         :string           not null
+#  image            :string
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  messageable_type :string
+#  messageable_id   :integer
 #
 
 message:
   content: Content
   category: user
-  subscription: subscription
+  messageable: subscription (Subscription)
   image:

@@ -2,13 +2,14 @@
 #
 # Table name: messages
 #
-#  id              :integer          not null, primary key
-#  content         :text             not null
-#  category        :string           not null
-#  subscription_id :integer
-#  image           :string
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
+#  id               :integer          not null, primary key
+#  content          :text             not null
+#  category         :string           not null
+#  image            :string
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  messageable_type :string
+#  messageable_id   :integer
 #
 
 require 'test_helper'
@@ -31,7 +32,7 @@ class MessageTest < ActiveSupport::TestCase
   end
 
   test 'category from list' do
-    valid_categories = %w(user trainer)
+    valid_categories = %w(user trainer admin)
     valid_categories.each do |category|
       @message.category = category
       assert @message.valid?
