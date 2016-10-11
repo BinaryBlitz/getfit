@@ -27,6 +27,7 @@ gem 'devise-bootstrap-views'
 gem 'vkontakte_api'
 gem 'koala'
 gem 'rpush'
+gem 'rpush-redis'
 gem 'kaminari'
 gem 'rollbar'
 
