@@ -14,6 +14,7 @@
 #  home_equipment          :string
 #  expires_on              :date             not null
 #  last_message_created_at :datetime
+#  viewed_by_trainer_at    :datetime
 #
 
 class Subscription < ApplicationRecord
