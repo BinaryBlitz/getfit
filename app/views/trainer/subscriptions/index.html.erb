@@ -5,7 +5,7 @@
     <tr>
       <th></th>
       <th>Пользователь</th>
-      <th>Статус</th>
+      <th>Дата окончания</th>
       <th>Последнее сообщение</th>
     </tr>
   </thead>
@@ -15,8 +15,8 @@
       <tr>
         <td><%= index + 1 %></td>
         <td><%= link_to subscription.user.full_name, [:trainer, subscription] %></td>
-        <td><%= 'Статус' %></td>
-        <td><%= 'Дата' %></td>
+        <td><%= subscription.expires_on.to_formatted_s %></td>
+        <td><%= subscription.last_message_created_at&.to_formatted_s(:short) %></td>
       </tr>
     <% end %>
   </tbody>
