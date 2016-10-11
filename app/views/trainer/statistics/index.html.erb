@@ -18,9 +18,9 @@
   <thead>
     <tr>
       <th>№</th>
-      <th>Название тренировки</th>
+      <th>Программа</th>
       <th>Количество</th>
-      <th>Общая прибыль от продаж</th>
+      <th>Прибыль от продаж</th>
     </tr>
   </thead>
 
@@ -33,22 +33,16 @@
         <td><%= program.revenue %></td>
       </tr>
     <% end %>
-    <tr>
-      <td></td>
-      <td></td>
-      <td>Поступления по всем тренировкам:</td>
-      <td><%= @statistics.revenue %></td>
-    </tr>
   </tbody>
 </table>
 
 <table class="table">
   <tr>
-    <td>Количество подписчиков</td>
-    <td><%= @statistics.subscribers_count %></td>
+    <td>Прибыль</td>
+    <td><%= @statistics.revenue %></td>
   </tr>
   <tr>
-    <td>Прибыль</td>
-    <td><%= @statistics.total_revenue %></td>
+    <td>Количество подписчиков</td>
+    <td><%= @statistics.subscribers_count %></td>
   </tr>
 </table>
