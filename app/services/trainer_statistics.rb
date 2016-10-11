@@ -4,9 +4,9 @@ class TrainerStatistics
   def initialize(trainer, from = nil, to = nil)
     @trainer = trainer
     @programs = @trainer.programs.general
-    @programs = @programs.where(created_at: from..to) if from && to
+    @programs = @programs.where(created_at: from..to) if from.present? && to.present?
     @subscribers = @trainer.subscribers
-    @subscribers = @subscribers.where(created_at: from..to) if from && to
+    @subscribers = @subscribers.where(created_at: from..to) if from.present? && to.present?
   end
 
   def revenue
