@@ -1,6 +1,6 @@
 class Trainer::StatisticsController < Trainer::TrainerController
   def index
-    @statistics = TrainerStatistics.new(*date_range, current_trainer)
+    @statistics = TrainerStatistics.new(current_trainer, date_range)
   end
 
   private
@@ -8,6 +8,6 @@ class Trainer::StatisticsController < Trainer::TrainerController
   def date_range
     from = params[:from]
     to = params[:to]
-    [from, to]
+    { from: from, to: to }
   end
 end
