@@ -14,7 +14,7 @@
     <% @subscriptions.each do |subscription| %>
       <tr>
         <td>
-          <% if subscription.last_message_created_at > subscription.viewed_by_trainer_at %>
+          <% unless subscription.viewed_by_trainer? %>
             <span class="tag tag-success">
               <small>●</small>
             </span>

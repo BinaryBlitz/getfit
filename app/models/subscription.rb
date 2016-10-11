@@ -35,6 +35,13 @@ class Subscription < ApplicationRecord
   validates :location, inclusion: { in: %w(gym street home) }, allow_nil: true
   validates :goal, inclusion: { in: GOALS }, allow_nil: true
 
+  def viewed_by_trainer?
+    return true unless last_message_created_at.present?
+    return false unless viewed_by_trainer_at.present?
+
+    viewed_by_trainer_at > last_message_created_at
+  end
+
   private
 
   def create_default_program
