@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161011050736) do
+ActiveRecord::Schema.define(version: 20161011054145) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -260,6 +260,7 @@ ActiveRecord::Schema.define(version: 20161011050736) do
     t.string   "home_equipment"
     t.date     "expires_on",              null: false
     t.datetime "last_message_created_at"
+    t.datetime "viewed_by_trainer_at"
     t.index ["trainer_id"], name: "index_subscriptions_on_trainer_id", using: :btree
     t.index ["user_id"], name: "index_subscriptions_on_user_id", using: :btree
   end
