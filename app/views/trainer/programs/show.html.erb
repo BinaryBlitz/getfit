@@ -12,22 +12,21 @@
   <% end %>
 </div>
 
-<p>
-  <strong>Описание</strong>: <%= @program.preview %>
-</p>
+<dl class="row">
+  <dt class="col-sm-3">Описание</dt>
+  <dd class="col-sm-9"><%= @program.preview %></dd>
 
-<p>
-  <strong>Подробное описание</strong>: <%= @program.description %>
-</p>
+  <dt class="col-sm-3">Подробное описание</dt>
+  <dd class="col-sm-9"><%= @program.description %></dd>
 
-<p>
-  <strong>Баннер</strong>: <%= image_tag(@program.banner) if @program.banner? %>
-</p>
+  <dt class="col-sm-3">Цена</dt>
+  <dd class="col-sm-9"><%= @program.price %></dd>
 
-<p>
-  <strong>Цена</strong>: <%= @program.price %>
-</p>
+  <dt class="col-sm-3">Тип</dt>
+  <dd class="col-sm-9"><%= @program.program_type.name %></dd>
 
-<p>
-  <strong>Тип программы</strong>: <%= @program.program_type_id %>
-</p>
+  <% if @program.banner? %>
+    <dt class="col-sm-3">Баннер</dt>
+    <dd class="col-sm-9"><%= image_tag @program.banner_url, class: 'img-fluid' %></dd>
+  <% end %>
+</dl>
