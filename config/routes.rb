@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resource :trainer
     resources :posts
     resources :exercise_types
+    resources :statistics, only: :index
 
     resources :subscriptions, only: [:index, :show] do
       resources :messages, only: [:index, :create], shallow: true
