@@ -31,6 +31,6 @@
 
   <% if @program.banner? %>
     <dt class="col-sm-3">Баннер</dt>
-    <dd class="col-sm-9"><%= image_tag @program.banner_url %></dd>
+    <dd class="col-sm-9"><%= image_tag @program.banner_url, class: 'img-fluid' %></dd>
   <% end %>
 </dl>
