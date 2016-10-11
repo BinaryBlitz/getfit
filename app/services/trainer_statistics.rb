@@ -10,7 +10,7 @@ class TrainerStatistics
   end
 
   def revenue
-    @programs.sum(&:revenue)
+    @programs.sum('price * users_count')
   end
 
   def subscribers_count
