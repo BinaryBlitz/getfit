@@ -14,7 +14,7 @@
 class Message < ApplicationRecord
   after_create :notify, if: :trainer?
 
-  belongs_to :subscription
+  belongs_to :subscription, touch: :last_message_created_at
 
   validates :content, presence: true, unless: 'image?'
   validates :category, inclusion: { in: %w(user trainer) }
