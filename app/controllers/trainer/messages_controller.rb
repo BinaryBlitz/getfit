@@ -3,6 +3,7 @@ class Trainer::MessagesController < Trainer::TrainerController
   before_action :set_messages, only: [:index, :create]
 
   def index
+    @subscription.touch(:viewed_by_trainer_at)
     @messages = @subscription.messages.order(created_at: :desc)
     @message = @subscription.messages.build
   end
