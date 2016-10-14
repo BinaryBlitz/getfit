@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161011054145) do
+ActiveRecord::Schema.define(version: 20161014053423) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,13 @@ ActiveRecord::Schema.define(version: 20161011054145) do
     t.datetime "updated_at",  null: false
     t.index ["author_type", "author_id"], name: "index_comments_on_author_type_and_author_id", using: :btree
     t.index ["post_id"], name: "index_comments_on_post_id", using: :btree
+  end
+
+  create_table "conversations", force: :cascade do |t|
+    t.integer  "trainer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["trainer_id"], name: "index_conversations_on_trainer_id", using: :btree
   end
 
   create_table "exercise_sessions", force: :cascade do |t|
@@ -265,6 +272,16 @@ ActiveRecord::Schema.define(version: 20161011054145) do
     t.index ["user_id"], name: "index_subscriptions_on_user_id", using: :btree
   end
 
+  create_table "tickets", force: :cascade do |t|
+    t.text     "content",         null: false
+    t.string   "category",        null: false
+    t.string   "image"
+    t.integer  "conversation_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["conversation_id"], name: "index_tickets_on_conversation_id", using: :btree
+  end
+
   create_table "trainers", force: :cascade do |t|
     t.string   "email",                  default: "",  null: false
     t.string   "encrypted_password",     default: "",  null: false
@@ -350,6 +367,7 @@ ActiveRecord::Schema.define(version: 20161011054145) do
     t.index ["program_id"], name: "index_workouts_on_program_id", using: :btree
   end
 
+  add_foreign_key "conversations", "trainers"
   add_foreign_key "exercise_sessions", "exercises"
   add_foreign_key "exercise_sessions", "workout_sessions"
   add_foreign_key "exercise_types", "trainers"
@@ -370,6 +388,7 @@ ActiveRecord::Schema.define(version: 20161011054145) do
   add_foreign_key "ratings", "users"
   add_foreign_key "subscriptions", "trainers"
   add_foreign_key "subscriptions", "users"
+  add_foreign_key "tickets", "conversations"
   add_foreign_key "user_notifications", "subscriptions"
   add_foreign_key "workout_sessions", "users"
   add_foreign_key "workout_sessions", "workouts"

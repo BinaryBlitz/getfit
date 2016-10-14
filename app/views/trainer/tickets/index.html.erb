@@ -1,0 +1,35 @@
+<h1>tickets</h1>
+
+<%= render 'form' %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Отправитель</th>
+      <th>Сообщение</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tickets.each do |ticket| %>
+      <% next unless ticket.content.present? || ticket.image? %>
+      <tr class="<%= 'active' if ticket.category == 'admin' %>">
+        <td class="col-xs-3 col-sm-2">
+          <%= ticket.category == 'admin' ? 'Администратор' : 'Тренер' %>
+          <br>
+          <span class="text-muted">
+            <%= ticket.created_at.to_formatted_s(:short) %>
+          </span>
+        </td>
+        <td class="col-xs-9 col-sm-10">
+          <%= ticket.content %>
+          <% if ticket.image? %>
+            <%= link_to ticket.image_url do %>
+              <%= image_tag ticket.image.thumb.url, class: 'img-responsive' %>
+            <% end %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

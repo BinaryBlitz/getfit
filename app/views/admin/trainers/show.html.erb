@@ -1,5 +1,9 @@
 <h1><%= @trainer.full_name %></h1>
 
+<div class="form-group">
+  <%= link_to 'Чат', admin_trainer_tickets_path(@trainer), class: 'btn btn-primary' %>
+</div>
+
 <dl class="row">
   <dt class="col-sm-3">Номер телефона</dt>
   <dd class="col-sm-9"><%= @trainer.phone_number %></dd>

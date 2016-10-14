@@ -1,0 +1,13 @@
+# == Schema Information
+#
+# Table name: conversations
+#
+#  id         :integer          not null, primary key
+#  trainer_id :integer
+#  admin_id   :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+conversation:
+  trainer: trainer
