@@ -3,7 +3,8 @@ class Trainer::UserNotificationsController < ApplicationController
 
   def create
     @user_notification = @subscription.user_notifications.create
-    redirect_to trainer_program_path(@user_notification.subscription.program)
+    redirect_to trainer_program_path(@user_notification.subscription.program),
+                notice: 'Уведомление успешно отправлено'
   end
 
   private

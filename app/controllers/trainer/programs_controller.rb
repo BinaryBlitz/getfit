@@ -19,7 +19,7 @@ class Trainer::ProgramsController < Trainer::TrainerController
     @program = current_trainer.programs.build(program_params)
 
     if @program.save
-      redirect_to [:trainer, @program], notice: 'Program was successfully created.'
+      redirect_to [:trainer, @program], notice: 'Программа успешно создана'
     else
       render :new
     end
@@ -27,7 +27,7 @@ class Trainer::ProgramsController < Trainer::TrainerController
 
   def update
     if @program.update(program_params)
-      redirect_to [:trainer, @program], notice: 'Program was successfully updated.'
+      redirect_to [:trainer, @program], notice: 'Программа успешно обновлена'
     else
       render :edit
     end
@@ -35,7 +35,7 @@ class Trainer::ProgramsController < Trainer::TrainerController
 
   def destroy
     @program.destroy
-    redirect_to trainer_programs_url, notice: 'Program was successfully destroyed.'
+    redirect_to trainer_programs_url, notice: 'Программа успешно удалена'
   end
 
   private

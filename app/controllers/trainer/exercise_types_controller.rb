@@ -19,7 +19,7 @@ class Trainer::ExerciseTypesController < Trainer::TrainerController
     @exercise_type = current_trainer.exercise_types.build(exercise_type_params)
 
     if @exercise_type.save
-      redirect_to trainer_exercise_types_url, notice: 'Exercise type was successfully created.'
+      redirect_to trainer_exercise_types_url, notice: 'Тип упражнения успешно создан'
     else
       render :new
     end
@@ -27,7 +27,7 @@ class Trainer::ExerciseTypesController < Trainer::TrainerController
 
   def update
     if @exercise_type.update(exercise_type_params)
-      redirect_to trainer_exercise_types_url, notice: 'Exercise type was successfully updated.'
+      redirect_to trainer_exercise_types_url, notice: 'Тип упражнения успешно обновлён'
     else
       render :edit
     end
@@ -35,7 +35,7 @@ class Trainer::ExerciseTypesController < Trainer::TrainerController
 
   def destroy
     @exercise_type.destroy
-    redirect_to trainer_exercise_types_url, notice: 'Exercise type was successfully destroyed.'
+    redirect_to trainer_exercise_types_url, notice: 'Тип упражнения успешно удалён'
   end
 
   private
