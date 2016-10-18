@@ -34,6 +34,18 @@ user.update!(api_token: 'foobar')
 trainer.followings.create!(user: user)
 trainer.ratings.create!(user: user, content: 'Rating', value: 1)
 
+program = Program.create!(
+  name: 'Program', preview: 'Preview', description: 'Description',
+  banner: image, price: 100,
+  trainer: trainer, program_type: program_type,
+  approved: true
+)
+
+program.purchases.create!(user: user)
+program.ratings.create!(user: user, content: 'Rating', value: 1)
+
+workout = program.workouts.create!(name: 'Workout', tips: 'Tips', duration: 1)
+
 subscription = trainer.subscriptions.create!(user: user, expires_on: 1.year.from_now)
 subscription.messages.create!(
   [
@@ -46,18 +58,6 @@ post = Post.create!(content: 'Content', image: image, trainer: trainer)
 
 post.comments.create!(content: 'Content', author: user)
 post.likes.create!(user: user)
-
-program = Program.create!(
-  name: 'Program', preview: 'Preview', description: 'Description',
-  banner: image, price: 100,
-  trainer: trainer, program_type: program_type,
-  approved: true
-)
-
-program.purchases.create!(user: user)
-program.ratings.create!(user: user, content: 'Rating', value: 1)
-
-workout = program.workouts.create!(name: 'Workout', tips: 'Tips', duration: 1)
 
 exercise_type = ExerciseType.create!(
   name: 'Exercise type',
