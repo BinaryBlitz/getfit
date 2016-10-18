@@ -1,0 +1,14 @@
+= form_for([:admin, @notification]) do |f|
+  = render 'shared/error_messages', object: @notification
+  .form-group
+    = f.label :content
+    = f.text_field :content, class: 'form-control'
+  .form-group
+    = f.label :image
+    br
+    = f.file_field :image
+    br
+    = image_tag(f.object.image_url) if f.object.image?
+    = f.hidden_field :image_cache
+  .form-group
+    = f.submit class: 'btn btn-primary'

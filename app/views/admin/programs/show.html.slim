@@ -1,0 +1,38 @@
+h1 = @program.name
+
+.form-group
+  = link_to 'Этапы',
+            admin_program_workouts_path(@program),
+            class: 'btn btn-secondary'
+  | &nbsp;
+  
+  - if @program.approved.nil?
+    = link_to 'Одобрить',
+              approve_admin_program_path(@program), method: :patch,
+              class: 'btn btn-success'
+    | &nbsp;
+    
+    = link_to 'Отказать',
+              reject_admin_program_path(@program), method: :patch,
+              class: 'btn btn-danger'
+  - else
+    = link_to 'Снять с продажи',
+              admin_program_path(@program), method: :delete,
+              data: { confirm: 'Вы уверены?' }, class: 'btn btn-danger'
+
+dl.row
+  dt.col-sm-3 Описание
+  dd.col-sm-9 = @program.preview
+
+  dt.col-sm-3 Подробное описание
+  dd.col-sm-9 = @program.description
+
+  dt.col-sm-3 Цена
+  dd.col-sm-9 = @program.price
+
+  dt.col-sm-3 Тип
+  dd.col-sm-9 = @program.program_type.name
+
+  - if @program.banner?
+    dt.col-sm-3 Баннер
+    dd.col-sm-9 = image_tag @program.banner_url, class: 'img-fluid'
