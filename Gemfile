@@ -16,6 +16,7 @@ gem 'slim-rails'
 
 gem 'devise', '~> 4.1'
 gem 'devise-i18n'
+gem 'rails-i18n'
 gem 'enumerize'
 gem 'phonelib'
 gem 'mini_magick'
