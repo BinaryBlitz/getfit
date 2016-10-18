@@ -5,13 +5,14 @@ ruby '2.3.1'
 gem 'rails', '~> 5.0.0'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
+
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier'
 gem 'coffee-rails', '~> 4.2'
-
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5.0'
 gem 'jbuilder', '~> 2.6'
+gem 'slim-rails'
 
 gem 'devise', '~> 4.1'
 gem 'devise-i18n'
