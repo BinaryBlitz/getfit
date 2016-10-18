@@ -1,0 +1,9 @@
+= bootstrap_devise_error_messages!
+
+- if resource_name == :trainer
+  = render 'trainer'
+- elsif resource_name == :admin
+  = render 'admin'
+
+.form-group
+  = render 'devise/shared/links'
