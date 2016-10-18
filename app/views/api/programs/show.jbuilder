@@ -10,6 +10,10 @@ end
 
 json.trainer do
   json.partial! 'api/trainers/trainer', trainer: @program.trainer
+
+  if current_user
+    json.following_id current_user.followings.find_by(trainer: @program.trainer).try(:id)
+  end
 end
 
 json.workouts @program.workouts do |workout|
