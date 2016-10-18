@@ -29,3 +29,7 @@ nav.navbar {
 .alert-alert {
   @extend .alert-danger !optional;
 }
+
+.field_with_errors {
+  @extend .has-danger !optional;
+}
