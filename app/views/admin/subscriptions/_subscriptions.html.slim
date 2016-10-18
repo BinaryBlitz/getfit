@@ -1,0 +1,9 @@
+table.table
+  thead
+    tr
+      th №
+      th Пользователь
+      th Дата окончания
+  tbody
+    - @subscriptions.each_with_index do |subscription, index|
+      = render 'admin/subscriptions/subscription', subscription: subscription, index: index

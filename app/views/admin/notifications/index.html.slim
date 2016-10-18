@@ -1,0 +1,15 @@
+h1 Уведомления
+.form-group
+  = link_to 'Новое уведомление', new_admin_notification_path, class: 'btn btn-primary'
+table.table
+  thead
+    tr
+      th Содержание
+      th Изображение
+  tbody
+    - @notifications.each do |notification|
+      tr
+        td = notification.content
+        td
+          - if notification.image?
+            = image_tag notification.image_url, class: 'img-responsive'

@@ -1,0 +1,21 @@
+h1 Тренеры
+table.table
+  thead
+    tr
+      th Имя
+      th Номер телефона
+      th Специализация
+      th Категория
+      th Рейтинг
+      th Статус
+      th Фото
+  tbody
+    - @trainers.each do |trainer|
+      tr
+        td = link_to trainer.full_name, [:admin, trainer]
+        td = trainer.phone_number
+        td = trainer.specialization.name
+        td = trainer.category
+        td = trainer.rating
+        td = status_for_trainer(trainer)
+        td = image_tag trainer.avatar_url

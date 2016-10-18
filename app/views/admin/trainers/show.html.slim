@@ -1,0 +1,26 @@
+h1 = @trainer.full_name
+
+dl.row
+  dt.col-sm-3 Номер телефона
+  dd.col-sm-9 = @trainer.phone_number
+
+  dt.col-sm-3 Специализация
+  dd.col-sm-9 = @trainer.specialization.name
+
+  dt.col-sm-3 Категория
+  dd.col-sm-9 = @trainer.category
+
+  dt.col-sm-3 Рейтинг
+  dd.col-sm-9 = @trainer.rating
+
+h2
+  | Программы 
+  small.text-muted = @programs.count
+
+= render 'admin/programs/programs'
+
+h2
+  | Клиенты 
+  small.text-muted = @subscriptions.count
+
+= render 'admin/subscriptions/subscriptions'
