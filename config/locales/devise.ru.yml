@@ -1,0 +1,8 @@
+ru:
+  devise:
+    registrations:
+      edit:
+        title: Настройки аккаунта
+    sessions:
+      new:
+        remember_me: Запомнить
