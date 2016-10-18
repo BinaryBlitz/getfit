@@ -1,0 +1,14 @@
+h1 Запись
+p
+  strong Содержание: 
+  = @post.content
+
+- if @post.program.present?
+  p
+    strong Программа: 
+    = link_to @post.program.name, [:trainer, @post.program]
+
+- if @post.image?
+  p
+    strong Изображение: 
+    = image_tag @post.image_url

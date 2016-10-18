@@ -1,0 +1,25 @@
+h1 Программы
+.form-group
+  = link_to 'Новая программа', new_trainer_program_path, class: 'btn btn-primary'
+table.table
+  thead
+    tr
+      th Название
+      th Описание
+      th Цена
+      th Тип
+      th Статус
+      th[colspan="2"]
+  tbody
+    - @programs.each do |program|
+      tr
+        td = link_to program.name, [:trainer, program]
+        td = truncate(program.preview, length: 20)
+        td = program.price
+        td = program.program_type&.name
+        td = status_for_program(program)
+        td = link_to 'Изменить',
+                     edit_trainer_program_path(program), class: 'btn btn-secondary btn-sm'
+        td = link_to 'Удалить',
+                     [:trainer, program], method: :delete,
+                     data: { confirm: 'Вы уверены?' }, class: 'btn btn-danger btn-sm'

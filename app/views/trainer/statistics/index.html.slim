@@ -1,0 +1,35 @@
+h1 Cтатистика
+
+= form_tag trainer_statistics_path, method: :get do
+  .form-inline.form-group
+    .form-group
+      = text_field_tag :from, nil, placeholder: 'Начало', class: 'form-control input-date'
+    | &nbsp;
+    
+    .form-group
+      = text_field_tag :to, nil, placeholder: 'Конец', class: 'form-control input-date'
+    | &nbsp;
+    
+    = submit_tag 'Поиск', class: 'btn btn-primary'
+
+table.table
+  thead
+    tr
+      th №
+      th Программа
+      th Количество
+      th Прибыль от продаж
+  tbody
+    - @statistics.programs.each do |program|
+      tr
+        td = program.id
+        td = program.name
+        td = program.users_count
+        td = program.revenue
+table.table
+  tr
+    td Прибыль
+    td = @statistics.revenue
+  tr
+    td Количество подписчиков
+    td = @statistics.subscribers_count

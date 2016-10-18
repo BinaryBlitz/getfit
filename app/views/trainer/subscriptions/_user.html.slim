@@ -1,0 +1,29 @@
+dl.row
+  dt.col-sm-3 Имя
+  dd.col-sm-9 = user.first_name
+  
+  dt.col-sm-3 Фамилия
+  dd.col-sm-9 = user.last_name
+  
+  dt.col-sm-3 Описание
+  dd.col-sm-9 = user.description
+  
+  dt.col-sm-3 Пол
+  dd.col-sm-9 = user.gender
+  
+  dt.col-sm-3 Высота
+  dd.col-sm-9 = user.height
+  
+  dt.col-sm-3 Вес
+  dd.col-sm-9 = user.weight
+  
+  dt.col-sm-3 Возраст
+  dd.col-sm-9 = user.age
+  
+  - if user.avatar?
+    dt.col-sm-3 Аватар
+    dd.col-sm-9 = image_tag user.avatar_url, class: 'img-fluid'
+  
+  - if user.banner?
+    dt.col-sm-3 Баннер
+    dd.col-sm-9 = image_tag user.banner_url, class: 'img-fluid'

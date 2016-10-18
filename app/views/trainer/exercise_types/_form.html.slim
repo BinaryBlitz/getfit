@@ -1,0 +1,16 @@
+= form_for([:trainer, @exercise_type]) do |f|
+  = render 'shared/error_messages', object: @exercise_type
+  .form-group
+    = f.label :name
+    = f.text_field :name, class: 'form-control'
+  .form-group
+    = f.label :video_url
+    = f.text_field :video_url, class: 'form-control'
+  .form-group
+    = f.label :description
+    = f.text_area :description, class: 'form-control'
+  .form-group
+    = f.label :tips
+    = f.text_area :tips, class: 'form-control'
+  .form-group
+    = f.submit class: 'btn btn-primary'

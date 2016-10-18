@@ -1,0 +1,25 @@
+h1 Типы упражнений
+.form-group
+  = link_to 'Новый тип упражнения', new_trainer_exercise_type_path, class: 'btn btn-primary'
+table.table
+  thead
+    tr
+      th Название
+      th Описание
+      th Советы
+      th Видео
+      th[colspan="2"]
+  tbody
+    - @exercise_types.each do |exercise_type|
+      tr
+        td = link_to exercise_type.name, [:trainer, exercise_type]
+        td = exercise_type.description
+        td = exercise_type.tips
+        td = exercise_type.video_url
+        td = link_to 'Изменить',
+                     edit_trainer_exercise_type_path(exercise_type),
+                     class: 'btn btn-secondary btn-sm'
+        td = link_to 'Удалить',
+                     [:trainer, exercise_type],
+                     method: :delete, data: { confirm: 'Вы уверены?' },
+                     class: 'btn btn-danger btn-sm'
