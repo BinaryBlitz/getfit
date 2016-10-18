@@ -19,7 +19,7 @@ class Trainer::PostsController < Trainer::TrainerController
     @post = current_trainer.posts.build(post_params)
 
     if @post.save
-      redirect_to [:trainer, @post], notice: 'Post was successfully created.'
+      redirect_to [:trainer, @post], notice: 'Запись успешно создана'
     else
       render :new
     end
@@ -27,7 +27,7 @@ class Trainer::PostsController < Trainer::TrainerController
 
   def update
     if @post.update(post_params)
-      redirect_to [:trainer, @post], notice: 'Post was successfully updated.'
+      redirect_to [:trainer, @post], notice: 'Запись успешно обновлена'
     else
       render :edit
     end
@@ -35,7 +35,7 @@ class Trainer::PostsController < Trainer::TrainerController
 
   def destroy
     @post.destroy
-    redirect_to trainer_posts_url, notice: 'Post was successfully destroyed.'
+    redirect_to trainer_posts_url, notice: 'Запись успешно удалена'
   end
 
   private

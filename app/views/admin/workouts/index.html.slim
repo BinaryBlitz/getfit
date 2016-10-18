@@ -1,0 +1,18 @@
+ol.breadcrumb
+  li.breadcrumb-item = link_to @program.name, [:admin, @program]
+  li.breadcrumb-item.active Этапы
+
+h1 Тренировки
+
+table.table
+  thead
+    tr
+      th №
+      th Название
+      th Продолжительность
+  tbody
+    - @workouts.each do |workout|
+      tr
+        td = workout.position || '–'
+        td = workout.name
+        td = workout.duration

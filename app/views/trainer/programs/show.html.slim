@@ -1,0 +1,26 @@
+h1 = @program.name
+
+.form-group
+  = link_to 'Изменить', edit_trainer_program_path, class: 'btn btn-secondary'
+  | &nbsp;
+  = link_to 'Этапы', trainer_program_workouts_path(@program), class: 'btn btn-primary'
+  - if @program.subscription.present?
+    = link_to 'Уведомить об изменениях',
+              trainer_subscription_user_notifications_path(@program.subscription),
+              method: :post, class: 'btn btn-primary'
+
+dl.row
+  dt.col-sm-3 Описание
+  dd.col-sm-9 = @program.preview
+  dt.col-sm-3 Подробное описание
+  dd.col-sm-9 = @program.description
+  dt.col-sm-3 Цена
+  dd.col-sm-9 = @program.price
+  
+  - if @program.program_type.present?
+    dt.col-sm-3 Тип
+    dd.col-sm-9 = @program.program_type.name
+  
+  - if @program.banner?
+    dt.col-sm-3 Баннер
+    dd.col-sm-9 = image_tag @program.banner_url, class: 'img-fluid'

@@ -1,0 +1,23 @@
+h1 Записи
+.form-group
+  = link_to 'Новая запись', new_trainer_post_path, class: 'btn btn-primary'
+table.table
+  thead
+    tr
+      th Содержание
+      th Программа
+      th Дата создания
+      th[colspan="2"]
+  tbody
+    - @posts.each do |post|
+      tr
+        td = link_to post.content, [:trainer, post]
+        td
+          - if post.program.present?
+            = link_to post.program.name, [:trainer, post.program]
+        td = post.created_at.to_formatted_s(:short)
+        td = link_to 'Изменить',
+                     edit_trainer_post_path(post), class: 'btn btn-secondary btn-sm'
+        td = link_to 'Удалить',
+                     [:trainer, post], method: :delete,
+                     data: { confirm: 'Вы уверены?' }, class: 'btn btn-danger btn-sm'

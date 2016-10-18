@@ -1,0 +1,26 @@
+h1 = @subscription.user.full_name
+
+.form-group
+  = link_to 'Чат', trainer_subscription_messages_path(@subscription), class: 'btn btn-primary'
+  | &nbsp;
+  = link_to 'Персональная программа', [:trainer, @subscription.program], class: 'btn btn-secondary'
+
+= render 'user', user: @subscription.user
+
+h2 Анкета
+
+dl.row
+  dt.col-sm-4 Физическое состояние
+  dd.col-sm-8 = @subscription.condition || 'Не указано'
+
+  dt.col-sm-4 Недельная нагрузка
+  dd.col-sm-8 = @subscription.weekly_load || 'Не указано'
+
+  dt.col-sm-4 Цель
+  dd.col-sm-8 = @subscription.goal || 'Не указано'
+
+  dt.col-sm-4 Доступ к спортивному инвентарю
+  dd.col-sm-8 = @subscription.location || 'Не указано'
+
+  dt.col-sm-4 Спортивный инвентарь дома
+  dd.col-sm-8 = @subscription.home_equipment || 'Не указано'

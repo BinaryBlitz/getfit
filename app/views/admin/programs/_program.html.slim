@@ -1,0 +1,4 @@
+tr
+  td = link_to program.name, [:admin, program]
+  td = link_to program.trainer.full_name, [:admin, program.trainer]
+  td = status_for_program(program)

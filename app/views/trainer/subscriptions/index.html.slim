@@ -1,0 +1,21 @@
+h1
+  | Клиенты 
+  small.text-muted = @subscriptions.count
+
+table.table
+  thead
+    tr
+      th
+      th Пользователь
+      th Дата окончания
+      th Последнее сообщение
+  tbody
+    - @subscriptions.each do |subscription|
+      tr
+        td
+          - unless subscription.viewed_by_trainer?
+            span.tag.tag-success
+              small ●
+        td = link_to subscription.user.full_name, [:trainer, subscription]
+        td = subscription.expires_on.to_formatted_s
+        td = subscription.last_message_created_at&.to_formatted_s(:short)

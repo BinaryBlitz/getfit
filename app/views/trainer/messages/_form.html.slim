@@ -1,0 +1,14 @@
+= form_for([:trainer, @subscription, @subscription.messages.build]) do |f|
+  = render 'shared/error_messages', object: f.object
+  .form-group
+    = f.label :content
+    = f.text_area :content, class: 'form-control'
+  .form-group
+    = f.label :image
+    br
+    = f.file_field :image
+    br
+    = image_tag(f.object.image_url) if f.object.image?
+    = f.hidden_field :image_cache
+  .form-group
+    = f.submit class: 'btn btn-primary'
