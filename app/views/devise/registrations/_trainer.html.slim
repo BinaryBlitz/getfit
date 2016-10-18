@@ -1,0 +1,52 @@
+h1
+  = t('.sign_up', default: 'Sign up')
+  
+= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { role: 'form', multipart: true }) do |f|
+  .form-group
+    = f.label :email
+    = f.email_field :email, autofocus: true, class: 'form-control'
+  .form-group
+    = f.label :password
+    = f.password_field :password, class: 'form-control'
+  .form-group
+    = f.label :password_confirmation
+    = f.password_field :password_confirmation, class: 'form-control'
+  .form-group
+    = f.label :first_name
+    = f.text_field :first_name, class: 'form-control'
+  .form-group
+    = f.label :last_name
+    = f.text_field :last_name, class: 'form-control'
+  .form-group
+    = f.label :phone_number
+    = f.text_field :phone_number, class: 'form-control'
+  .form-group
+    = f.label :description
+    = f.text_area :description, class: 'form-control'
+  .form-group
+    = f.label :place_of_work
+    = f.text_field :place_of_work, class: 'form-control'
+  .form-group
+    = f.label :specialization
+    = f.select :specialization_id, options_from_collection_for_select(Specialization.all, 'id', 'name', f.object.specialization_id), {}, class: 'form-control'
+  .form-group
+    = f.label :avatar
+    = f.file_field :avatar
+    br
+    = image_tag(f.object.avatar_url) if f.object.avatar?
+    = f.hidden_field :avatar_cache
+  .form-group
+    = f.label :banner
+    = f.file_field :banner
+    br
+    = image_tag(f.object.banner_url) if f.object.banner?
+    = f.hidden_field :banner_cache
+  .form-group
+    = f.label :category
+    = f.select :category, options_for_select(Trainer.category.values, f.object.category), {}, class: 'form-control'
+  .form-group
+    = f.label :experience
+    = f.number_field :experience, class: 'form-control'
+  
+  .form-group
+    = f.submit t('.sign_up', default: 'Sign up'), class: 'btn btn-primary'
