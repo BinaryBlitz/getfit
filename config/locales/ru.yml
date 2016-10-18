@@ -1,0 +1,54 @@
+ru:
+  activerecord:
+    models:
+      exercise: Упражнение
+      exercise_type: Тип упражнения
+      post: Запись
+      program: Программа
+      workout: Тренировка
+    attributes:
+      exercise:
+        exercise_type: Тип упражнения
+        sets: Количество подходов
+        reps: Количество повторений
+        weight: Вес
+        distance: Дистанция
+        duration: Продолжительность
+      exercise_type:
+        name: Название
+        video_url: Ссылка на видео (URL)
+        description: Описание
+        tips: Советы
+      post:
+        content: Содержание
+        image: Изображение
+        program: Программа
+      program:
+        name: Название
+        preview: Краткое описание
+        description: Описание
+        banner: Баннер
+        price: Цена ($)
+        program_type: Тип программы
+      workout:
+        name: Название
+        position: Позиция
+        duration: Продолжительность
+        tips: Советы
+  helpers:
+    submit:
+      exercise:
+        create: Создать упражнение
+        update: Обновить упражнение
+      exercise_type:
+        create: Создать тип упражнения
+        update: Обновить тип упражнения
+      post:
+        create: Создать запись
+        update: Обновить запись
+      program:
+        create: Создать программу
+        update: Обновить программу
+      workout:
+        create: Создать тренировку
+        update: Обновить тренировку
