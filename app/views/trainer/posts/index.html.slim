@@ -12,7 +12,9 @@ table.table
     - @posts.each do |post|
       tr
         td = link_to post.content, [:trainer, post]
-        td = post.program&.name
+        td
+          - if post.program.present?
+            = link_to post.program.name, [:trainer, post.program]
         td = post.created_at.to_formatted_s(:short)
         td = link_to 'Изменить',
                      edit_trainer_post_path(post), class: 'btn btn-secondary btn-sm'
