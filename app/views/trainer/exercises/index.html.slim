@@ -1,0 +1,34 @@
+h1
+  | Этап 
+  = @workout.position
+  | : упражнения
+
+.form-group
+  = link_to 'Новое упражнение', new_trainer_workout_exercise_path, class: 'btn btn-primary'
+
+table.table
+  thead
+    tr
+      th Тип упражнения
+      th Подходы
+      th Повторения
+      th Вес
+      th Дистанция
+      th Время
+      th[colspan="2"]
+  tbody
+    - @exercises.each do |exercise|
+      tr
+        td = exercise.exercise_type.name
+        td = exercise.sets || '–'
+        td = exercise.reps || '–'
+        td = exercise.weight || '–'
+        td = exercise.distance || '–'
+        td = exercise.duration || '–'
+        td = link_to 'Изменить',
+                     edit_trainer_exercise_path(exercise),
+                     class: 'btn btn-secondary btn-sm'
+        td = link_to 'Удалить',
+                     [:trainer, exercise], method: :delete,
+                     data: { confirm: 'Вы уверены?' },
+                     class: 'btn btn-danger btn-sm'

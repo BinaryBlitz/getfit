@@ -1,0 +1,23 @@
+h1 Тренировки
+.form-group
+  = link_to 'Новая тренировка', new_trainer_program_workout_path(@program), class: 'btn btn-primary'
+table.table
+  thead
+    tr
+      th Этап
+      th Название
+      th Продолжительность
+      th[colspan="2"]
+  tbody
+    - @workouts.each do |workout|
+      tr
+        td = workout.position
+        td = link_to workout.name, trainer_workout_exercises_path(workout)
+        td = workout.duration
+        td = link_to 'Изменить',
+                     edit_trainer_workout_path(workout),
+                     class: 'btn btn-secondary btn-sm'
+        td = link_to 'Удалить',
+                     [:trainer, workout],
+                     method: :delete, data: { confirm: 'Вы уверены?' },
+                     class: 'btn btn-danger btn-sm'
