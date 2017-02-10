@@ -79,7 +79,7 @@ GEM
       railties (>= 4.1.0, < 5.1)
       responders
       warden (~> 1.2.3)
-    devise-bootstrap-views (0.0.10)
+    devise-bootstrap-views (1.0.0.alpha1)
     devise-i18n (1.1.1)
     enumerize (2.0.1)
       activesupport (>= 3.2)
@@ -289,7 +289,7 @@ DEPENDENCIES
   carrierwave-base64 (~> 2.4)
   coffee-rails
   devise (~> 4.2)
-  devise-bootstrap-views
+  devise-bootstrap-views (~> 1.0.0.alpha1)
   devise-i18n (~> 1.1)
   enumerize (~> 2.0)
   fog-aws

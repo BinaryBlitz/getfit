@@ -14,22 +14,35 @@ gem 'turbolinks', '~> 5.0'
 gem 'jbuilder', '~> 2.6'
 gem 'slim-rails'
 
+# Auth
 gem 'devise', '~> 4.2'
+
+# I18n
 gem 'devise-i18n', '~> 1.1'
 gem 'rails-i18n', '~> 5.0'
-gem 'enumerize', '~> 2.0'
-gem 'phonelib', '~> 0.6'
-gem 'mini_magick', '~> 4.6'
+
+# Image processing
 gem 'carrierwave', '~> 1.0'
 gem 'carrierwave-base64', '~> 2.4'
+gem 'mini_magick', '~> 4.6'
+
+# Utilities
+gem 'enumerize', '~> 2.0'
+gem 'phonelib', '~> 0.6'
 gem 'httparty', '~> 0.14'
-gem 'bootstrap', '~> 4.0.0.alpha6'
-gem 'bootstrap-datepicker-rails', '~> 1.6'
-gem 'devise-bootstrap-views'
-gem 'vkontakte_api', '~> 1.4'
-gem 'koala', '~> 2.4'
 gem 'rpush', '~> 2.7'
 gem 'kaminari', '~> 0.17'
+
+# Views
+gem 'bootstrap', '~> 4.0.0.alpha6'
+gem 'bootstrap-datepicker-rails', '~> 1.6'
+gem 'devise-bootstrap-views', '~> 1.0.0.alpha1'
+
+# OAuth
+gem 'vkontakte_api', '~> 1.4'
+gem 'koala', '~> 2.4'
+
+# Analytics
 gem 'rollbar', '~> 2.4'
 
 group :development, :test do
