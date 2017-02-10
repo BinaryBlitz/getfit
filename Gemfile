@@ -1,36 +1,36 @@
 source 'https://rubygems.org'
 
-ruby '2.4.0'
+ruby '~> 2.4.0'
 
 gem 'rails', '~> 5.0.1'
-gem 'pg', '~> 0.18'
-gem 'puma', '~> 3.0'
+gem 'pg', '~> 0.19'
+gem 'puma', '~> 3.7'
 
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier'
-gem 'coffee-rails', '~> 4.2'
+gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5.0'
 gem 'jbuilder', '~> 2.6'
 gem 'slim-rails'
 
-gem 'devise', '~> 4.1'
-gem 'devise-i18n'
-gem 'rails-i18n'
-gem 'enumerize'
-gem 'phonelib'
-gem 'mini_magick'
-gem 'carrierwave'
-gem 'carrierwave-base64'
-gem 'httparty'
-gem 'bootstrap'
-gem 'bootstrap-datepicker-rails'
+gem 'devise', '~> 4.2'
+gem 'devise-i18n', '~> 1.1'
+gem 'rails-i18n', '~> 5.0'
+gem 'enumerize', '~> 2.0'
+gem 'phonelib', '~> 0.6'
+gem 'mini_magick', '~> 4.6'
+gem 'carrierwave', '~> 1.0'
+gem 'carrierwave-base64', '~> 2.4'
+gem 'httparty', '~> 0.14'
+gem 'bootstrap', '~> 4.0.0.alpha6'
+gem 'bootstrap-datepicker-rails', '~> 1.6'
 gem 'devise-bootstrap-views'
-gem 'vkontakte_api'
-gem 'koala'
-gem 'rpush'
-gem 'kaminari'
-gem 'rollbar'
+gem 'vkontakte_api', '~> 1.4'
+gem 'koala', '~> 2.4'
+gem 'rpush', '~> 2.7'
+gem 'kaminari', '~> 0.17'
+gem 'rollbar', '~> 2.4'
 
 group :development, :test do
   gem 'byebug'
@@ -50,6 +50,5 @@ group :test do
 end
 
 group :production do
-  gem 'rails_12factor'
   gem 'fog-aws'
 end
