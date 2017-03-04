@@ -55,8 +55,8 @@ class Trainer < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
   mount_uploader :banner, BannerUploader
 
-  def self.reset_counter_cache
-    find_each { |trainer| trainer.update(programs_count: trainer.programs.visible.count) }
+  def update_counter_cache
+    update(programs_count: programs.visible.count)
   end
 
   def full_name
