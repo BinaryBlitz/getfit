@@ -24,7 +24,7 @@ class Program < ApplicationRecord
   default_scope { where(deleted_at: nil) }
 
   belongs_to :trainer
-  belongs_to :program_type
+  belongs_to :program_type, optional: true
   belongs_to :subscription, optional: true
 
   has_many :posts, dependent: :destroy
@@ -59,11 +59,5 @@ class Program < ApplicationRecord
 
   def revenue
     price * users_count
-  end
-
-  private
-
-  def update_counter_cache
-    trainer.update(programs_count: trainer.programs.visible.count)
   end
 end
