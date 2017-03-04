@@ -1,4 +1,4 @@
-json.cache! do
+json.cache! trainer do
   json.extract! trainer,
                 :id, :first_name, :last_name, :phone_number, :description,
                 :place_of_work, :avatar_url, :banner_url, :category,
