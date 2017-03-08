@@ -3,7 +3,7 @@ class API::CommentsController < API::APIController
   before_action :set_comment, only: [:destroy]
 
   def index
-    @comments = @post.comments
+    @comments = @post.comments.includes(:author)
   end
 
   def create

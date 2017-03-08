@@ -10,14 +10,16 @@ end
 
 json.trainer do
   json.partial! 'api/trainers/trainer', trainer: @program.trainer
-
-  if current_user
-    json.following_id current_user.followings.find_by(trainer: @program.trainer).try(:id)
-  end
 end
 
 json.workouts @program.workouts do |workout|
   json.partial! 'api/workouts/workout', workout: workout
 
-  json.exercises workout.exercises, partial: 'api/exercises/exercise', as: :exercise
+  json.exercises workout.exercises do |exercise|
+    json.partial! 'api/exercises/exercise', exercise: exercise
+
+    json.exercise_type do
+      json.partial! 'api/exercise_types/exercise_type', exercise_type: exercise.exercise_type
+    end
+  end
 end

@@ -11,7 +11,7 @@ class API::RatingsController < API::APIController
     @rating.user = current_user
 
     if @rating.save
-      render status: :created
+      head :created
     else
       render json: @rating.errors, status: 422
     end

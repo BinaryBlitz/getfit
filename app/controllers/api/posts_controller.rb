@@ -2,7 +2,7 @@ class API::PostsController < API::APIController
   skip_before_action :restrict_access!, only: [:popular]
 
   def index
-    @posts = Post.all.page(params[:page])
+    @posts = Post.includes(:program).page(params[:page])
   end
 
   def popular
