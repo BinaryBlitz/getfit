@@ -55,9 +55,7 @@ subscription.messages.create!(
 )
 
 post = Post.create!(content: 'Content', image: image, trainer: trainer)
-
-post.comments.create!(content: 'Content', author: user)
-post.likes.create!(user: user)
+comment = post.comments.create!(content: 'Content', author: user)
 
 exercise_type = ExerciseType.create!(
   name: 'Exercise type',
