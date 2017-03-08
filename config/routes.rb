@@ -49,7 +49,6 @@ Rails.application.routes.draw do
     end
 
     resources :posts, except: [:new, :edit] do
-      resources :likes, only: [:create, :destroy], shallow: true
       resources :comments, only: [:index, :create, :destroy], shallow: true
 
       get 'popular', on: :collection
