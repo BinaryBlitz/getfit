@@ -23,11 +23,8 @@
 class Program < ApplicationRecord
   default_scope { where(deleted_at: nil) }
 
-  after_save :update_counter_cache
-  after_destroy :update_counter_cache
-
   belongs_to :trainer
-  belongs_to :program_type
+  belongs_to :program_type, optional: true
   belongs_to :subscription, optional: true
 
   has_many :posts, dependent: :destroy
@@ -40,6 +37,9 @@ class Program < ApplicationRecord
   validates :preview, :description, :banner, :program_type,
             presence: true, unless: 'subscription.present?'
   validates :price, numericality: { greater_than_or_equal_to: 0 }, unless: 'subscription.present?'
+
+  after_save -> { trainer.update_counter_cache }
+  after_destroy -> { trainer.update_counter_cache }
 
   mount_uploader :banner, ImageUploader
 
@@ -59,11 +59,5 @@ class Program < ApplicationRecord
 
   def revenue
     price * users_count
-  end
-
-  private
-
-  def update_counter_cache
-    trainer.update(programs_count: trainer.programs.visible.count)
   end
 end

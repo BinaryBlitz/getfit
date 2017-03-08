@@ -20,10 +20,10 @@ trainer = Trainer.create!(
   avatar: image, banner: image
 )
 
-VerificationToken.create!(phone_number: '+79998887766', verified: true)
+VerificationToken.create!(phone_number: '+79991112233', verified: true)
 
 user = User.create!(
-  first_name: 'Foo', last_name: 'Bar', phone_number: '+79998887766',
+  first_name: 'Foo', last_name: 'Bar', phone_number: '+79991112233',
   description: 'Description',
   avatar: base64_image, banner: base64_image,
   height: 180, weight: 80,
@@ -55,9 +55,7 @@ subscription.messages.create!(
 )
 
 post = Post.create!(content: 'Content', image: image, trainer: trainer)
-
-post.comments.create!(content: 'Content', author: user)
-post.likes.create!(user: user)
+comment = post.comments.create!(content: 'Content', author: user)
 
 exercise_type = ExerciseType.create!(
   name: 'Exercise type',
@@ -98,18 +96,3 @@ Specialization.create!(
 )
 
 Notification.create!(content: 'Notification')
-
-# Push notifications
-
-# app = Rpush::Apns::App.new
-# app.name = 'ios_app'
-# app.certificate = File.read(Rails.root.join('conifg', 'pushcert.pem')
-# app.environment = 'sandbox'
-# app.connections = 1
-# app.save!
-#
-# app = Rpush::Gcm::App.new
-# app.name = 'android_app'
-# app.auth_key = ''
-# app.connections = 1
-# app.save!

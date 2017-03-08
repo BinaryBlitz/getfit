@@ -27,27 +27,23 @@ foo:
   last_name: Bar
   phone_number: '+79998887766'
   description: Description
-  avatar: 'data:image/jpg;base64,avatar'
-  banner: 'data:image/jpg;base64,banner'
+  avatar: 'data:image/jpeg;base64,avatar'
+  banner: 'data:image/jpeg;base64,banner'
   height: 180
   weight: 180
   birthdate: 2000-01-01
   gender: male
   api_token: <%= SecureRandom.hex %>
-  device_token: <%= SecureRandom.hex(64) %>
-  platform: ios
 
 baz:
   first_name: Baz
   last_name: Qux
   phone_number: '+79991112233'
   description: Description
-  avatar: 'data:image/jpg;base64,avatar'
-  banner: 'data:image/jpg;base64,banner'
+  avatar: 'data:image/jpeg;base64,avatar'
+  banner: 'data:image/jpeg;base64,banner'
   height: 180
   weight: 180
   birthdate: 2000-01-01
   gender: female
   api_token: <%= SecureRandom.hex %>
-  device_token: <%= SecureRandom.hex(64) %>
-  platform: android

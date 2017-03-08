@@ -48,8 +48,7 @@ Rails.application.routes.draw do
       resources :programs, only: [:index], controller: :trainer_programs
     end
 
-    resources :posts, except: [:new, :edit] do
-      resources :likes, only: [:create, :destroy], shallow: true
+    resources :posts, only: [:index] do
       resources :comments, only: [:index, :create, :destroy], shallow: true
 
       get 'popular', on: :collection
@@ -65,7 +64,7 @@ Rails.application.routes.draw do
       resource :purchase, only: [:create]
     end
 
-    resources :workouts, except: [:new, :edit] do
+    resources :workouts, only: [:index] do
       resources :exercises, except: [:new, :edit], shallow: true
     end
 

@@ -14,9 +14,4 @@ class API::PostsControllerTest < ActionDispatch::IntegrationTest
     get popular_api_posts_url
     assert_response :success
   end
-
-  test 'should show post' do
-    get api_post_url(@post), params: { api_token: api_token }
-    assert_response :success
-  end
 end

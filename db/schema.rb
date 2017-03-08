@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161011054145) do
+ActiveRecord::Schema.define(version: 20170308184332) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -87,15 +87,6 @@ ActiveRecord::Schema.define(version: 20161011054145) do
     t.index ["user_id"], name: "index_followings_on_user_id", using: :btree
   end
 
-  create_table "likes", force: :cascade do |t|
-    t.integer  "post_id"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["post_id"], name: "index_likes_on_post_id", using: :btree
-    t.index ["user_id"], name: "index_likes_on_user_id", using: :btree
-  end
-
   create_table "messages", force: :cascade do |t|
     t.text     "content",         null: false
     t.string   "category",        null: false
@@ -128,7 +119,6 @@ ActiveRecord::Schema.define(version: 20161011054145) do
     t.integer  "program_id"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
-    t.integer  "likes_count",    default: 0
     t.integer  "comments_count", default: 0
     t.index ["program_id"], name: "index_posts_on_program_id", using: :btree
     t.index ["trainer_id"], name: "index_posts_on_trainer_id", using: :btree
@@ -181,65 +171,6 @@ ActiveRecord::Schema.define(version: 20161011054145) do
     t.integer  "ratable_id"
     t.index ["ratable_type", "ratable_id"], name: "index_ratings_on_ratable_type_and_ratable_id", using: :btree
     t.index ["user_id"], name: "index_ratings_on_user_id", using: :btree
-  end
-
-  create_table "rpush_apps", force: :cascade do |t|
-    t.string   "name",                                null: false
-    t.string   "environment"
-    t.text     "certificate"
-    t.string   "password"
-    t.integer  "connections",             default: 1, null: false
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.string   "type",                                null: false
-    t.string   "auth_key"
-    t.string   "client_id"
-    t.string   "client_secret"
-    t.string   "access_token"
-    t.datetime "access_token_expiration"
-  end
-
-  create_table "rpush_feedback", force: :cascade do |t|
-    t.string   "device_token", limit: 64, null: false
-    t.datetime "failed_at",               null: false
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-    t.integer  "app_id"
-    t.index ["device_token"], name: "index_rpush_feedback_on_device_token", using: :btree
-  end
-
-  create_table "rpush_notifications", force: :cascade do |t|
-    t.integer  "badge"
-    t.string   "device_token",      limit: 64
-    t.string   "sound",                        default: "default"
-    t.text     "alert"
-    t.text     "data"
-    t.integer  "expiry",                       default: 86400
-    t.boolean  "delivered",                    default: false,     null: false
-    t.datetime "delivered_at"
-    t.boolean  "failed",                       default: false,     null: false
-    t.datetime "failed_at"
-    t.integer  "error_code"
-    t.text     "error_description"
-    t.datetime "deliver_after"
-    t.datetime "created_at",                                       null: false
-    t.datetime "updated_at",                                       null: false
-    t.boolean  "alert_is_json",                default: false
-    t.string   "type",                                             null: false
-    t.string   "collapse_key"
-    t.boolean  "delay_while_idle",             default: false,     null: false
-    t.text     "registration_ids"
-    t.integer  "app_id",                                           null: false
-    t.integer  "retries",                      default: 0
-    t.string   "uri"
-    t.datetime "fail_after"
-    t.boolean  "processing",                   default: false,     null: false
-    t.integer  "priority"
-    t.text     "url_args"
-    t.string   "category"
-    t.boolean  "content_available",            default: false
-    t.text     "notification"
-    t.index ["delivered", "failed"], name: "index_rpush_notifications_multi", where: "((NOT delivered) AND (NOT failed))", using: :btree
   end
 
   create_table "specializations", force: :cascade do |t|
@@ -357,8 +288,6 @@ ActiveRecord::Schema.define(version: 20161011054145) do
   add_foreign_key "exercises", "workouts"
   add_foreign_key "followings", "trainers"
   add_foreign_key "followings", "users"
-  add_foreign_key "likes", "posts"
-  add_foreign_key "likes", "users"
   add_foreign_key "messages", "subscriptions"
   add_foreign_key "photos", "trainers"
   add_foreign_key "posts", "programs"

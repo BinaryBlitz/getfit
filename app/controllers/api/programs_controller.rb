@@ -1,10 +1,12 @@
 class API::ProgramsController < API::APIController
-  skip_before_action :restrict_access!, only: [:index, :show]
   before_action :restrict_access, only: [:index, :show]
   before_action :set_program, only: [:show]
 
   def index
-    @programs = ProgramSearch.new(search_params).programs.page(params[:page])
+    @programs = ProgramSearch.new(search_params)
+      .programs
+      .includes(:trainer, :program_type)
+      .page(params[:page])
   end
 
   def show

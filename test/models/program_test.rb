@@ -47,7 +47,7 @@ class ProgramTest < ActiveSupport::TestCase
   end
 
   test 'counter cache' do
-    Trainer.reset_counter_cache
+    Trainer.find_each { |trainer| trainer.update_counter_cache }
 
     trainer = @program.trainer
     new_program = @program.dup

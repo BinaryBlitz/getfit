@@ -5,6 +5,7 @@ ru:
       exercise_type: Тип упражнения
       post: Запись
       program: Программа
+      trainer: Тренер
       workout: Тренировка
     attributes:
       exercise:
@@ -30,6 +31,24 @@ ru:
         banner: Баннер
         price: Цена ($)
         program_type: Тип программы
+      trainer:
+        current_password: Текущий пароль
+        email: Email
+        password: Пароль
+        password_confirmation: Подтверждение пароля
+        remember_me: Запомнить меня
+        reset_password_token: Ссылка сброса пароля
+        unlock_token: Код разблокировки
+        first_name: Имя
+        last_name: Фамилия
+        phone_number: Номер телефона
+        description: Описание
+        place_of_work: Место работы
+        specialization: Специализация
+        avatar: Аватар
+        banner: Баннер
+        category: Категория
+        experience: Опыт
       workout:
         name: Название
         position: Позиция
