@@ -20,10 +20,10 @@ trainer = Trainer.create!(
   avatar: image, banner: image
 )
 
-VerificationToken.create!(phone_number: '+79998887766', verified: true)
+VerificationToken.create!(phone_number: '+79991112233', verified: true)
 
 user = User.create!(
-  first_name: 'Foo', last_name: 'Bar', phone_number: '+79998887766',
+  first_name: 'Foo', last_name: 'Bar', phone_number: '+79991112233',
   description: 'Description',
   avatar: base64_image, banner: base64_image,
   height: 180, weight: 80,
