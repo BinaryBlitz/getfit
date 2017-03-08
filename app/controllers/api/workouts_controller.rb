@@ -2,7 +2,7 @@ class API::WorkoutsController < API::APIController
   before_action :set_workout, only: [:show]
 
   def index
-    @workouts = current_user.workouts
+    @workouts = current_user.workouts.includes(:program)
   end
 
   private
