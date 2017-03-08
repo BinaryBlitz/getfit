@@ -28,24 +28,12 @@ class Notifier
 
   def push_android_notification
     return if @message.blank? || @device_token.blank?
-
-    n = Rpush::Gcm::Notification.new
-    n.app = Rpush::Gcm::App.find_by_name('android_app')
-    n.registration_ids = [@device_token]
-    n.data = { message: @message }.merge(@options)
-    n.save
-
+    # Send GCM notification
     Rails.logger.debug "#{Time.zone.now} GCM notification: #{@message}, user: #{@user.id}"
   end
 
   def push_ios_notification
-    n = Rpush::Apns::Notification.new
-    n.app = Rpush::Apns::App.find_by_name('ios_app')
-    n.device_token = @device_token
-    n.alert = @message
-    n.data = @options
-    n.save
-
+    # Send APNS notification
     Rails.logger.debug "#{Time.zone.now} iOS notification: #{@message}, user: #{@user.id}"
   end
 end

@@ -30,7 +30,6 @@ gem 'mini_magick', '~> 4.6'
 gem 'enumerize', '~> 2.0'
 gem 'phonelib', '~> 0.6'
 gem 'httparty', '~> 0.14'
-gem 'rpush', '~> 2.7'
 gem 'kaminari', '~> 0.17'
 
 # Views
