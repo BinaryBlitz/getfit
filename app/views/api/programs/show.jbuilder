@@ -9,7 +9,7 @@ json.program_type do
 end
 
 json.trainer do
-  json.partial! 'api/trainers/trainer', trainer: @program.trainer
+  json.partial! 'api/trainers/trainer_preview', trainer: @program.trainer
 end
 
 json.workouts @program.workouts do |workout|

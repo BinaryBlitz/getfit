@@ -3,7 +3,7 @@ json.array! @programs do |program|
     json.partial! 'api/programs/program', program: program
 
     json.trainer do
-      json.partial! 'api/trainers/trainer', trainer: program.trainer
+      json.partial! 'api/trainers/trainer_preview', trainer: program.trainer
     end
 
     if program.program_type
