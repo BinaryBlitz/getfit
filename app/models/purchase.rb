@@ -11,7 +11,7 @@
 
 class Purchase < ApplicationRecord
   belongs_to :user
-  belongs_to :program, counter_cache: :users_count
+  belongs_to :program, counter_cache: :users_count, touch: true
 
   validates :program, uniqueness: { scope: :user }
 end

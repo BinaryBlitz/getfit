@@ -11,5 +11,5 @@
 
 class Following < ApplicationRecord
   belongs_to :user
-  belongs_to :trainer, counter_cache: :followers_count
+  belongs_to :trainer, counter_cache: :followers_count, touch: true
 end
