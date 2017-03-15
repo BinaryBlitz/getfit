@@ -3,8 +3,9 @@ module Authenticable
 
   module ClassMethods
     def find_or_create_from_vk(vk)
-      vk_user = vk.users.get(
-        fields: [:photo_max_orig, :screen_name, :bdate, :email, :domain]).first
+      vk_user = vk.users
+        .get(fields: [:photo_max_orig, :screen_name, :bdate, :email, :domain])
+        .first
       user = find_by(vk_id: vk_user.uid)
 
       user || create!(
