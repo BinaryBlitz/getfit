@@ -13,8 +13,8 @@ nav.navbar.navbar-toggleable-md.navbar-light.bg-faded
           li.nav-item = link_to 'Статистика', trainer_statistics_path, class: 'nav-link'
       ul.navbar-nav.ml-auto
         - if trainer_signed_in?
-          / li.nav-item = link_to 'Настройки', edit_trainer_profile_path, class: 'nav-link'
-          li.nav-item = link_to 'Аккаунт', edit_trainer_registration_path, class: 'nav-link'
+          li.nav-item = link_to 'Профиль', edit_trainer_trainer_path, class: 'nav-link'
+          li.nav-item = link_to 'Настройки', edit_trainer_registration_path, class: 'nav-link'
           li.nav-item = link_to 'Выйти', destroy_trainer_session_path, method: :delete, class:'nav-link'
         - else
           li.nav-item
