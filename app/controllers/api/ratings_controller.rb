@@ -34,10 +34,10 @@ class API::RatingsController < API::APIController
 
   def set_ratable
     @ratable = if params[:program_id].present?
-      Program.find(params[:program_id])
-    elsif params[:trainer_id].present?
-      Trainer.find(params[:trainer_id])
-    end
+                 Program.find(params[:program_id])
+               elsif params[:trainer_id].present?
+                 Trainer.find(params[:trainer_id])
+               end
   end
 
   def set_rating

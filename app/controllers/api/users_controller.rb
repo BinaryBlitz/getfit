@@ -48,7 +48,6 @@ class API::UsersController < API::APIController
     head 422
   end
 
-
   private
 
   def set_user

@@ -15,7 +15,7 @@
 #
 
 class Exercise < ApplicationRecord
-  belongs_to :workout, counter_cache: true
+  belongs_to :workout, counter_cache: true, touch: true
   belongs_to :exercise_type
 
   has_many :exercise_sessions, dependent: :destroy

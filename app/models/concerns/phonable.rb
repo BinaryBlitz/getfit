@@ -15,7 +15,7 @@ module Phonable
   end
 
   def skip_phone_number_validation?
-    return false unless self.is_a?(User)
+    return false unless is_a?(User)
     oauth?
   end
 end

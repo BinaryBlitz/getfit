@@ -20,7 +20,8 @@ class Trainer::ExercisesController < Trainer::TrainerController
     @exercise = @workout.exercises.build(exercise_params)
 
     if @exercise.save
-      redirect_to trainer_workout_exercises_url(@exercise.workout), notice: 'Упражнение успешно создано'
+      redirect_to trainer_workout_exercises_url(@exercise.workout),
+                  notice: 'Упражнение успешно создано'
     else
       render :new
     end
@@ -28,7 +29,8 @@ class Trainer::ExercisesController < Trainer::TrainerController
 
   def update
     if @exercise.update(exercise_params)
-      redirect_to trainer_workout_exercises_url(@exercise.workout), notice: 'Упражнение успешно обновлено'
+      redirect_to trainer_workout_exercises_url(@exercise.workout),
+                  notice: 'Упражнение успешно обновлено'
     else
       render :edit
     end
@@ -36,7 +38,8 @@ class Trainer::ExercisesController < Trainer::TrainerController
 
   def destroy
     @exercise.destroy
-    redirect_to trainer_workout_exercises_url(@exercise.workout), notice: 'Упражнение успешно удалено'
+    redirect_to trainer_workout_exercises_url(@exercise.workout),
+                notice: 'Упражнение успешно удалено'
   end
 
   private

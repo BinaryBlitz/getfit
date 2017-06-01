@@ -76,15 +76,6 @@ class InitSchema < ActiveRecord::Migration
       t.index ["user_id"], name: "index_followings_on_user_id", using: :btree
     end
     
-    create_table "likes", force: :cascade do |t|
-      t.integer  "post_id"
-      t.integer  "user_id"
-      t.datetime "created_at", null: false
-      t.datetime "updated_at", null: false
-      t.index ["post_id"], name: "index_likes_on_post_id", using: :btree
-      t.index ["user_id"], name: "index_likes_on_user_id", using: :btree
-    end
-    
     create_table "messages", force: :cascade do |t|
       t.text     "content",         null: false
       t.string   "category",        null: false
@@ -117,7 +108,6 @@ class InitSchema < ActiveRecord::Migration
       t.integer  "program_id"
       t.datetime "created_at",                 null: false
       t.datetime "updated_at",                 null: false
-      t.integer  "likes_count",    default: 0
       t.integer  "comments_count", default: 0
       t.index ["program_id"], name: "index_posts_on_program_id", using: :btree
       t.index ["trainer_id"], name: "index_posts_on_trainer_id", using: :btree
@@ -130,20 +120,22 @@ class InitSchema < ActiveRecord::Migration
     end
     
     create_table "programs", force: :cascade do |t|
-      t.string   "name",                            null: false
+      t.string   "name",                          null: false
       t.string   "preview"
       t.text     "description"
       t.string   "banner"
       t.integer  "price",           default: 0
       t.integer  "trainer_id"
       t.integer  "program_type_id"
-      t.datetime "created_at",                      null: false
-      t.datetime "updated_at",                      null: false
-      t.boolean  "approved",        default: false
+      t.datetime "created_at",                    null: false
+      t.datetime "updated_at",                    null: false
+      t.boolean  "approved"
       t.integer  "subscription_id"
       t.float    "rating",          default: 0.0
       t.integer  "workouts_count",  default: 0
       t.integer  "users_count",     default: 0
+      t.datetime "deleted_at"
+      t.index ["deleted_at"], name: "index_programs_on_deleted_at", using: :btree
       t.index ["program_type_id"], name: "index_programs_on_program_type_id", using: :btree
       t.index ["subscription_id"], name: "index_programs_on_subscription_id", using: :btree
       t.index ["trainer_id"], name: "index_programs_on_trainer_id", using: :btree
@@ -170,65 +162,6 @@ class InitSchema < ActiveRecord::Migration
       t.index ["user_id"], name: "index_ratings_on_user_id", using: :btree
     end
     
-    create_table "rpush_apps", force: :cascade do |t|
-      t.string   "name",                                null: false
-      t.string   "environment"
-      t.text     "certificate"
-      t.string   "password"
-      t.integer  "connections",             default: 1, null: false
-      t.datetime "created_at",                          null: false
-      t.datetime "updated_at",                          null: false
-      t.string   "type",                                null: false
-      t.string   "auth_key"
-      t.string   "client_id"
-      t.string   "client_secret"
-      t.string   "access_token"
-      t.datetime "access_token_expiration"
-    end
-    
-    create_table "rpush_feedback", force: :cascade do |t|
-      t.string   "device_token", limit: 64, null: false
-      t.datetime "failed_at",               null: false
-      t.datetime "created_at",              null: false
-      t.datetime "updated_at",              null: false
-      t.integer  "app_id"
-      t.index ["device_token"], name: "index_rpush_feedback_on_device_token", using: :btree
-    end
-    
-    create_table "rpush_notifications", force: :cascade do |t|
-      t.integer  "badge"
-      t.string   "device_token",      limit: 64
-      t.string   "sound",                        default: "default"
-      t.text     "alert"
-      t.text     "data"
-      t.integer  "expiry",                       default: 86400
-      t.boolean  "delivered",                    default: false,     null: false
-      t.datetime "delivered_at"
-      t.boolean  "failed",                       default: false,     null: false
-      t.datetime "failed_at"
-      t.integer  "error_code"
-      t.text     "error_description"
-      t.datetime "deliver_after"
-      t.datetime "created_at",                                       null: false
-      t.datetime "updated_at",                                       null: false
-      t.boolean  "alert_is_json",                default: false
-      t.string   "type",                                             null: false
-      t.string   "collapse_key"
-      t.boolean  "delay_while_idle",             default: false,     null: false
-      t.text     "registration_ids"
-      t.integer  "app_id",                                           null: false
-      t.integer  "retries",                      default: 0
-      t.string   "uri"
-      t.datetime "fail_after"
-      t.boolean  "processing",                   default: false,     null: false
-      t.integer  "priority"
-      t.text     "url_args"
-      t.string   "category"
-      t.boolean  "content_available",            default: false
-      t.text     "notification"
-      t.index ["delivered", "failed"], name: "index_rpush_notifications_multi", where: "((NOT delivered) AND (NOT failed))", using: :btree
-    end
-    
     create_table "specializations", force: :cascade do |t|
       t.string   "name",       null: false
       t.datetime "created_at", null: false
@@ -238,13 +171,16 @@ class InitSchema < ActiveRecord::Migration
     create_table "subscriptions", force: :cascade do |t|
       t.integer  "user_id"
       t.integer  "trainer_id"
-      t.datetime "created_at",     null: false
-      t.datetime "updated_at",     null: false
+      t.datetime "created_at",              null: false
+      t.datetime "updated_at",              null: false
       t.string   "condition"
       t.integer  "weekly_load"
       t.string   "goal"
       t.string   "location"
       t.string   "home_equipment"
+      t.date     "expires_on",              null: false
+      t.datetime "last_message_created_at"
+      t.datetime "viewed_by_trainer_at"
       t.index ["trainer_id"], name: "index_subscriptions_on_trainer_id", using: :btree
       t.index ["user_id"], name: "index_subscriptions_on_user_id", using: :btree
     end
@@ -270,6 +206,7 @@ class InitSchema < ActiveRecord::Migration
       t.integer  "programs_count",         default: 0
       t.integer  "followers_count",        default: 0
       t.float    "rating",                 default: 0.0
+      t.boolean  "approved"
       t.index ["email"], name: "index_trainers_on_email", unique: true, using: :btree
       t.index ["reset_password_token"], name: "index_trainers_on_reset_password_token", unique: true, using: :btree
     end
@@ -340,8 +277,6 @@ class InitSchema < ActiveRecord::Migration
     add_foreign_key "exercises", "workouts"
     add_foreign_key "followings", "trainers"
     add_foreign_key "followings", "users"
-    add_foreign_key "likes", "posts"
-    add_foreign_key "likes", "users"
     add_foreign_key "messages", "subscriptions"
     add_foreign_key "photos", "trainers"
     add_foreign_key "posts", "programs"

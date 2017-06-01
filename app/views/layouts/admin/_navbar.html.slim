@@ -1,0 +1,17 @@
+nav.navbar.navbar-toggleable-md.navbar-light.bg-faded
+  .container
+    button.navbar-toggler.navbar-toggler-right[type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"]
+      span.navbar-toggler-icon
+    = link_to 'GetFit', admin_programs_path, class: 'navbar-brand'
+    #navbarSupportedContent.collapse.navbar-collapse
+      ul.navbar-nav.mr-auto
+        - if admin_signed_in?
+          li.nav-item = link_to 'Программы', admin_programs_path, class: 'nav-link'
+          li.nav-item = link_to 'Тренеры', admin_trainers_path, class: 'nav-link'
+          li.nav-item = link_to 'Уведомления', admin_notifications_path, class: 'nav-link'
+      ul.navbar-nav.ml-auto
+        - if admin_signed_in?
+          li.nav-item = link_to 'Выйти', destroy_trainer_session_path, method: :delete, class:'nav-link'
+        - else
+          li.nav-item
+            = link_to 'Войти', new_admin_session_path, class:'nav-link'

@@ -13,7 +13,8 @@ class Trainer::MessagesController < Trainer::TrainerController
     @message.category = 'trainer'
 
     if @message.save
-      redirect_to trainer_subscription_messages_url(@subscription), notice: 'Сообщение успешно отправлено'
+      redirect_to trainer_subscription_messages_url(@subscription),
+                  notice: 'Сообщение успешно отправлено'
     else
       render :index
     end

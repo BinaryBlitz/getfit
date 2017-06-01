@@ -1,16 +1,21 @@
-nav.navbar.navbar-full.navbar-light.bg-faded
+nav.navbar.navbar-toggleable-md.navbar-light.bg-faded
   .container
+    button.navbar-toggler.navbar-toggler-right[type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"]
+      span.navbar-toggler-icon
     = link_to 'GetFit', trainer_programs_path, class: 'navbar-brand'
-    ul.nav.navbar-nav
-      - if trainer_signed_in?
-        li.nav-item = link_to 'Программы', trainer_programs_path, class: 'nav-link'
-        li.nav-item = link_to 'Типы упражнений', trainer_exercise_types_path, class: 'nav-link'
-        li.nav-item = link_to 'Новости', trainer_posts_path, class: 'nav-link'
-        li.nav-item = link_to 'Клиенты', trainer_subscriptions_path, class: 'nav-link'
-        li.nav-item = link_to 'Статистика', trainer_statistics_path, class: 'nav-link'
-    ul.nav.navbar-nav.pull-xs-right
-      - if trainer_signed_in?
-        li.nav-item = link_to 'Профиль', edit_trainer_registration_path, class: 'nav-link'
-        li.nav-item = link_to 'Выйти', destroy_trainer_session_path, method: :delete, class:'nav-link'
-      - else
-        li.nav-item = link_to 'Войти', new_trainer_session_path, class:'nav-link'
+    #navbarSupportedContent.collapse.navbar-collapse
+      ul.navbar-nav.mr-auto
+        - if trainer_signed_in?
+          li.nav-item = link_to 'Программы', trainer_programs_path, class: 'nav-link'
+          li.nav-item = link_to 'Типы упражнений', trainer_exercise_types_path, class: 'nav-link'
+          li.nav-item = link_to 'Новости', trainer_posts_path, class: 'nav-link'
+          li.nav-item = link_to 'Клиенты', trainer_subscriptions_path, class: 'nav-link'
+          li.nav-item = link_to 'Статистика', trainer_statistics_path, class: 'nav-link'
+      ul.navbar-nav.ml-auto
+        - if trainer_signed_in?
+          li.nav-item = link_to 'Профиль', edit_trainer_trainer_path, class: 'nav-link'
+          li.nav-item = link_to 'Настройки', edit_trainer_registration_path, class: 'nav-link'
+          li.nav-item = link_to 'Выйти', destroy_trainer_session_path, method: :delete, class:'nav-link'
+        - else
+          li.nav-item
+            = link_to 'Войти', new_trainer_session_path, class:'nav-link'
