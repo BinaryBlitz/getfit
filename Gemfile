@@ -30,12 +30,12 @@ gem 'mini_magick', '~> 4.6'
 gem 'enumerize', '~> 2.0'
 gem 'phonelib', '~> 0.6'
 gem 'httparty', '~> 0.14'
-gem 'kaminari', '~> 0.17'
+gem 'kaminari', '~> 1.0'
 
 # Views
-gem 'bootstrap', '~> 4.0.0.alpha6'
+gem 'bootstrap', '~> 4.0.0'
 gem 'bootstrap-datepicker-rails', '~> 1.6'
-gem 'devise-bootstrap-views', '~> 1.0.0.alpha1'
+gem 'devise-bootstrap-views', '~> 1.0.0'
 
 # OAuth
 gem 'vkontakte_api', '~> 1.4'
