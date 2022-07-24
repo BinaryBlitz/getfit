@@ -32,7 +32,7 @@ gem 'httparty', '~> 0.14'
 gem 'kaminari', '~> 1.0'
 
 # Views
-gem 'bootstrap', '~> 4.0.0'
+gem 'bootstrap', '~> 4.0'
 gem 'bootstrap-datepicker-rails', '~> 1.6'
 gem 'devise-bootstrap-views', '~> 1.0.0'
 
