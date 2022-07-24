@@ -8,7 +8,6 @@ gem 'puma', '~> 4.0'
 
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier'
-gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5.0'
 gem 'jbuilder', '~> 2.6'
